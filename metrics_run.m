@@ -9,17 +9,18 @@ addpath('./bilevel')
 tic
 
 %% Set up run variables:
-constants;   %loads constants
-%variables1;  %loads variables
-%variables2;  %loads variables
-variables3;  %loads variables
-%variables4;  %loads variables
-%variables5;  %loads variables
-%variables6;  %loads variables
-%variables7;  %loads variables
-%variables8;  %loads variables
-%variables9;  %loads variables
-%variables10; %loads variables
+load('budgets.mat'); %loads budget variables
+constants;           %loads constants
+%variables1;          %loads variables
+%variables2;          %loads variables
+variables3;          %loads variables
+%variables4;          %loads variables
+%variables5;          %loads variables
+%variables6;          %loads variables
+%variables7;          %loads variables
+%variables8;          %loads variables
+%variables9;          %loads variables
+%variables10;         %loads variables
 
 %% Execute runs:
 %[ fuel_use1L,  lambdaSim1,  metric1L  ] = energyPolicy_fun(ems_mat1);
@@ -45,7 +46,6 @@ variables3;  %loads variables
 %[ fuel_use10B, metric10B ] = metricPolicy_fun(ems_mat10);
 
 %% Calculate GWP, ICI, and CCI:
-ts  = 2041;
 GWP = eqMetric(@lambda_GWP,t,100)';
 ICI = eqMetric(@lambda_ICI,t,ts)'; 
 CCI = eqMetric(@lambda_CCI,t,ts)'; 
@@ -56,6 +56,6 @@ clear('A','Aeq','Ak','Am','b','beq','conversion','dt','eta1','eta2',...
     'gCO2_per_molCO2','guess','ide_s','last_year','lb','n','options',...
     'peak','ppbCH4_to_GtCH4','ppmCO2_to_GtC','t','ub')
 
-save('metrics_out.mat')
+save('metrics.mat')
 
 toc
