@@ -4,6 +4,7 @@ first_year  = 2010;                                %initial year
 last_year   = 2110;                                %final year (2037-2046 +1; EV: 2041)
 t           = (first_year : dt : last_year - dt)'; %time vector
 [n,~]       = size(t);                             %length of time vector
+peak        = 3;
 
 %% Fuel parameters:
 eta1       = 50*10^9;         %tech. 1 energy density (MJ/Tg fuel)

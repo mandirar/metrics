@@ -5,6 +5,7 @@ clear all
 addpath('./metrics/variables')
 addpath('./metrics/lambda')
 addpath('./metrics/bilevel')
+addpath('./tools/EqMetrics')
 
 tic
 

@@ -12,7 +12,7 @@ constants;
 t1 = 2030; %2015-2028 (EV: 2017) 
 
 % Calculate emissions and radiative forcing: 
-[ ek_constraint,~,rf_constraint ] = scenario_generator( t1 );
+[ ek_constraint,~,rf_constraint ] = scenario_generator( t1,peak );
 
 % Calculate stabilization time: 
 [~,ts] = max(rf_constraint);   %index 
@@ -24,4 +24,4 @@ clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
     'gCH4_per_molCH4','gCO2_per_molCO2','ide_s','last_year','m','n',...
     'peak','ppbCH4_to_GtCH4','ppmCO2_to_GtC','t','t1');
 
-save('budgets/budgets.mat')
+save('budgets.mat')
