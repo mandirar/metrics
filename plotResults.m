@@ -1,4 +1,4 @@
-function plotResults(fuel_use)
+function plotResults(fuel_use,lambda)
 
 global_vars; %load global variables
 
@@ -36,6 +36,7 @@ evec_CO2_graph = evec_CO2(1:end-1);
 evec_CH4_graph = evec_CH4(1:end-1);
 energy_graph   = energy(1:end-1);
 fvec_graph     = fvec(1:end-1);            %cut off radiative forcing vector
+lambda_graph   = lambda(1:end-1);
 
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
@@ -97,3 +98,12 @@ set(gca, 'YLim',[2 3])
 %xlabel('time (years)')
 ylabel('radiative forcing (W/m^2)')
 legend('radiative forcing')
+
+% Plot lambda over time:
+subaxis(2,3,6)
+plot(t_graph,lambda_graph)
+set(gca, 'FontSize',fs)
+%set(gca, 'YLim',[2 3])
+%xlabel('time (years)')
+ylabel('lambda')
+legend('lambda')

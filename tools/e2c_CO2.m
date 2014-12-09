@@ -20,7 +20,6 @@ for t2 = first_year : dt : last_year - dt
    iLast     = (n + 1) + n - it;           % to range of needed Delta_t's
    IRFvec_t  = IRFvec(iFirst : iLast);  
    cvec(it)  = c0 + IRFvec_t' * evec * dt; % compute integral
-   %cvec(it) = c0 + sum(IRFvec_t .* evec * dt); %ALT
 end
 cvec = cvec / 2.12; %convert from PgC to ppm
 
