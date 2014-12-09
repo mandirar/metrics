@@ -6,12 +6,6 @@ function [ fpath_nonCO2 ] = rf_nonCO2()
 
 constants; %loads constants
 
-%% Define variables
-c0_CH4      = 1778.675; %current CH4 concentrations (ppb)
-c0_N2O      = 323.061;  %current N2O concentrations (ppb)
-CH4_t0      = 700;      %pre-industiral CH4 concentraitons (ppb)
-N2O_t0      = 270;      %pre-industrial N2O concentrations (ppb)
-
 %% Calculate CH4 radiative forcing pathway.
 % Vector of multiplicative change in CH4 perturbation.
 delta_CH4 = cumprod([1; ones(n - 1,1)*decay_CH4(dt)]);
@@ -33,7 +27,7 @@ cpath_N2O = (c0_N2O - N2O_t0)*delta_N2O + N2O_t0;
 fpath_N2O = rf_N2O(cpath_N2O);
 
 %% Calculate other radiative forcing pathway (constant).
-fpath_other = -0.6425*ones(n,1);
+fpath_other = rf_other*ones(n,1);
 % Value without including indirect effects: -0.3506.
 
 %% Calculate total non-CO2 radiative forcing.

@@ -3,11 +3,10 @@ function [ rf,cvec_CO2 ] = testing1( metric,budget )
 constants;
 
 % Calculate emissions to meet budget:
-eta_e    = eta_k + (eta_m .* metric); %CO2-eq emissions intensity (g CO2/J)
-eta_e    = eta_e * 12/44;             %CO2-eq emissiosn intensity (GtC/TJ)
-energy   = budget ./ eta_e;           %energy consumption
-evec_CO2 = energy .* eta_k * 12/44;   %CO2 emissions (GtC)
-evec_CH4 = energy .* eta_m * 1000;    %CH4 emissions (Tg CH4)
+eta_e    = eta_k + (eta_m .* metric); %CO2 equivalent emissions (G CO2
+energy   = budget ./ eta_e;                              %energy consumption
+evec_CO2 = energy .* eta_k;                              %CO2 emissions (GtC)
+evec_CH4 = energy .* eta_m * 1000;                       %CH4 emissions (Tg CH4)
 
 % Convert emissions to concentrations:
 cpath_lCO2 = legacy_CO2(); %calculate legacy CO2 concentrations

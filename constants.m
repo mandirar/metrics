@@ -1,13 +1,13 @@
 %% General parameters:
-dt          = 0.001;                                 %time step (years)
+dt          = 1;                                 %time step (years)
 first_year  = 2010;                                %initial year
 last_year   = 2110;                                %final year (2037-2046 +1; EV: 2041)
 t           = (first_year : dt : last_year - dt)'; %time vector
 [n,~]       = size(t);                             %length of time vector
 
 %% Fuel parameters:
-eta_k = 10.4; %global technolgoy CO2 intensity (kg C/J)
-eta_m = 0; %0.32; %global technology CH4 intensity (g CH4/J)
+eta_k = 0.95;  %global technolgoy CO2 intensity (g CO2/J)
+eta_m = 0.002; %global technology CH4 intensity (g CH4/J)
 frac  = 1;    %fraction of technology emissions controlled
 
 %% Climate parameters:
@@ -20,6 +20,7 @@ gCH4_per_molCH4 = 16.04;              %g CH4 / mol CH4
 ppmCO2_to_GtC   = 2.12;               %Gt C / ppm CO2
 ppbCH4_to_GtCH4 = 1/353.8;            %Gt CH4 / ppb CH4
 conversion      = (1/1000) * (12/44); %g CO2-eq/ g CH4 to GtC-eq/Tg CH4
+rf_other        = -0.6425;            %constant RF from other sources
 
 a_N2O  = 0.12;     %N2O rf parameter (W/m^2 / ppb^0.5)
 N2O_t0 = 270;      %N2O pre-industrial concentration (ppb)
