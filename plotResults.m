@@ -28,15 +28,14 @@ fvec_N2O = rf_N2O(cvec_N2O);
 fvec_other = -0.5175*ones(n,1);
 % Calculate total radiative forcing.
 fvec = fvec_CO2 + fvec_CH4 + fvec_N2O + fvec_other;
+% Compute CO2-eq emissions.
+addpath('./tools/EqMetrics')
+mu         = eqMetric(@lambda_CDM,t)';
+gCO2_per_molCO2 = 44.01;      %g CO2 / mol CO2
+gC_per_molCO2   = 12.01;      %g C / mol CO2
+Pg_per_Tg       = 1e-3;
+evec_CO2eq = evec_CO2 + mu.*evec_CH4 * Pg_per_Tg*(gC_per_molCO2/gCO2_per_molCO2); %
 
-% Cut off last year of plots (since it's unconstrained).
-t_graph        = t(1:end-1);
-fuel_use_graph = fuel_use(1:end-1,:);
-evec_CO2_graph = evec_CO2(1:end-1);
-evec_CH4_graph = evec_CH4(1:end-1);
-energy_graph   = energy(1:end-1);
-fvec_graph     = fvec(1:end-1);            %cut off radiative forcing vector
-lambda_graph   = lambda(1:end-1);
 
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
@@ -45,65 +44,97 @@ lambda_graph   = lambda(1:end-1);
 % Create new figure.
 figure(1)
 clf
-set(gcf, 'Position',[25         180        1076         549])
+set(gcf, 'Position',[25         116        1077         613])
 fs = 16;
 
-% Use subaxis instead of subaxis to get finer control over plot.
+% Use subaxis instead of subplot to get finer control over plot.
 addpath('./tools/SubAxis/')
-marginSize  = 0.05;
-paddingSize = 0.0;
-spacingSize = 0.08;
+margin       = 0.05;
+padding      = 0.0;
+spacingVert  = 0.08;
+spacingHoriz = 0.06;
+%marginLeft  = 0.05;
+marginRight  = 0.03;
+marginTop    = 0.03;
 
 % Plot fuel use over time:
-subaxis(2,3,1, 'Margin',marginSize, 'Padding',paddingSize, 'SpacingVert',spacingSize)
+subaxis(3,3,1, 'Margin',margin, 'Padding',padding, 'SpacingVert',spacingVert, 'SpacingHoriz',spacingHoriz, 'MarginRight',marginRight, 'MarginTop',marginTop)%, 'MarginLeft', marginLeft)
 hold on
-plot(t_graph,fuel_use_graph(:,1), 'b');
-plot(t_graph,fuel_use_graph(:,2), 'r');
+plot(t,fuel_use(:,1), 'b');
+plot(t,fuel_use(:,2), 'r');
 hold off
 set(gca, 'FontSize',fs)
-%xlabel('time (years)')
-ylabel('fuel use ()')
+
+ylabel('Tg fuel / yr')
 legend('fuel 1','fuel 2')
 set(gca, 'Box','on')
 
 % Plot energy consumption over time:
-subaxis(2,3,4)
-plot(t_graph,energy_graph)
+subaxis(3,3,4)
+plot(t,energy)
 set(gca, 'FontSize',fs)
-%xlabel('time (years)')
-ylabel('energy consumption ()')
+ylabel('MJ / yr')
 legend('energy consumption')
 
 % Plot CO2 emissions over time:
-subaxis(2,3,2)
-plot(t_graph,evec_CO2_graph)
+subaxis(3,3,2)
+plot(t,evec_CO2)
+hold on
+plot(t,evec_CO2eq,'--')
+hold off
 set(gca, 'FontSize',fs)
-%xlabel('time (years)')
-ylabel('CO2 emissions ()')
-legend('CO2 emissions')
+ylabel('Pg C / yr')
+legend('e_{CO2}','e_{CO2-eq}')
 
 % Plot CH4 emissions over time:
-subaxis(2,3,5)
-plot(t_graph,evec_CH4_graph)
+subaxis(3,3,5)
+plot(t,evec_CH4)
 set(gca, 'FontSize',fs)
-%xlabel('time (years)')
-ylabel('CH4 emissions ()')
-legend('CH4 emissions')
+ylabel('Tg CH4 / yr')
+legend('e_{CH4}')
 
 % Plot radiative forcing over time:
-subaxis(2,3,3)
-plot(t_graph,fvec_graph)
+subaxis(3,3,3)
+plot(t,fvec)
 set(gca, 'FontSize',fs)
 set(gca, 'YLim',[2 3])
-%xlabel('time (years)')
-ylabel('radiative forcing (W/m^2)')
+ylabel('Wm^{-2}')
 legend('radiative forcing')
 
 % Plot lambda over time:
-subaxis(2,3,6)
-plot(t_graph,lambda_graph)
+subaxis(3,3,6)
+plot(t,lambda)
 set(gca, 'FontSize',fs)
-%set(gca, 'YLim',[2 3])
-%xlabel('time (years)')
-ylabel('lambda')
+set(gca, 'YLim',[0 1e12])
+ylabel('MJ / (Wm^{-2} * yr)')
 legend('lambda')
+
+% Plot unit impact of CH4 over time:
+addpath('./tools/EqMetrics/')
+subaxis(3,3,7)
+plot(t,unitImpact_CH4(@lambda_CDM,t))
+set(gca, 'FontSize',fs)
+ylabel('MJ / g CH4')
+legend('ACDM_{CH4}', 'location','NorthWest')
+set(gca, 'Box','on')
+ylimits = get(gca, 'YLim');
+set(gca, 'YLim',[0 ylimits(2)])
+
+% Plot unit impact of CO2 over time:
+subaxis(3,3,8)
+plot(t,unitImpact_CO2(@lambda_CDM,t))
+set(gca, 'FontSize',fs)
+ylabel('MJ / g CO2')
+legend('ACDM_{CO2}', 'location','SouthWest')
+set(gca, 'Box','on')
+ylimits = get(gca, 'YLim');
+set(gca, 'YLim',[0 ylimits(2)])
+
+% Plot equivalency metric over time:
+subaxis(3,3,9)
+plot(t,eqMetric(@lambda_CDM,t))
+set(gca, 'YLim',[0 120])
+set(gca, 'FontSize',fs)
+ylabel('g CO2 / g CH4')
+legend('\mu_{CDM}', 'Location','NorthWest')
+set(gca, 'Box','on')

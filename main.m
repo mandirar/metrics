@@ -24,18 +24,20 @@ options.Algorithm   = 'interior-point';
 options.MaxFunEvals = 10^7;
 options.MaxIter     = 10^7;
 options.TolX        = 10^-20;
-% Note: alogirthm options are 'trust-region-reflective', 'interior-point', 
+% Note: algorithm options are 'trust-region-reflective', 'interior-point', 
 % 'sqp', and 'active-set.'
 
 %% Run optimization problem:
-[fuel_use,~,~,~,lambda] = fmincon(@(fuel_use) -objfun(fuel_use),guess,A,b,Aeq,beq,lb,ub,'constraint',options);
+[fuel_use,~,~,~,Lmultipliers] = fmincon(@(fuel_use) -objfun(fuel_use),guess,A,b,Aeq,beq,lb,ub,'constraint',options);
 
-plotResults(fuel_use,lambda.eqnonlin)
+
+%% Save lambda.
+lambdaSim = Lmultipliers.eqnonlin;
+tSim = t;
+save('./tools/EqMetrics/lambda_CDM.mat', 'tSim','lambdaSim')
+
+
+%% Plot results:
+plotResults(fuel_use,lambdaSim)
 
 toc
-
-lambda.eqnonlin(2)
-%lambda.eqnonlin(2) / (eta1/(Ak*ems1_k*(1/2.12)*24))
-lambda.eqnonlin(2) / (eta2/(1.4*Am*ems2_m*(353.8*1/1000)*24))
-%clear('A','Aeq','b','beq','first_year','form','fuel_count','guess',...
-%    'ide_s','last_year','lb','n','options','peak','t','ub','dt');

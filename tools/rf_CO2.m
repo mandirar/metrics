@@ -6,21 +6,9 @@ function [ rf1,rf2,rf_vec ] = rf_CO2( conc )
 % linear approximation (1 == full function; 2 == linear approximation).
 
 %% INPUT VARIABLES:
-% Declare global variables.
-global form
+global_vars
 [~,cols] = size(conc); %number of columns
 
-%% Define radiative forcing function.
-    function [ rf ] = RFcalc_CO2( conc,a_CO2,CO2_t0 )
-        rf = a_CO2*log(conc/CO2_t0);
-    end
-
-%% Define linear approximation function.
-    function [ rf ] = RFlin_CO2( conc,a_CO2,c0_CO2,CO2_t0)
-        rf = (a_CO2/c0_CO2)*(conc - c0_CO2)...
-            + RFcalc_CO2(c0_CO2,a_CO2,CO2_t0);
-    end
-        
 %% Define CO2 concentrations and other constants.
 a_CO2  = 5.35;    %constant (units W/m^2)
 CO2_t0 = 278;     %pre-industrial CO2 concentration (ppm)
@@ -36,8 +24,22 @@ rf_vec = ...
 %% Assign values to RF1 and RF2.
 rf2 = rf_vec(:,cols + 1 : end);
 if form == 1
-    rf1 = rf_vec(:,1:cols);
-else rf1 = rf2;
+   rf1 = rf_vec(:,1:cols);
+else
+   rf1 = rf2;
 end
 
+end
+
+
+
+%% Helper function: Define radiative forcing function.
+function [ rf ] = RFcalc_CO2( conc,a_CO2,CO2_t0 )
+rf = a_CO2*log(conc/CO2_t0);
+end
+
+%% Helper function: Define linear approximation function.
+function [ rf ] = RFlin_CO2( conc,a_CO2,c0_CO2,CO2_t0)
+rf = (a_CO2/c0_CO2)*(conc - c0_CO2)...
+   + RFcalc_CO2(c0_CO2,a_CO2,CO2_t0);
 end
