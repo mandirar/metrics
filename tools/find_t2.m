@@ -1,4 +1,4 @@
-function t2 = find_t2(e0,fe,t1,t3)
+function t2 = find_t2(e0,fe,t1,t3,peak)
 % t2 = find_t2(e0,fe,t1,peak,t3,dt) finds the value of t2, the time when
 % emissions peak, such that the maximum radiative forcing pathway just
 % meets the radiative forcing ceiling. It finds t2 by repeatedly bisecting

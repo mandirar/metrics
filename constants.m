@@ -1,10 +1,10 @@
 %% General parameters:
-dt          = 1;                                   %time step (years)
+dt          = 0.01;                                   %time step (years)
 first_year  = 2010;                                %initial year
-last_year   = 2100;                                %final year (2037-2046 +1; EV: 2041)
+last_year   = 2150;                                %final year (2037-2046 +1; EV: 2041)
 t           = (first_year : dt : last_year - dt)'; %time vector
 [n,~]       = size(t);                             %length of time vector
-peak        = 3;                                   %radiative forcing threshold (W/m^2)
+%peak        = 3;                                   %radiative forcing threshold (W/m^2)
 
 %% Fuel parameters:
 eta1       = 50*10^9;         %tech. 1 energy density (MJ/Tg fuel)
@@ -42,6 +42,6 @@ e1 = 0.75;         %CH4/N2O overlap parameter (unitless)
 e2 = 1.52;         %CH4/N2O overlap parameter (unitless)
 
 %% Scenario parameters:
-e0   = 13.92; %initial emissions (GtC)
+e0   = 13.72; %initial emissions (GtC)
 fe   = 0.017; %initial emissions growth rate (as a fraction)     
 t3   = 10;    %maximum emissions decay rate (fraction of the form -1/t3)

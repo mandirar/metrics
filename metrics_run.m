@@ -14,8 +14,8 @@ constants;           %loads constants
 variables1;          %loads variables
 
 %% Execute runs:
-[ fuel_use1Li,  lambdaSim1,  metric1L  ] = energyPolicy_fun(ems_mat1);
-[ fuel_use1Bi,  metric1B  ]              = metricPolicy_fun(ems_mat1,ek_constraint);
+%[ fuel_use1Li,  lambdaSim1,  metric1L  ] = energyPolicy_fun(ems_mat1);
+%[ fuel_use1Bi,  metric1B  ]              = metricPolicy_fun(ems_mat1,ek_constraint);
 
 GWP = eqMetric(@lambda_GWP,t,100)';
 ICI = eqMetric(@lambda_ICI,t,ts)'; 
