@@ -1,4 +1,4 @@
-function [ energy_all ] = tpolicy_obj( fuel_use )
+function [ energy_all ] = energyPolicy_obj( fuel_use )
 % This is the objective function for the optimization problem. The
 % objective is to maxmize the sum of energy use across all years.
 

@@ -1,0 +1,48 @@
+% This script executes runs with different variable conditions, designed
+% to be run on the cluster.
+
+clear all
+addpath('./variables')
+addpath('./lambda')
+addpath('./bilevel')
+
+tic
+
+%% Set up run variables:
+%variables1;  %loads variables
+%variables2;  %loads variables
+variables3;  %loads variables
+%variables4;  %loads variables
+%variables5;  %loads variables
+%variables6;  %loads variables
+%variables7;  %loads variables
+%variables8;  %loads variables
+%variables9;  %loads variables
+%variables10; %loads variables
+
+%% Execute runs:
+%[ fuel_use1L, lambdaSim1,  metric1L  ] = energyPolicy_fun(ems_mat1);
+%[ fuel_use2L, lambdaSim2,  metric2  ] = energyPolicy_fun(ems_mat2);
+[ fuel_use3L, lambdaSim3,  metric3  ] = energyPolicy_fun(ems_mat3);
+%[ fuel_use4L, lambdaSim4,  metric4  ] = energyPolicy_fun(ems_mat4);
+%[ fuel_use5L, lambdaSim5,  metric5  ] = energyPolicy_fun(ems_mat5);
+%[ fuel_use6L, lambdaSim6,  metric6  ] = energyPolicy_fun(ems_mat6);
+%[ fuel_use7L, lambdaSim7,  metric7  ] = energyPolicy_fun(ems_mat7);
+%[ fuel_use8L, lambdaSim8,  metric8  ] = energyPolicy_fun(ems_mat8);
+%[ fuel_use9L, lambdaSim9,  metric9  ] = energyPolicy_fun(ems_mat9);
+%[ fuel_use10L,lambdaSim10, metric10 ] = energyPolicy_fun(ems_mat10);
+
+%[ fuel_use11, metric11 ] = metricPolicy_fun(ems_mat1);
+%[ fuel_use12, metric12 ] = metricPolicy_fun(ems_mat2);
+%[ fuel_use13, metric13 ] = metricPolicy_fun(ems_mat3);
+%[ fuel_use14, metric14 ] = metricPolicy_fun(ems_mat4);
+%[ fuel_use15, metric15 ] = metricPolicy_fun(ems_mat5);
+%[ fuel_use16, metric16 ] = metricPolicy_fun(ems_mat6);
+%[ fuel_use17, metric17 ] = metricPolicy_fun(ems_mat7);
+%[ fuel_use18, metric18 ] = metricPolicy_fun(ems_mat8);
+%[ fuel_use19, metric19 ] = metricPolicy_fun(ems_mat9);
+%[ fuel_use20, metric20 ] = metricPolicy_fun(ems_mat10);
+
+save('output.mat')
+
+toc

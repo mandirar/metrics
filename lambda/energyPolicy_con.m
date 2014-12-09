@@ -1,4 +1,4 @@
-function [ C,Ceq ] = tpolicy_con( fuel_use,ems_mat )
+function [ C,Ceq ] = energyPolicy_con( fuel_use,ems_mat )
 % This function takes the decision variable and outputs a column vector of 
 % inequality constraints and a column vector of equality constraints. 
 

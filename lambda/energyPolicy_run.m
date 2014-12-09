@@ -1,5 +1,5 @@
-% This script executes the technology optimization problme and calculates a
-% lambda-based metric.
+% This script executes the technology optimization problem for a default
+% set of variables and returns a lambda metric.
 
 clear all
 tic
@@ -27,7 +27,7 @@ options.MaxIter     = 10^7;
 options.TolX        = 10^-20;
 
 %% Run optimization problem:
-[fuel_use,~,~,~,Lmultipliers] = fmincon(@(fuel_use) -tpolicy_obj(fuel_use),guess,A,b,Aeq,beq,lb,ub,@(fuel_use) tpolicy_con(fuel_use,ems_mat),options);
+[fuel_use,~,~,~,Lmultipliers] = fmincon(@(fuel_use) -energyPolicy_obj(fuel_use),guess,A,b,Aeq,beq,lb,ub,@(fuel_use) energyPolicy_con(fuel_use,ems_mat),options);
 
 lambdaSim = Lmultipliers.ineqnonlin(1:n);
 tSim = t;
