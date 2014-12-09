@@ -6,8 +6,8 @@ t           = (first_year : dt : last_year - dt)'; %time vector
 [n,~]       = size(t);                             %length of time vector
 
 %% Fuel parameters:
-eta_k = 10.4; %global technolgoy CO2 intensity (kg C/J)
-eta_m = 0.32; %global technology CH4 intensity (g CH4/J)
+eta_k = 0.86; %global technolgoy CO2 intensity (g C/J)
+eta_m = 0.14; %global technology CH4 intensity (g /J)
 frac  = 1;    %fraction of technology emissions controlled
 
 %% Climate parameters:

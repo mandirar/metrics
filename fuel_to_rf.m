@@ -1,12 +1,13 @@
-function [ rf,evec_CO2 ] = testing1( metric,budget )
+function [ rf ] = fuel_to_rf( fuel_use,ems_mat )
+%This function takes in a vector of fuel use (with information about fuels
+%in the global variables script) and outputs the radiative forcing pathway.
 
 constants;
 
-% Calculate emissions to meet budget:
-eta_e    = eta_k + (eta_m .* metric .* 12/44); %CO2 equivalent emissions
-energy   = budget ./ eta_e;                    %energy consumption
-evec_CO2 = energy .* eta_k;                    %CO2 emissions (GtC)
-evec_CH4 = energy .* eta_m * 1000;             %CH4 emissions (Tg CH4)
+% Convert fuel use to emissions:
+emissions = fuel_use * ems_mat; %calculate emissions matrix
+evec_CO2  = emissions(:,1);     %extract CO2 emissions vector
+evec_CH4  = emissions(:,2);     %extract CH4 emissions vector
 
 % Convert emissions to concentrations:
 cpath_lCO2 = legacy_CO2(); %calculate legacy CO2 concentrations
