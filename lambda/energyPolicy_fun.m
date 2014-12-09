@@ -23,12 +23,13 @@ options.Algorithm   = 'interior-point';
 options.MaxFunEvals = 10^7;
 options.MaxIter     = 10^7;
 options.TolX        = 10^-20;
+ts = 2041;
 
 %% Run optimization problem:
 [fuel_use,~,~,~,Lmultipliers] = fmincon(@(fuel_use) -energyPolicy_obj(fuel_use),guess,A,b,Aeq,beq,lb,ub,@(fuel_use) energyPolicy_con(fuel_use,ems_mat),options);
 
 lambdaSim = Lmultipliers.ineqnonlin(1:n);
 
-metric = eqMetric(@lambda_CDM,t)';
+metric = eqMetric(@lambda_CDM,t,lambdaSim)';
 
 end
