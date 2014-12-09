@@ -35,6 +35,12 @@ a_CO2  = 5.35;     %CO2 rf parameter (W/m^2)
 CO2_t0 = 278;      %CO2 pre-industrial concentration (ppm)
 c0_CO2 = 389.324;  %CO2 current concentration (ppm)
 
+c1 = 0.47;         %CH4/N2O overlap parameter (W/m^2)
+c2 = 2.01*10^-5;   %CH4/N2O overlap parameter (unitless)
+c3 = 5.31*10^-15;  %CH4/N2O overlap parameter (unitless)
+e1 = 0.75;         %CH4/N2O overlap parameter (unitless)
+e2 = 1.52;         %CH4/N2O overlap parameter (unitless)
+
 %% Scenario parameters:
 e0   = 13.92; %initial emissions (GtC)
 fe   = 0.017; %initial emissions growth rate (as a fraction)     
