@@ -20,7 +20,7 @@ for i = 1:length(te)
    infinity  = te(i) + aLongTime;   %years
    tprime    = [te(i) : dt : infinity];
    
-   I(i)      = ide_s*m * sum( lambdaFun(tprime,te(i)) .* decay_CH4(tprime - te(i)) * dt );
+   I(i)      = ide_s* Am * sum( lambdaFun(tprime,te(i)) .* decay_CH4(tprime - te(i)) * dt );
 end
 
 % Convert units.
