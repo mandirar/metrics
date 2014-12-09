@@ -12,6 +12,6 @@ function lambda = lambda_ICI(ti,te)
 
 global_vars % Needed to grab dt.
 
-t_s     = 2046;
+t_s     = 2041;
 [~,i_s] = min( abs(ti - t_s) );
 lambda  = (ti == ti(i_s)) * dt;

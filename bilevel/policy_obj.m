@@ -1,9 +1,14 @@
-function [ energy_all ] = policy_objfun( metric )
+function [ energy_all ] = policy_obj( metric )
 % This is the objective function for the policy's optimization problem.
 
-global_vars;                             %load global variables
+%metric
 
-metric
+global_vars;
+
+metric = metric .* ones(n,1); %initial guess for metric
+
+
+global_vars;                             %load global variables
 
 variables   = user_main(metric);  
 fuel_use    = variables(:,1:fuel_count); %calculate fuel use

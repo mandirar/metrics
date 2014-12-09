@@ -10,5 +10,5 @@ function lambda = lambda_CCI(ti,te)
 % argument list so that the functions unitImpact_CO2, unitImpact_CH4, and
 % eqMetric will function correctly.
 
-t_s    = 2046;
+t_s    = 2041;
 lambda = (ti >= te) & (ti <= t_s);

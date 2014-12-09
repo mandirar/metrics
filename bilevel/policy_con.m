@@ -1,4 +1,4 @@
-function [ C,Ceq ] = policy_constraint( metric )
+function [ C,Ceq ] = policy_con( metric )
 % This is the constraint function for our optimization problem, which takes 
 % the decision variable and outputs a column vector of inequality
 % constraints (c) and a column vector of equality constraints (ceq)
@@ -8,7 +8,7 @@ global_vars;                             %global variables
 cpath_lCO2  = legacy_CO2();              %legacy CO2 concentrations
 cpath_lCH4  = legacy_CH4();              %legacy CH4 concentrations
 cpath_lN2O  = legacy_N2O();              %legacy N2O concentrations
-load('constraints.mat');                 %emissions and radiative forcing
+load('budgets.mat');                 %emissions and radiative forcing
 variables   = user_main(metric);               
 fuel_use    = variables(:,1:fuel_count); %calculate fuel use
 % Interpolate radiative forcing pathway.
@@ -30,9 +30,13 @@ fvec_other = -0.5175*ones(n,1);              %other radiative forcing
 % Calculate total radiative forcing.
 fvec       = fvec_CO2 + fvec_CH4 + fvec_N2O + fvec_other;
 
+%% Condition that the metric must be a constant value:
+%metric_constant = metric./metric(1,1) - 1; %equals zero if metric is constant
+
 %% Define constraints (c: a < alpha; ceq: b = beta):
-%C   = [fvec - forcing_c];
-C   = [fvec - 3];
+C   = [fvec - rf_constraint];
+%C   = [fvec - 3];
+%Ceq = [metric_constant];
 Ceq = [];
 
 end

@@ -4,18 +4,17 @@
 clear all
 global_vars;
 
-metric_conversion = (1/1000) * (12/44);
-
 % GWP with time horizon of 100 years:
 gwp_100 = 25.*ones(n,1);                %units: g CO2-eq/g CH4
-gwp_100 = gwp_100 * metric_conversion;  %units: GtC/Tg CH4
+gwp_100 = gwp_100 * conversion;  %units: GtC/Tg CH4
 
 % ICI and CCI with mitigatin year t1:
 %t1 = 2015; 
 %[~,~,rf_metrics] = scenario_generator( t1 );
 
-ICI = eqMetric(@lambda_ICI,t)' * metric_conversion; %units: GtC/Tg CH4 
-CCI = eqMetric(@lambda_CCI,t)' * metric_conversion; %units: GtC/Tg CH4
+ICI = eqMetric(@lambda_ICI,t)' * conversion; %units: GtC/Tg CH4 
+CCI = eqMetric(@lambda_CCI,t)' * conversion; %units: GtC/Tg CH4
+CDM = eqMetric(@lambda_CDM,t)' * conversion; %units: GtC/Tg CH4
 
 clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
     'ems_mat','eta1','eta2','eta_vec','first_year','form','fuel_count',...

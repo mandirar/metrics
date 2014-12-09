@@ -4,6 +4,8 @@ function [ variables ] = user_main(metric)
 
 global_vars;
 
+metric = metric .* ones(n,1); %only necessary when using a constant-value metirc
+
 % Optimization inputs:
 guess = rand(n,fuel_count + 1);           %initial guess for fuel use
 A     = [];                               %linear inequality constraint...

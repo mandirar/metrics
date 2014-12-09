@@ -7,11 +7,12 @@ close all
 
 global_vars;
 load('budgets.mat');
-load('metrics3.mat');
+%load('metrics4.mat');
+load('output.mat');
 metric_conversion = (1/1000) * (12/44);
 
 % Choose the metric formulation:
-metric = CDM_Late;
+%metric = CDM_EV;
 metric = metric * metric_conversion;
 
 % Run fuel user optimization problem:
@@ -38,3 +39,5 @@ hold on
 plot(t,rf_actual, 'r');
 plot(t,rf_constraint, 'b');
 hold off
+
+energy = sum(sum(fuel_use));
