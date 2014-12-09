@@ -34,3 +34,8 @@ c0_CH4 = 1778.675; %CH4 current concentraiton (ppb)
 a_CO2  = 5.35;     %CO2 rf parameter (W/m^2)
 CO2_t0 = 278;      %CO2 pre-industrial concentration (ppm)
 c0_CO2 = 389.324;  %CO2 current concentration (ppm)
+
+%% Scenario parameters:
+e0   = 13.92; %initial emissions (GtC)
+fe   = 0.017; %initial emissions growth rate (as a fraction)     
+t3   = 10;    %maximum emissions decay rate (fraction of the form -1/t3)
