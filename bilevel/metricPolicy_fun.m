@@ -1,4 +1,6 @@
-function [ fuel_use,metric ] = epolicy_fun( ems_mat )
+function [ fuel_use,metric ] = metricPolicy_fun( ems_mat )
+% This function executes the emissions and metric optimizaton problem for a 
+% specified set of variables and returns a bilevel metric.
 
 addpath('./tools')
 addpath('./tools/EqMetrics')
@@ -24,9 +26,9 @@ options.MaxIter     = 10^7;
 options.TolX        = 10^-20;
 
 %% Run optimizaton problem:
-metric   = fmincon(@(metric) -epolicy_obj(metric,ems_mat),guess,A,b,Aeq,beq,lb,ub,@(metric) epolicy_con(metric,ems_mat),options);
+metric   = fmincon(@(metric) -metricPolicy_obj(metric,ems_mat),guess,A,b,Aeq,beq,lb,ub,@(metric) metricPolicy_con(metric,ems_mat),options);
 
-fuel_use = user_fun(metric,ems_mat);
+fuel_use = fuelUser_fun(metric,ems_mat);
 
 metric   = metric./conversion; %converts metric to g CO2-eq/g CH4
 

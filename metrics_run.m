@@ -23,7 +23,7 @@ variables3;  %loads variables
 %% Execute runs:
 %[ fuel_use1, lambdaSim1,  metric1  ] = tpolicy_fun(ems_mat1);
 %[ fuel_use2, lambdaSim2,  metric2  ] = tpolicy_fun(ems_mat2);
-[ fuel_use3, lambdaSim3,  metric3  ] = tpolicy_fun(ems_mat3);
+%[ fuel_use3, lambdaSim3,  metric3  ] = tpolicy_fun(ems_mat3);
 %[ fuel_use4, lambdaSim4,  metric4  ] = tpolicy_fun(ems_mat4);
 %[ fuel_use5, lambdaSim5,  metric5  ] = tpolicy_fun(ems_mat5);
 %[ fuel_use6, lambdaSim6,  metric6  ] = tpolicy_fun(ems_mat6);
@@ -34,7 +34,7 @@ variables3;  %loads variables
 
 %[ fuel_use11, metric11 ] = epolicy_fun(ems_mat1);
 %[ fuel_use12, metric12 ] = epolicy_fun(ems_mat2);
-[ fuel_use13, metric13 ] = epolicy_fun(ems_mat3);
+[ fuel_use13, metric13 ] = metricPolicy_fun(ems_mat3);
 %[ fuel_use14, metric14 ] = epolicy_fun(ems_mat4);
 %[ fuel_use15, metric15 ] = epolicy_fun(ems_mat5);
 %[ fuel_use16, metric16 ] = epolicy_fun(ems_mat6);

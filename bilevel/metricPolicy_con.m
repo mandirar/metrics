@@ -1,4 +1,4 @@
-function [ C,Ceq ] = epolicy_con( metric,ems_mat )
+function [ C,Ceq ] = metricPolicy_con( metric,ems_mat )
 % This function takes the decision variable and outputs a column vector of 
 % inequality constraints and a column vector of equality constraints. 
 
@@ -12,7 +12,7 @@ load('budgets.mat');       %emissions and radiative forcing
 forcing_c = 3*ones(n,1);  %radiative forcing constraint
             
 %% Calculate radiative forcing from fuel use:
-fuel_use   = user_fun(metric);               %fuel use matrix
+fuel_use   = fuelUser_fun(metric);           %fuel use matrix
 emissions  = fuel_use * ems_mat;             %emissions matrix 
 evec_CO2   = emissions(:,1);                 %CO2 emissions
 cvec_CO2   = e2c_CO2(evec_CO2) + cpath_lCO2; %CO2 concentration

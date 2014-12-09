@@ -1,4 +1,4 @@
-function [ energy_all ] = user_obj( fuel_use )
+function [ energy_all ] = fuelUser_obj( fuel_use )
 % This is the objective function for the user's optimization problem. The
 % objective is to maximize the sum of energy consumption across all years.
 

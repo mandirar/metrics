@@ -1,4 +1,4 @@
-function [ fuel_use ] = user_fun(metric,ems_mat)
+function [ fuel_use ] = fuelUser_fun(metric,ems_mat)
 % This function determines fuel use to maximize energy, given a metric and
 % CO2-eq emissions budget.
 
@@ -22,6 +22,6 @@ options.MaxIter     = 10^7;
 options.TolX        = 10^-20;
 
 %% Run optimization problem:
-fuel_use = fmincon(@(fuel_use) -user_obj(fuel_use),guess,A,b,Aeq,beq,lb,ub,@(fuel_use) user_con(fuel_use,metric,ems_mat),options);
+fuel_use = fmincon(@(fuel_use) -fuelUser_obj(fuel_use),guess,A,b,Aeq,beq,lb,ub,@(fuel_use) fuelUser_con(fuel_use,metric,ems_mat),options);
 
 end

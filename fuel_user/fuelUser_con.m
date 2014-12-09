@@ -1,4 +1,4 @@
-function [ C,Ceq ] = user_con( fuel_use,metric,ems_mat )
+function [ C,Ceq ] = fuelUser_con( fuel_use,metric,ems_mat )
 % This function takes the decision variable and outputs a column vector of 
 % inequality constraints and a column vector of equality constraints. 
 

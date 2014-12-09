@@ -1,10 +1,10 @@
-function [ energy_all ] = epolicy_obj( metric,ems_mat )
+function [ energy_all ] = metricPolicy_obj( metric,ems_mat )
 % This is the objective function for the policy's optimization problem.
 % The objective is to maximize the sum of energy use across all years.
 
 constants;                              %loads constants
 
-fuel_use   = user_fun(metric,ems_mat);  %fuel user optimizaton problem  
+fuel_use   = fuelUser_fun(metric,ems_mat); %fuel user optimizaton problem  
 
 energy     = fuel_use * eta_vec;        %vector of energy use in each year
 
