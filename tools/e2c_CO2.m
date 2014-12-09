@@ -1,7 +1,6 @@
 function cvec = e2c_CO2( evec )
-%cvec = e2c_CO2(evec) computes the additional CO2 concentration pathway
-%cvec (in units of ppm) that results from from an emissions pathway evec
-%(in units GtC).
+%This function computes the additional CO2 concentrations (in units of ppm)
+%that result from an emissions pathway evec (in units PgC).
 
 global_vars; %load global variabes
 
@@ -17,10 +16,12 @@ c0   = 0;
 it   = 0;
 for t2 = first_year : dt : last_year - dt
    it        = it + 1;
-   iFirst    = (n + 2) + 1 - it;           % select range of indices corresponding
-   iLast     = (n + 2) + n - it;           % to range of needed Delta_t's
+   iFirst    = (n + 1) + 1 - it;           % select range of indices corresponding
+   iLast     = (n + 1) + n - it;           % to range of needed Delta_t's
    IRFvec_t  = IRFvec(iFirst : iLast);  
    cvec(it)  = c0 + IRFvec_t' * evec * dt; % compute integral
    %cvec(it) = c0 + sum(IRFvec_t .* evec * dt); %ALT
 end
-cvec = cvec / 2.12; %convert from GtC to ppm
+cvec = cvec / 2.12; %convert from PgC to ppm
+
+end

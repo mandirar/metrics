@@ -39,7 +39,7 @@ fvec = fvec_CO2 + fvec_CH4 + fvec_N2O + fvec_other;
 % inequality constraint C(x) should be constructed as an expression that
 % should be less than zero, C(x) < 0. The equality constraint should be
 % constructed so that Ceq(x) = 0.
-RF_C = 2.5;
+RF_C = 3;
 C    = fvec - RF_C; % Inequality constraint: RF < RF_C for all t.
 Ceq  = [];          % No equality constraints (ceq is blank).
 
