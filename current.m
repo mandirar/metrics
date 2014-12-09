@@ -22,6 +22,7 @@ t1_45l = 2058;
 [ ek_45l,~,rf_45l ] = scenario_generator( t1_45l,4.5 );
 
 % Calculate ts (stabilization time) for each radiative forcing scenario:
+
 [~,ts_30e] = max(rf_30e);                   %index   
 ts_30e     = ts_30e * dt + first_year - dt; %time (years)
 [~,ts_30l] = max(rf_30l);                   %index   
@@ -32,6 +33,28 @@ ts_45e     = ts_45e * dt + first_year - dt; %time (years)
 [~,ts_45l] = max(rf_45l);                   %index   
 ts_45l     = ts_45l * dt + first_year - dt; %time (years)
 
+ts_30m = round(mean([ts_30e ts_30l]));      %mean ts
+ts_45m = round(mean([ts_45e ts_45l]));      %mean ts
+
+% Calculate metrics based on ts for each scenario (early and late) and a
+% middle ts found by taking the average:
+
+GWP_100 = eqMetric(@lambda_GWP,t,100)';
+
+ICI_30e = eqMetric(@lambda_ICI,t,ts_30e)'; 
+ICI_30m = eqMetric(@lambda_ICI,t,ts_30m)'; 
+ICI_30l = eqMetric(@lambda_ICI,t,ts_30l)'; 
+ICI_45e = eqMetric(@lambda_ICI,t,ts_45e)'; 
+ICI_45m = eqMetric(@lambda_ICI,t,ts_45m)';
+ICI_45l = eqMetric(@lambda_ICI,t,ts_45l)'; 
+
+CCI_30e = eqMetric(@lambda_CCI,t,ts_30e)'; 
+CCI_30m = eqMetric(@lambda_CCI,t,ts_30m)'; 
+CCI_30l = eqMetric(@lambda_CCI,t,ts_30l)'; 
+CCI_45e = eqMetric(@lambda_CCI,t,ts_45e)'; 
+CCI_45m = eqMetric(@lambda_CCI,t,ts_45m)';
+CCI_45l = eqMetric(@lambda_CCI,t,ts_45l)'; 
+
 % Clear variables (before saving .mat file):
 clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
     'ems_mat','eta1','eta2','eta_vec','first_year','form','fuel_count',...
@@ -39,3 +62,5 @@ clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
     'peak','ppbCH4_to_GtCH4','ppmCO2_to_GtC','t','t1','CH4_t0','CO2_t0',...
     'N2O_t0','a_CH4','a_CO2','a_N2O','c0_CH4','c0_CO2','c0_N2O','c1',...
     'c2','c3','conversion','e0','e1','e2','fe','t3')
+
+save('testing1.mat')
