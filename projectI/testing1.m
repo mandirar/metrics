@@ -6,10 +6,10 @@ constants;
 % indicate stabilzation level (3.0 vs 4.5 W/m^2); letters indicate
 % mitigaiton onest year (early vs. late).
 
-t1_30e = 2010; 
+t1_30e = 2015; 
 t1_30l = 2031; %2033 for smaller dt
 
-t1_45e = 2010; 
+t1_45e = 2015; 
 t1_45l = 2056; %2058 for smaller dt
 
 % Calculate CO2-eq emissions and resulting radiative forcing pathway for 
@@ -64,4 +64,4 @@ clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
     'N2O_t0','a_CH4','a_CO2','a_N2O','c0_CH4','c0_CO2','c0_N2O','c1',...
     'c2','c3','conversion','e0','e1','e2','fe','t3')
 
-save('./project/testing1.mat')
+save('./projectI/testing1.mat')
