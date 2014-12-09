@@ -3,6 +3,12 @@ function cvec = e2c_CO2( evec )
 %cvec (in units of ppm) that results from from an emissions pathway evec
 %(in units GtC).
 
+global_variables;
+
+first_year = 2010;
+last_year  = 2110;
+t          = (first_year : dt : last_year - dt)';
+
 % Pre-compute all possible values of impulse response function.
 Delta_t_vec = (last_year - first_year : -dt :first_year - last_year)';
 IRFvec      = decay_CO2(Delta_t_vec);

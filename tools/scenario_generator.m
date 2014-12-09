@@ -2,7 +2,7 @@ function [ evec_new,cvec_new,fvec_new,t2,fvec_old,rate,evec_old,cvec_old ] = sce
 
 %% INPUT VARIABLES:
 % Define input variables.
-e0   = 13.5307; 
+e0   = 13.7205; 
 fe   = 0.017;     
 t3   = 10;
 t2   = find_t2(e0,fe,t1,t3);

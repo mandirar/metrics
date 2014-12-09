@@ -8,7 +8,7 @@ function [ rf1,rf2 ] = rf_N2O( conc )
 % approximation).
 
 %% INPUT VARIABLES:
-global form
+global form ide_n
 [~,cols] = size(conc); %number of columns
 
 %% Define simple radiative forcing function.
@@ -59,7 +59,7 @@ c0_N2O = 323.061; %current N2O concentrations (ppb)
 % MESSAGE model, available on the RCP Database.
 
 %% Calculate vector of radiative forcing calcuations.
-rf_vec = [RFcalc_N2O(conc,a_N2O,CH4_t0,N2O_t0)...
+rf_vec = ide_n * [RFcalc_N2O(conc,a_N2O,CH4_t0,N2O_t0)...
     RFlin_N2O(conc,a_N2O,c0_N2O,CH4_t0,N2O_t0)];
 
 %% Assign values to RF1 and RF2.]

@@ -12,8 +12,8 @@ rf_nonCO2         ; %output: rfpath_nonCO2; rfpath_CH4
 %% Define REPLACE, the amount of CO2 emissions repalced with CH4.
 replace      = frac.*emat_ALL; %amount of emissions replaced
 replace(1,:) = 0             ; %emissions in 2010 are all CO2
-metric       = CCI_mat       ; %emissions metric (select ICI, CCI, or GWP)
-clear('ICI_mat','CCI_mat','GWP_mat','frac');
+metric       = GWP_mat       ; %emissions metric (select ICI, CCI, or GWP)
+%clear('ICI_mat','CCI_mat','GWP_mat','frac');
 % Note: definig replace in this way makes it possible to easily convert to
 % a fixed amount across different scenarios, which may be desirable when
 % comparing 3 W/m^2 and 4.5 W/m^2 scenarios.

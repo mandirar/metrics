@@ -40,7 +40,7 @@ CCI_N2OD=CCI_calculator(CCI_valuesN2O,peak_year(4) - 2009);
 CCI_N2OE=CCI_calculator(CCI_valuesN2O,peak_year(5) - 2009);
 
 % Add GWP100 and GWP20 values for reference.
-GWP_CH4 = ones(n,1)*25 ;
+GWP_CH4 = ones(n,1)*34 ;
 GWP_N2O = ones(n,1)*298;
 
 % Calculate metric vectors.
