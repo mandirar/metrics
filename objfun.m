@@ -1,22 +1,12 @@
-function [ f ] = objfun( x )
+function [ energy_all ] = objfun( fuel_use )
 %% This is the objective function for the optimization problem.
-% Currently maximizes emissions (later energy consumption, which may or may
-% not include some weighting).
+% We maximize the sum of energy use -- this can be changed in the future to
+% some other energy-based objective.
 
-evec_CO2 = x(:,1);
-evec_CH4 = x(:,2);
+global_vars;                     %load global variables
 
-%One attempt at incorporating technologies:
-%f = sum(evec_CO2 + 0.1*evec_CH4);
+energy     = fuel_use * eta_vec; %vector of energy use in each year
 
-%Another attempt at incorporating technologies:
-f = sum(tech_1(evec_CO2,evec_CH4));
-
-    function energy = tech_1(eCO2_tech1,eCH4_tech1)
-        tech_CO2 = 5;   %CO2 emissions intensity (GtC)
-        tech_CH4 = 0.1; %CH4 emissions intensity (ppb)
-        energy = min(eCO2_tech1/tech_CO2,eCH4_tech1/tech_CH4);
-    end
+energy_all = sum(energy);        %sum of energy use across all years
 
 end
-
