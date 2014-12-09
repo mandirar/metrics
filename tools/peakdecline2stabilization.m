@@ -120,7 +120,7 @@ function conc = inverse_rf_CO2( f_K )
 % whether radiative forcing is calculated using a function (FORM == 1) or a
 % lienar approximation (FORM == 2)
     % Define constants.
-    global form
+    global_vars;
     a_CO2  = 5.35;    %W/m^2
     CO2_t0 = 278;     %ppm
     c0_CO2 = 389.324; %ppm

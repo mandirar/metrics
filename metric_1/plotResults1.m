@@ -1,4 +1,4 @@
-function plotResults(fuel_use,lambda)
+function plotResults1(fuel_use,lambda)
 
 global_vars; %load global variables
 

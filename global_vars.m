@@ -3,7 +3,7 @@
 %% General parameters.
 dt          = 1;                                   %time step (years)
 first_year  = 2010;                                %initial year
-last_year   = 2040;                                %final year
+last_year   = 2075;                                %final year
 t           = [first_year : dt : last_year - dt]'; %time vector
 [n,~]       = size(t);                             %length of time vector
 form        = 2;                                   %form of RF function (1 = non-lienar; 2 = linear)
@@ -18,7 +18,8 @@ eta_vec = [eta1 ; eta2]; %all tech. energy density vector
 % Note: As a reference, the energy density of gasoline is ~46 MJ/kg.
 
 % Fuel count: Total number of fuels (for use in sizing)
-fuel_count = length(eta_vec); 
+fuel_count     = length(eta_vec); 
+variable_count = fuel_count + 1;
 
 % Emissions intensity: A matrix of column vectors that gives GHG emissions
 % intensity, with dimensions of # of fuels by the # of gases
