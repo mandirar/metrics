@@ -17,7 +17,6 @@ eta2    = 50*10^9;         %tech. 2 energy (MJ/Tg fuel)
 eta_vec = [eta1 ; eta2];   %all tech. energy density (# fuels x 1)
 % Fuel count and variable count: 
 fuel_count     = length(eta_vec); 
-variable_count = fuel_count + 1;
 % Emissions intensity:
 ems1_k  = 1;               %tech. 1 CO2 intensity (Pg C/Tg fuel)
 ems1_m  = 0;               %tech. 1 CH4 intensity (Tg CH4/Tg fuel)

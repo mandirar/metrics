@@ -1,9 +1,9 @@
-function [ energy_all ] = objfun( variables )
-% This is the objective function for the optimization problem.
+function [ energy_all ] = user_objfun( fuel_use )
+% This is the objective function for the user's optimization problem.
+
+global metric
 
 global_vars;                     %load global variables
-
-fuel_use = variables(:,1:(end - 1));
 
 energy     = fuel_use * eta_vec; %vector of energy use in each year
 
