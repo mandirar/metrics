@@ -8,11 +8,10 @@ tic
 addpath('./tools')
 addpath('./tools/EqMetrics')
 addpath('./fuel_user')
-addpath('./budgets')
+addapath('./budget
 
-constants;          %loads constants
-variables;          %loads default variables
-load('budgets.mat') %loads emissions constraint
+constants; %loads constants
+variables; %loads default variables
 
 %% Set optimization inputs:
 guess = conversion * ones(n,1); %initial guess for metric
@@ -31,7 +30,7 @@ options.MaxIter     = 10^7;
 options.TolX        = 10^-20;
 
 %% Run optimizaton problem:
-metric = fmincon(@(metric) -metricPolicy_obj(metric,ems_mat,ek_constraint),guess,A,b,Aeq,beq,lb,ub,@(metric) metricPolicy_con(metric,ems_mat,ek_constraint),options);
+metric = fmincon(@(metric) -metricPolicy_obj(metric,ems_mat),guess,A,b,Aeq,beq,lb,ub,@(metric) metricPolicy_con(metric,ems_mat),options);
 
 metric = metric./conversion; %converts metric to g CO2-eq/g CH4
 

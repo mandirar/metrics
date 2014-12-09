@@ -2,6 +2,8 @@
 % for budget generation should be the same as that for application to avoid
 % interpolation errors.
 
+% The name of the mat file can be changed to save multiple budgets.
+
 clear all
 constants;
 
@@ -21,4 +23,4 @@ clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
     'gCH4_per_molCH4','gCO2_per_molCO2','ide_s','last_year','m','n',...
     'peak','ppbCH4_to_GtCH4','ppmCO2_to_GtC','t','t1');
 
-save('budgets.mat')
+save('budgets/budgets.mat')

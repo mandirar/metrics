@@ -7,9 +7,7 @@ constants;                 %loads constants
 cpath_lCO2 = legacy_CO2(); %legacy CO2 concentrations
 cpath_lCH4 = legacy_CH4(); %legacy CH4 concentrations
 cpath_lN2O = legacy_N2O(); %legacy N2O concentrations
-load('budgets.mat');       %emissions and radiative forcing
-
-forcing_c = 3*ones(n,1);  %radiative forcing constraint
+%load('budgets.mat');       %emissions and radiative forcing
 
 %% Calculate radiative forcing from fuel use:
 emissions  = fuel_use * ems_mat;             %emissions matrix 

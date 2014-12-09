@@ -1,10 +1,10 @@
-function [ C,Ceq ] = fuelUser_con( fuel_use,metric,ems_mat )
+function [ C,Ceq ] = fuelUser_con( fuel_use,metric,ems_mat,ek_constraint )
 % This function takes the decision variable and outputs a column vector of 
 % inequality constraints and a column vector of equality constraints. 
 
 %% Set constraint inputs:
 constants;           %loads constants
-load('budgets.mat'); %emissions and radiative forcing
+%load('budgets.mat'); %emissions and radiative forcing
 
 %% Calculate CO2-eq emissions from fuel use:
 emissions  = fuel_use * ems_mat;                          %GHG emissions (t x fuel) * (fuel x gas) = (t x gas)
