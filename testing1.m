@@ -3,10 +3,13 @@ function [ rf ] = testing1( metric,budget )
 constants;
 
 % Calculate emissions to meet budget:
-ek_back = budget * (1-frac);
+eta_e  = eta_k + eta_m .* metric; %CO2 equivalent emissions
+energy = budget ./ eta_e;         %energy consumption
+ems_k  = energy .* eta_k;         %CO2 emissions
+ems_m  = energy .* eta_m;         %CH4 emissions
 
-% Use code from metric comparison project here to calculate total radiative
-% forcing
+% Calculate radiative forcing from emissions:
+
 
 end
 
