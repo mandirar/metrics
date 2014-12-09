@@ -4,7 +4,7 @@
 clear all
 close all
 constants;
-load('testing1.mat')
+load('output1.mat')
 addpath('./tools')
 
 % Create the new figure:
@@ -12,8 +12,8 @@ fig1 = figure; %initializes the figure
 set(gcf, 'Position',[200 200 800 425])
 
 fs   = 14;                    
-xmin = 2015;
-xmax = 2055;
+xmin = 2010;
+xmax = 2060;
 ymin = 0;
 ymax = 130;
 pos1 = [0.11 0.60 0.40 0.37]; %position of sub-figure (a)
