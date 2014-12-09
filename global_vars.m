@@ -3,7 +3,7 @@
 %% General parameters.
 dt          = 1;                                   %time step (years)
 first_year  = 2010;                                %initial year
-last_year   = 2065;                                %final year
+last_year   = 2040;                                %final year
 t           = [first_year : dt : last_year - dt]'; %time vector
 [n,~]       = size(t);                             %length of time vector
 form        = 2;                                   %form of RF function (1 = non-lienar; 2 = linear)
@@ -25,7 +25,7 @@ fuel_count = length(eta_vec);
 ems1_k  = 1;               %tech. 1 CO2 intensity (Pg C/Tg fuel)
 ems1_m  = 0;               %tech. 1 CH4 intensity (Tg CH4/Tg fuel)
 ems2_k  = 0;               %tech. 2 CO2 intensity (Pg C/Tg fuel)
-ems2_m  = 100;             %tech. 2 CH4 intensity (Tg CH4/Tg fuel)
+ems2_m  = 50;             %tech. 2 CH4 intensity (Tg CH4/Tg fuel)
 ems1    = [ems1_k ems1_m]; %tech. 1 GHG intensity vector 
 ems2    = [ems2_k ems2_m]; %tech. 2 GHG intensity vector
 ems_mat = [ems1 ; ems2];   %all tech. GHG intensity matrix

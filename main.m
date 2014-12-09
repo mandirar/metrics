@@ -32,7 +32,7 @@ options.TolX        = 10^-20;
 
 
 %% Save lambda.
-lambdaSim = Lmultipliers.eqnonlin;
+lambdaSim = Lmultipliers.ineqnonlin(1:n);
 tSim = t;
 save('./tools/EqMetrics/lambda_CDM.mat', 'tSim','lambdaSim')
 
