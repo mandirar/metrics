@@ -1,21 +1,28 @@
 INTRODUCTION
+
 The goal of this project is to calculate a variety of emissions equivalency metrics and to test their performance by simulating their use in technology decisions. An emissions equivalency metric is an exchange rate that converts emissions of one type of greenhouse gas into equivalent emissions of another gas, typically carbon dioxide (CO2). "Equivalency" is determined by the relative climate impacts of the two gases, but since gases have different properties, there is no single objective way to make this comparison. As a result, the climate impact intended in the design of the metric and the actual climate impact that results from using the metric may differ. We use this difference as a measure of metric performance. 
 
+
 METRIC CALCULATION
+
 The script metrics_run.m calculates metric values. Metrics calculated include:
-	- The bilevel metric: An endogenous metric where a "policymaker" selects the metric value to maximize energy consumption. The "policymaker" test the metric by using it and a CO2-equivalent emissions cap to regulate the technology choices of a single "fuel user". If the climate outcome does not meet the intended climate objective, the "policymaker" changes the metric value and repeats the process. The search terminates when the optimal metric is found.
-	- The lambda metric: An exogenous metric where the optimal technology selection is simulated, assuming a global decision-maker who selects technologies to maximize energy consumption while meeting a given climate objective. The Lagrange multiplier for the climate constraint is then used to calculate an optimal metric value (see D. J. A. Johansson, Climatic Change, 2012).
-	- Closed-form metrics: The instantaneous climate impact (ICI) and cumulative climate impact (CCI) as well as the global warming potential (GWP). See M. R. Edwards and J. E. Trancik, Nature Climate Change, 2014.
-Metrics are saved in metrics_out.mat.
 
-METRIC SIMULATION
-Several types of metrics can be calculated in the code:
+- The bilevel metric: An endogenous metric where a "policymaker" selects the metric value to maximize energy consumption. The "policymaker" test the metric by using it and a CO2-equivalent emissions cap to regulate the technology choices of a single "fuel user". If the climate outcome does not meet the intended climate objective, the "policymaker" changes the metric value and repeats the process. The search terminates when the optimal metric is found.
 
-Greenhouse gases have very different properties, which means there is no single objective emissions equivalency metric. This project tests different how different options perform in different situations.
+- The lambda metric: An exogenous metric where the optimal technology selection is simulated, assuming a global decision-maker who selects technologies to maximize energy consumption while meeting a given climate objective. The Lagrange multiplier for the climate constraint is then used to calculate an optimal metric value (see D. J. A. Johansson, Climatic Change, 2012).
+
+- Closed-form metrics: The instantaneous climate impact (ICI) and cumulative climate impact (CCI) as well as the global warming potential (GWP). See M. R. Edwards and J. E. Trancik, Nature Climate Change, 2014.
+
+Metrics are saved in metrics.mat.
 
 
- Equivalency metrics are used to convert one type of emission (e.g., a gram of carbon dioxide) to another (e.g., a gram of methane) so that emissions can be compared on the same scale.  
+METRIC TESTING
 
-% Description of the project here.
+The script test_run.m takes the metric values calculated by metrics_run.m and simulates the use of these metrics, in conjunction with a CO2-equivalent emissions budget, to simulate technology decisions and resulting radiative forcing trajectories.  
 
-% Simple instructions for running key simulations.
+Test results are saved in tests.mat.
+
+
+FULL SIMULATION
+
+The script simluation.m runs the full simulation, including metric calculation and testing, and provides graphs of the results using graphs_run.m.

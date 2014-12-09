@@ -2,9 +2,9 @@ function [ fuel_use,metric ] = metricPolicy_fun( ems_mat,ek_constraint )
 % This function executes the emissions and metric optimizaton problem for a 
 % specified set of variables and returns a bilevel metric.
 
-addpath('./tools')
-addpath('./tools/EqMetrics')
-addpath('./fuel_user')
+addpath('./metrics/tools')
+addpath('./metrics.tools/EqMetrics')
+addpath('./metrics/fuel_user')
 
 constants; %loads constants
 variables; %loads default variables

@@ -2,9 +2,9 @@ function [ fuel_use,lambdaSim,metric ] = energyPolicy_fun( ems_mat )
 % This function executes the technology optimization problem for a 
 % specified set of variables and returns a lambda metric.
 
-addpath('./lambda')
-addpath('./tools')
-addpath('./tools/EqMetrics')
+addpath('./metrics/lambda')
+addpath('./metrics/tools')
+addpath('./metrics/tools/EqMetrics')
 
 constants;  %loads constants
 

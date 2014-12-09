@@ -1,14 +1,10 @@
-% This script executes the emissions and metric optimizaton problem for a 
-% default set of variables and returns a bilevel metric.
+function [ fuel_use,metric ] = metricPolicy_fun( ems_mat,ek_constraint )
+% This function executes the emissions and metric optimizaton problem for a 
+% specified set of variables and returns a bilevel metric.
 
-clear all
-
-tic
-
-addpath('./tools')
-addpath('./tools/EqMetrics')
+addpath('./metrics/tools')
+addpath('./metrics.tools/EqMetrics')
 addpath('./fuel_user')
-addapath('./budget
 
 constants; %loads constants
 variables; %loads default variables
@@ -30,13 +26,11 @@ options.MaxIter     = 10^7;
 options.TolX        = 10^-20;
 
 %% Run optimizaton problem:
-metric = fmincon(@(metric) -metricPolicy_obj(metric,ems_mat),guess,A,b,Aeq,beq,lb,ub,@(metric) metricPolicy_con(metric,ems_mat),options);
+metric   = fmincon(@(metric) -metricPolicy_obj(metric,ems_mat,ek_constraint),guess,A,b,Aeq,beq,lb,ub,@(metric) metricPolicy_con(metric,ems_mat,ek_constraint),options);
 
-metric = metric./conversion; %converts metric to g CO2-eq/g CH4
+fuel_use = fuelUser_fun(metric,ems_mat,ek_constraint);
 
-toc
+metric   = metric./conversion; %converts metric to g CO2-eq/g CH4
 
-clear('A','Aeq','Ak','Am','b','beq','conversion','dt','eta1','eta2',...
-    'eta_vec','first_year','form','fuel_count','gCH4_per_molCH4',...
-    'gCO2_per_molCO2','guess','ide_s','last_year','lb','n','options',...
-    'peak','ppbCH4_to_GtCH4','ppmCO2_to_GtC','t','ub')
+end
+

@@ -2,9 +2,10 @@
 % metric values, designed to be run on the cluster.
 
 clear all
-addpath('./variables')
-addpath('./lambda')
-addpath('./bilevel')
+addpath('./metrics/variables')
+addpath('./metrics/lambda')
+addpath('./metrics/bilevel')
+addpath('./metrics/budgets')
 
 tic
 
@@ -34,7 +35,7 @@ variables1;          %loads variables
 %[ fuel_use9Li,  lambdaSim9,  metric9L  ] = energyPolicy_fun(ems_mat9);
 %[ fuel_use10Li, lambdaSim10, metric10L ] = energyPolicy_fun(ems_mat10);
 
-%[ fuel_use1Bi,  metric1B  ] = metricPolicy_fun(ems_mat1);
+[ fuel_use1Bi,  metric1B  ] = metricPolicy_fun(ems_mat1,ek_constraint);
 %[ fuel_use2Bi,  metric2B  ] = metricPolicy_fun(ems_mat2);
 %[ fuel_use3Bi,  metric3B  ] = metricPolicy_fun(ems_mat3);
 %[ fuel_use4Bi,  metric4B  ] = metricPolicy_fun(ems_mat4);
