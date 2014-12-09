@@ -4,7 +4,7 @@ clear all
 tic
 
 addpath('./tools')
-addpath('./metric_1')
+addpath('./lambda')
 
 global_vars; %load global variables
 
@@ -38,5 +38,7 @@ save('./tools/EqMetrics/lambda_CDM.mat', 'tSim','lambdaSim')
 
 %% Plot results:
 plotResults1(fuel_use,lambdaSim)
+
+mu = eqMetric(@lambda_CDM,t)';
 
 toc

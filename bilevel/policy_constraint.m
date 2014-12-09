@@ -4,21 +4,21 @@ function [ C,Ceq ] = policy_constraint( metric )
 % constraints (c) and a column vector of equality constraints (ceq)
 
 % Load supporting functions, scripts, and data files.
-global_vars;                        %global variables
-cpath_lCO2 = legacy_CO2();          %legacy CO2 concentrations
-cpath_lCH4 = legacy_CH4();          %legacy CH4 concentrations
-cpath_lN2O = legacy_N2O();          %legacy N2O concentrations
-load('constraints.mat'); %emissions and radiative forcing
-fuel_use   = user_main();           %calculate fuel use
-
+global_vars;                             %global variables
+cpath_lCO2  = legacy_CO2();              %legacy CO2 concentrations
+cpath_lCH4  = legacy_CH4();              %legacy CH4 concentrations
+cpath_lN2O  = legacy_N2O();              %legacy N2O concentrations
+load('constraints.mat');                 %emissions and radiative forcing
+variables   = user_main(metric);               
+fuel_use    = variables(:,1:fuel_count); %calculate fuel use
 % Interpolate radiative forcing pathway.
 %forcing_c      = interp1(t_old,rf_constraint,t);
 
 %% Calculate radiative forcing pathway:
 % Calculate emissions from fuel use and emissions intensity.
-emissions = fuel_use * ems_mat; %emissions matrix 
-evec_CO2  = emissions(:,1);     %extract CO2 emissions
-evec_CH4  = emissions(:,2);     %extract CH4 emissions
+emissions = fuel_use * ems_mat;              %emissions matrix 
+evec_CO2  = emissions(:,1);                  %extract CO2 emissions
+evec_CH4  = emissions(:,2);                  %extract CH4 emissions
 % Calculate radiative forcing from emissions.
 cvec_CO2   = e2c_CO2(evec_CO2) + cpath_lCO2; %CO2 concentration
 fvec_CO2   = rf_CO2(cvec_CO2);               %CO2 radiative forcing

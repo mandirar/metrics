@@ -34,7 +34,7 @@ mu         = eqMetric(@lambda_CDM,t)';
 gCO2_per_molCO2 = 44.01;      %g CO2 / mol CO2
 gC_per_molCO2   = 12.01;      %g C / mol CO2
 Pg_per_Tg       = 1e-3;
-evec_CO2eq = evec_CO2 + mu.*evec_CH4 * Pg_per_Tg*(gC_per_molCO2/gCO2_per_molCO2); %
+evec_CO2eq = evec_CO2 + mu.*evec_CH4 * Pg_per_Tg*(gC_per_molCO2/gCO2_per_molCO2);
 
 
 
