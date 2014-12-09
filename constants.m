@@ -1,15 +1,14 @@
 %% General parameters:
-dt          = 0.1;                                   %time step (years)
+dt          = 0.1;                                 %time step (years)
 first_year  = 2010;                                %initial year
 last_year   = 2110;                                %final year (2037-2046 +1; EV: 2041)
 t           = (first_year : dt : last_year - dt)'; %time vector
 [n,~]       = size(t);                             %length of time vector
 
 %% Fuel parameters:
-eta1       = 50*10^9;         %tech. 1 energy density (MJ/Tg fuel)
-eta2       = 50*10^9;         %tech. 2 energy density (MJ/Tg fuel)
-eta_vec    = [eta1 ; eta2];   %all tech. energy density (# fuels x 1)
-fuel_count = length(eta_vec); %number of fuels
+eta_k = 0.86; %global technolgoy CO2 intensity (g/J)
+eta_m = 0.14; %global technology CH4 intensity (g/J)
+frac  = 1;    %fraction of technology emissions controlled
 
 %% Climate parameters:
 Ak              = 5.35 / 389.324;     %Wm^-2 / ppm CO2
