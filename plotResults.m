@@ -1,4 +1,6 @@
-function plotResults(t,eta_vec,ems_mat,fuel_use)
+function plotResults(fuel_use)
+
+global_vars; %load global variables
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
 % Preliminary calculations.
@@ -10,9 +12,9 @@ evec_CO2  = emissions(:,1);            %extract CO2 emissions vector
 evec_CH4  = emissions(:,2);            %extract CH4 emissions vector
 
 % Re-compute RF pathway.
-legacy_CO2 ;                          %calculate legacy CO2 concentrations
-legacy_CH4 ;                          %calculate legacy CH4 concentrations
-legacy_N2O ;                          %calculate legacy N2O concentrations
+cpath_lCO2 = legacy_CO2(); %calculate legacy CO2 concentrations
+cpath_lCH4 = legacy_CH4(); %calculate legacy CH4 concentrations
+cpath_lN2O = legacy_N2O(); %calculate legacy N2O concentrations
 % Calculate radiative forcing from CO2.
 cvec_CO2 = e2c_CO2(evec_CO2) + cpath_lCO2;
 fvec_CO2 = rf_CO2(cvec_CO2);

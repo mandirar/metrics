@@ -5,9 +5,9 @@ function [ C,Ceq ] = constraint( fuel_use )
 
 %% Load supporting functions and scripts:
 global_vars; %global variables
-legacy_CO2 ; %legacy CO2 concentrations (cpath_lCO2)
-legacy_CH4 ; %legacy CH4 concentrations (cpath_lCH4)
-legacy_N2O ; %legacy N2O concentrations (cpath_lN2O)
+cpath_lCO2 = legacy_CO2(); %legacy CO2 concentrations
+cpath_lCH4 = legacy_CH4(); %legacy CH4 concentrations
+cpath_lN2O = legacy_N2O(); %legacy N2O concentrations
 
 % Define emissions matrix. An element e_ti gives the emissions of gas i in
 % year t.

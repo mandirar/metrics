@@ -1,3 +1,4 @@
+function [ cpath_lCO2 ] = legacy_CO2( )
 % LEGACY_CO2 calculates the legacy CO2 concentrations resulting from
 % historical CO2 emissions and adjusting for actual concentrations at time
 % zero (2010).
@@ -82,5 +83,4 @@ else
    %save('interpolation_basis.mat','t_basis','cpath_basis')
 end
 
-% Clear intermediate variables.
-clear('cpath_basis','interpolate_pathway','t_basis');
+end
