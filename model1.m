@@ -1,5 +1,6 @@
 clear all
 addpath('./tools')
+addpath('./tools/EqMetrics')
 constants;
 
 % Define t1 (the mitigation onset year) for each scenario. Numbers
@@ -64,4 +65,4 @@ clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
     'N2O_t0','a_CH4','a_CO2','a_N2O','c0_CH4','c0_CO2','c0_N2O','c1',...
     'c2','c3','conversion','e0','e1','e2','fe','t3')
 
-save('./projectI/testing1.mat')
+save('output1.mat')
