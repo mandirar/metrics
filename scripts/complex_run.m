@@ -60,6 +60,6 @@ clear('A','Aeq','Ak','Am','b','beq','conversion','dt','eta1','eta2',...
     'ems_mat8','ems_mat9','ems_mat10','ek_constraint','rf_constraint',...
     'ts')
 
-save('metrics.mat')
+save('metrics/metrics.mat')
 
 toc
