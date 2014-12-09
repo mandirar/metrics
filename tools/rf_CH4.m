@@ -8,7 +8,7 @@ function [ rf1,rf2 ] = rf_CH4 ( conc )
 % approximation).
 
 %% INPUT VARIABLES:
-global_vars
+constants; %loads constants
 [~,cols] = size(conc); %number of columns
 
 %% Define greenhouse gas concentrations and other constants.

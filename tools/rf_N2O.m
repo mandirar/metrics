@@ -8,7 +8,7 @@ function [ rf1,rf2 ] = rf_N2O( conc )
 % approximation).
 
 %% INPUT VARIABLES:
-global_vars
+constants; %loads constants
 [~,cols] = size(conc); %number of columns
 
 %% Define GHG concentrations and other constants.

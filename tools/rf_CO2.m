@@ -6,7 +6,7 @@ function [ rf1,rf2,rf_vec ] = rf_CO2( conc )
 % linear approximation (1 == full function; 2 == linear approximation).
 
 %% INPUT VARIABLES:
-global_vars
+constants; %loads constants
 [~,cols] = size(conc); %number of columns
 
 %% Define CO2 concentrations and other constants.

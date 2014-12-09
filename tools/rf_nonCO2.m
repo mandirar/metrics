@@ -4,7 +4,7 @@ function [ fpath_nonCO2 ] = rf_nonCO2()
 % decay with no replacement, and other radiative forcing contributions are 
 % held constant at current values.
 
-global_vars; %load global variables
+constants; %loads constants
 
 %% Define variables
 c0_CH4      = 1778.675; %current CH4 concentrations (ppb)

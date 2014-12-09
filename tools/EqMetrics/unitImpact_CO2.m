@@ -10,7 +10,7 @@ function I = unitImpact_CO2(lambdaFun,te)
 %   @lambda_CCI
 %   @lambda_GWP
 
-global_vars
+constants;
 
 % For each emissions time t1(i), compute integral from t1(i) to time horizon.
 for i = 1:length(te)
