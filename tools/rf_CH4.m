@@ -34,8 +34,6 @@ end
 
 end
 
-
-
 %% Helper function: Define simple radiative forcing function.
 function [ rf ] = RFcalc_GHG( conc,a,c_t0 )
 rf = a*(sqrt(conc) - sqrt(c_t0));
