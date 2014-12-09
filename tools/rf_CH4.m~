@@ -4,13 +4,22 @@ function [ rf1,rf2 ] = rf_CH4 ( conc )
 % is used. If form = 2, the linear approximation is used. 
 
 constants;             %loads constants
-[~,cols] = size(conc); %number of c pathways (columns in conc)
+[~,cols] = size(conc); %number of columns
 
-% Calculate vector of radaitive forcing calculations.
+%% Define greenhouse gas concentrations and other constants.
+a_CH4  = 0.036;    %constant (units W/m^2 ppb^(-1/2)
+CH4_t0 = 700;      %pre-industrial CH4 concentration (ppb)
+N2O_t0 = 270;      %pre-industrial N2O concentration (ppb)
+c0_CH4 = 1778.675; %current CH4 concentraiton (ppb)
+
+% Note: Current concentrations are for the year 2010 and taken from the
+% MESSAGE model, available on the RCP Database.
+
+%% Calculate vector of radaitive forcing calculations.
 rf_vec = ide_s*[RFcalc_CH4(conc,a_CH4,CH4_t0,N2O_t0)...
    RFlin_CH4(conc,a_CH4,c0_CH4,CH4_t0,N2O_t0)];
 
-% Assign values to RF1 and RF2.
+%% Assign values to RF1 and RF2.
 rf2 = rf_vec(:,cols + 1 : cols*2);
 if form == 1
    rf1 = rf_vec(:,1:cols);
@@ -20,12 +29,12 @@ end
 
 end
 
-% Helper function: Define simple radiative forcing function.
+%% Helper function: Define simple radiative forcing function.
 function [ rf ] = RFcalc_GHG( conc,a,c_t0 )
 rf = a*(sqrt(conc) - sqrt(c_t0));
 end
 
-% Helper function: Define band overlap function.
+%% Helper function: Define band overlap function.
 function [ overlap ] = interact( CH4,N2O )
 % Define constants.
 c1 = 0.47;        %units W/m^2
@@ -36,13 +45,13 @@ e2 = 1.52;        %unitless
 overlap = c1*log(1 + c2*(CH4*N2O).^e1 + c3*CH4.*(CH4*N2O).^e2);
 end
 
-% Helper function: Define full radiative forcing function.
+%% Helper function: Define full radiative forcing function.
 function [ rf ] = RFcalc_CH4( conc,a_CH4,CH4_t0,N2O_t0 )
 rf = RFcalc_GHG(conc,a_CH4,CH4_t0) ...
    - (interact(conc,N2O_t0) - interact(CH4_t0,N2O_t0));
 end
 
-% Helper function: Define linear aproximation function.
+%% Helper function: Define linear aproximation function.
 function[ rf ] = RFlin_CH4( conc,a_CH4,c0_CH4,CH4_t0,N2O_t0 )
 %Define constants.
 c1 = 0.47;        %units W/m^2

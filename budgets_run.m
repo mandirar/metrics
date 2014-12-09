@@ -9,7 +9,7 @@ addpath('./tools')
 constants;
 
 % Define mitigation year for scenario:
-t1 = 2010; %2010-2028 (EV: 2017) 
+t1 = 2030; %2015-2028 (EV: 2017) 
 
 % Calculate emissions and radiative forcing: 
 [ ek_constraint,~,rf_constraint ] = scenario_generator( t1 );
