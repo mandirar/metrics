@@ -12,16 +12,11 @@ function [ frac,evec,cvec,rate ] = conc_in_year( fe,t1,t2,t3,e0 )
 
 %% INPUT VARIABLES:
 % Declare global variables.
-global dt
+global_vars
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
 % Construct growth rate pathway g(t).
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
-% Construct time vector.
-first_year = 2010;
-last_year  = 2110;
-t          = (first_year : dt : last_year - dt)';
-
 % Translate Allen et al's notation into better notation.
 s1 = t1 - first_year;               % end time of segment #1 (as measured from first_year)
 s2 = s1 + t2;                       % peak time (as measured from first_year)

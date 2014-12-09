@@ -35,16 +35,18 @@ fvec_other = -0.5175*ones(n,1);
 %% Calculate total radaitive forcing.
 fvec = fvec_CO2 + fvec_CH4 + fvec_N2O + fvec_other;
 
-% Return inequality and equality constraints for use in fmincon. The
-% inequality constraint C(x) should be constructed as an expression that
-% should be less than zero, C(x) < 0. The equality constraint should be
-% constructed so that Ceq(x) = 0.
-
+%% Calculate radiative forcing constraint.
 load('const_vec.mat')
 
-const_vec = dt1_to_dt2(const_vec,1,dt);
+% Define new time variables:
+dt_old         = 0.01; %time step (years)
+first_year_old = 2010; %initial year
+last_year_old  = 2110; %final year
+t_old          = (first_year_old : dt_old : last_year_old - dt_old)';
+% Interpolate radiative forcing pathway:
+const_vec = interp1(t_old,const_vec,t);
 
-RF_C = const_vec; %we can also put a constant value here, like 3
+RF_C = const_vec; 
 Ceq  = fvec - RF_C; % Inequality constraint: RF < RF_C for all t.
 C    = [];          % No equality constraints (ceq is blank).
 
