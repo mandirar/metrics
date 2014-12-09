@@ -5,10 +5,11 @@
 % The name of the mat file can be changed to save multiple budgets.
 
 clear all
+addpath('./tools')
 constants;
 
 % Define mitigation year for scenario:
-t1 = 2017; %2010-2028 (EV: 2017) 
+t1 = 2010; %2010-2028 (EV: 2017) 
 
 % Calculate emissions and radiative forcing: 
 [ ek_constraint,~,rf_constraint ] = scenario_generator( t1 );

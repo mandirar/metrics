@@ -2,7 +2,7 @@ function [ decay ] = decay_CH4 ( t )
 % DECAY_CH4 computes the fraction of a CH4 emissions perturbation remaining
 % in the atmosphere after t years.
 
-tau = 12; %units of years
+tau = 12.4; %units of years
 
 decay = exp(-t/tau);
 
