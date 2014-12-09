@@ -1,5 +1,5 @@
 %% General parameters:
-dt          = 0.1;                                 %time step (years)
+dt          = 0.001;                                 %time step (years)
 first_year  = 2010;                                %initial year
 last_year   = 2110;                                %final year (2037-2046 +1; EV: 2041)
 t           = (first_year : dt : last_year - dt)'; %time vector
@@ -7,7 +7,7 @@ t           = (first_year : dt : last_year - dt)'; %time vector
 
 %% Fuel parameters:
 eta_k = 10.4; %global technolgoy CO2 intensity (kg C/J)
-eta_m = 0.32; %global technology CH4 intensity (g CH4/J)
+eta_m = 0; %0.32; %global technology CH4 intensity (g CH4/J)
 frac  = 1;    %fraction of technology emissions controlled
 
 %% Climate parameters:

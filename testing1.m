@@ -1,4 +1,4 @@
-function [ rf,evec_CO2 ] = testing1( metric,budget )
+function [ rf,cvec_CO2 ] = testing1( metric,budget )
 
 constants;
 

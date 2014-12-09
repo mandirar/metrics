@@ -5,9 +5,6 @@ function [ cpath_lN2O ] = legacy_N2O( )
 
 constants; %loads constants
 
-c0_N2O      = 323.061;  %current N2O concentrations (ppb)
-N2O_t0      = 270;      %pre-industrial N2O concentrations (ppb)
-
 % Vector of multiplicative change in N2O perturbation.
 delta_N2O = cumprod([1; ones(n - 1,1)*decay_N2O(dt)]);
 
