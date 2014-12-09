@@ -5,68 +5,100 @@ clear all
 close all
 constants;
 load('metrics.mat')
-addpath('./tools/SubAxis/')
-clf
+addpath('./tools')
 
-% Create the new figure and define general properties:
-figure(1)        %initializes the figure
-font_size = 16;  %set font size
+% Create the new figure:
+fig1 = figure;                %initializes the figure
+set(gcf, 'Position',[200 200 800 425])
+fs      = 14;                    %set font size
+xmin    = 2015;
+xmax    = 2046;
+ymin    = 0;
+ymax    = 130;
+lgnd    = ['GWP','IWP','ICI','CCI'];
+pos1    = [0.11 0.60 0.40 0.37]; %position of sub-figure (a)
+pos2    = [0.60 0.60 0.40 0.37]; %position of sub-figure (b)
+pos3    = [0.11 0.10 0.40 0.37]; %position of sub-figure (c)
+pos4    = [0.60 0.10 0.40 0.37]; %position of sub-figure (d)
 
-% Define axis spacing (from James):
-margin       = 0.05; 
-padding      = 0.00;
-spacingVert  = 0.08;
-spacingHoriz = 0.06;
-marginLeft   = 0.03;
-marginRight  = 0.03;
-marginTop    = 0.03;
+% Create axes for the sub-figures:
+axes1 = axes('Parent',fig1,'Tag','subaxis',...
+        'FontSize',fs,...
+        'Position',pos1,...
+        'box'     ,'on');
+xlim([xmin xmax]);
+ylim([ymin ymax]);
+xlabel('year');
+ylabel('g CO_2-eq/g CH_4');
+hold(axes1,'all');
 
+axes2 = axes('Parent',fig1,'Tag','subaxis',...
+        'FontSize',fs,...
+        'Position',pos2,...
+        'box'     ,'on');
+xlim([xmin xmax]);
+ylim([ymin ymax]);
+xlabel('year');
+ylabel('g CO_2-eq/g CH_4');
+hold(axes2,'all');
 
+axes3 = axes('Parent',fig1,'Tag','subaxis',...
+        'FontSize',fs,...
+        'Position',pos3,...
+        'box'     ,'on');
+xlim([xmin xmax]);
+ylim([ymin ymax]);
+xlabel('year');
+ylabel('g CO_2-eq/g CH_4');
+hold(axes3,'all');
 
-
-
-
-
-
-
-
-% Plot fuel use over time:
-subaxis(2,2,1, 'Margin',margin, 'Padding',padding, 'SpacingVert',spacingVert, 'SpacingHoriz',spacingHoriz, 'MarginRight',marginRight, 'MarginTop',marginTop)%, 'MarginLeft', marginLeft)
+axes4 = axes('Parent',fig1,'Tag','subaxis',...
+        'FontSize',fs,...
+        'Position',pos4,...
+        'box'     ,'on');
+xlim([xmin xmax]);
+ylim([ymin ymax]);
+xlabel('year');
+ylabel('g CO_2-eq/g CH_4');
+hold(axes4,'all');
+    
+% Plot data on the sub-figures:
 hold on
-plot(t,GWP,'b');
-%plot(t,fuel_use(:,2), 'r');
+plot(t,GWP,'Parent',axes1,'Color',rgb('FireBrick'));
+plot(t,IWP,'Parent',axes1,'Color',rgb('MediumAquaMarine'));
+plot(t,ICI,'Parent',axes1,'Color',rgb('CornflowerBlue'));
+plot(t,CCI,'Parent',axes1,'Color',rgb('Amethyst'));
+legend(axes1,'GWP','IWP','ICI','CCI')
+legend1 = legend(axes1,'show');
+set(legend1,'Location','EastOutside','Box','off');
 hold off
-set(gca, 'FontSize',font_size)
-ylabel('Tg fuel / yr')
-%legend('fuel 1','fuel 2')
-set(gca, 'Box','on')
 
-% Plot energy consumption over time:
-subaxis(2,2,2)
-plot(t,ICI)
-set(gca, 'FontSize',font_size)
-ylabel('MJ / yr')
-%legend('energy consumption')
+hold on
+plot(t,GWP,'Parent',axes2,'Color',rgb('FireBrick'));
+plot(t,IWP,'Parent',axes2,'Color',rgb('MediumAquaMarine'));
+plot(t,ICI,'Parent',axes2,'Color',rgb('CornflowerBlue'));
+plot(t,CCI,'Parent',axes2,'Color',rgb('Amethyst'));
+legend(axes2,'GWP','IWP','ICI','CCI')
+legend2 = legend(axes2,'show');
+set(legend2,'Location','EastOutside','Box','off');
+hold off
 
-% Plot CO2 emissions over time:
-subaxis(2,2,3)
-plot(t,CCI)
-%hold on
-%plot(t,evec_CO2eq,'--')
-%hold off
-set(gca, 'FontSize',font_size)
-%ylabel('Pg C / yr')
-%legend('e_{CO2}','e_{CO2-eq}')
+hold on
+plot(t,GWP,'Parent',axes3,'Color',rgb('FireBrick'));
+plot(t,IWP,'Parent',axes3,'Color',rgb('MediumAquaMarine'));
+plot(t,ICI,'Parent',axes3,'Color',rgb('CornflowerBlue'));
+plot(t,CCI,'Parent',axes3,'Color',rgb('Amethyst'));
+legend(axes3,'GWP','IWP','ICI','CCI')
+legend3 = legend(axes3,'show');
+set(legend3,'Location','EastOutside','Box','off');
+hold off
 
-% Plot CH4 emissions over time:
-subaxis(2,2,4)
-plot(t,IWP)
-set(gca, 'FontSize',font_size)
-ylabel('Tg CH4 / yr')
-%legend('e_{CH4}')
-
-%% USEFUL COMMANDS: 
-
-% Set how figure displays on screen:
-%set(gcf, 'Position', [x y xwidth ywidth])
-
+hold on
+plot(t,GWP,'Parent',axes4,'Color',rgb('FireBrick'));
+plot(t,IWP,'Parent',axes4,'Color',rgb('MediumAquaMarine'));
+plot(t,ICI,'Parent',axes4,'Color',rgb('CornflowerBlue'));
+plot(t,CCI,'Parent',axes4,'Color',rgb('Amethyst'));
+legend(axes4,'GWP','IWP','ICI','CCI')
+legend4 = legend(axes4,'show');
+set(legend4,'Location','EastOutside','Box','off');
+hold off
