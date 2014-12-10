@@ -9,5 +9,14 @@ function lambda = lambda_CCI(ti,te,helper)
 % argument list so that the functions unitImpact_CO2, unitImpact_CH4, and
 % eqMetric will function correctly.
 
-ts     = helper;
-lambda = or(((ti >= te) & (ti <= ts)), (te > ts));
+% When the emission year is greater than the stabilization year, lambda is
+% equal to one in the emission year and zero in all other years
+
+
+ts = helper;
+
+if te <= ts
+    lambda = (ti >= te) & (ti <= ts);
+elseif te > ts
+    lambda = ti == te;
+end

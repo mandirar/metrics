@@ -46,22 +46,22 @@ ts_45m = round(mean([ts_45e ts_45l]));      %mean ts
 % Calculate metrics based on ts for each scenario (early and late) and a
 % middle ts found by taking the average:
 
-GWP_100 = eqMetric(@lambda_GWP,t,100)';
-GWP_020 = eqMetric(@lambda_GWP,t,20)';
+%GWP_100 = eqMetric(@lambda_GWP,t,100)';
+%GWP_020 = eqMetric(@lambda_GWP,t,20)';
 
 ICI_30e = eqMetric(@lambda_ICI,t,ts_30e)'; 
-ICI_30m = eqMetric(@lambda_ICI,t,ts_30m)'; 
-ICI_30l = eqMetric(@lambda_ICI,t,ts_30l)'; 
-ICI_45e = eqMetric(@lambda_ICI,t,ts_45e)'; 
-ICI_45m = eqMetric(@lambda_ICI,t,ts_45m)';
-ICI_45l = eqMetric(@lambda_ICI,t,ts_45l)'; 
+%ICI_30m = eqMetric(@lambda_ICI,t,ts_30m)'; 
+%ICI_30l = eqMetric(@lambda_ICI,t,ts_30l)'; 
+%ICI_45e = eqMetric(@lambda_ICI,t,ts_45e)'; 
+%ICI_45m = eqMetric(@lambda_ICI,t,ts_45m)';
+%ICI_45l = eqMetric(@lambda_ICI,t,ts_45l)'; 
 
 CCI_30e = eqMetric(@lambda_CCI,t,ts_30e)'; 
-CCI_30m = eqMetric(@lambda_CCI,t,ts_30m)'; 
-CCI_30l = eqMetric(@lambda_CCI,t,ts_30l)'; 
-CCI_45e = eqMetric(@lambda_CCI,t,ts_45e)'; 
-CCI_45m = eqMetric(@lambda_CCI,t,ts_45m)';
-CCI_45l = eqMetric(@lambda_CCI,t,ts_45l)'; 
+%CCI_30m = eqMetric(@lambda_CCI,t,ts_30m)'; 
+%CCI_30l = eqMetric(@lambda_CCI,t,ts_30l)'; 
+%CCI_45e = eqMetric(@lambda_CCI,t,ts_45e)'; 
+%CCI_45m = eqMetric(@lambda_CCI,t,ts_45m)';
+%CCI_45l = eqMetric(@lambda_CCI,t,ts_45l)'; 
 
 % Clear variables (before saving .mat file):
 clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
