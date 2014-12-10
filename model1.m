@@ -8,10 +8,16 @@ constants;
 % mitigaiton onest year (early vs. late).
 
 t1_30e = 2015; 
-t1_30l = 2031; %2033 for smaller dt
+t1_30l = 2027;
+% Linear with small dt: 2027
+% Nonlinear with large dt: 2031
+% Nonlinear with small dt: 2033
 
 t1_45e = 2015; 
-t1_45l = 2056; %2058 for smaller dt
+t1_45l = 2046; 
+% Linear with small dt: 2046
+% Nonlinear with large dt: 2056
+% Nonlinear with small dt: 2058
 
 % Calculate CO2-eq emissions and resulting radiative forcing pathway for 
 % each scenario: 

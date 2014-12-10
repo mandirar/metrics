@@ -10,4 +10,4 @@ function lambda = lambda_CCI(ti,te,helper)
 % eqMetric will function correctly.
 
 ts     = helper;
-lambda = (ti >= te) & (ti <= ts);
+lambda = or(((ti >= te) & (ti <= ts)), (te > ts));

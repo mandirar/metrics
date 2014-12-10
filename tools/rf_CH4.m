@@ -19,7 +19,7 @@ end
 % Select the radiative forcing ouput based on form:
 if pick_form == 1
     rf = rf_nln;
-elseif pick_form == 0
+elseif pick_form == 2
     rf = rf_lin;
 end
 
