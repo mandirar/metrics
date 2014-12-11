@@ -14,6 +14,7 @@ for i = 1:length(te)
    infinity  = te(i) + aLongTime;   
    tprime    = [te(i) : dt : infinity];
    I(i)      = ide_s * Am * sum( lambdaFun(tprime,te(i),helper) .* decay_CH4(tprime - te(i)) * dt );
+   %te(i)
    %if te > helper - dt
    %    decay_CH4(tprime - te(i))
    %    pause

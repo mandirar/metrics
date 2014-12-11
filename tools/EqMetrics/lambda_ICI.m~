@@ -11,11 +11,22 @@ function lambda = lambda_ICI(ti,te,helper)
 
 constants;
 
+%te;
+
+%ti;
+
 ts = helper;
 
-te = round(te,decimals);
-ts = round(ts,decimals);
-ti = round(ti,decimals);
+ts = round(ts,dt
+
+%te <= ts
+%ts = (helper - fist_year + dt);
+
+%ts_30e * dt + first_year - dt
+
+sum(ti == ts)
+
+pause
 
 if te <= ts
     lambda = ti == ts;

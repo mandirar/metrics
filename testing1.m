@@ -3,13 +3,17 @@ function [ rf,cvec_CO2 ] = testing1( metric,emissions )
 constants;
 
 % Calculate emissions to meet budget:
-eta_e    = eta_k + (eta_m .* metric);         %CO2-eq emissions intensity (g CO2/J)
-eta_e    = eta_e * 12/44;                     %CO2-eq emissiosn intensity (GtC/TJ)
-budget   = emissions .* frac;                 %CO2-eq emisisons budget (GtC)
-e_other  = emissions .* (1-frac);             %CO2 emissions outside budget (GtC)
-energy   = budget ./ eta_e;                   %energy consumption
-evec_CO2 = energy .* eta_k * 12/44 + e_other; %CO2 emissions (GtC)
-evec_CH4 = energy .* eta_m * 1000;            %CH4 emissions (Tg CH4)
+q        = 0.0648;
+evec_CO2 = emissions .* (1 - q);
+evec_CH4 = emissions .* (44/12) .* q ./ metric * 1000;
+
+%eta_e    = eta_k + (eta_m .* metric);         %CO2-eq emissions intensity (g CO2/J)
+%eta_e    = eta_e * 12/44;                     %CO2-eq emissiosn intensity (GtC/TJ)
+%budget   = emissions .* frac;                 %CO2-eq emisisons budget (GtC)
+%e_other  = emissions .* (1-frac);             %CO2 emissions outside budget (GtC)
+%energy   = budget ./ eta_e;                   %energy consumption
+%evec_CO2 = energy .* eta_k * 12/44 + e_other; %CO2 emissions (GtC)
+%evec_CH4 = energy .* eta_m * 1000;            %CH4 emissions (Tg CH4)
 
 % Convert emissions to concentrations:
 cpath_lCO2 = legacy_CO2(); %calculate legacy CO2 concentrations

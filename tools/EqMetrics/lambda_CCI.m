@@ -12,8 +12,13 @@ function lambda = lambda_CCI(ti,te,helper)
 % When the emission year is greater than the stabilization year, lambda is
 % equal to one in the emission year and zero in all other years
 
+constants;
 
 ts = helper;
+
+te = round(te,decimals);
+ts = round(ts,decimals);
+ti = round(ti,decimals);
 
 if te <= ts
     lambda = (ti >= te) & (ti <= ts);
