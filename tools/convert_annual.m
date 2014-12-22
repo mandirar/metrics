@@ -3,7 +3,7 @@ function [ new_mat ] = convert_annual( old_mat )
 %GLOBAL_VARIABLES) and changes it to annual (or smaller) steps for easier
 %exporting to Excel and other programs.
 
-global_vars; %load the value of dt (units of years)
+constants; %load the value of dt (units of years)
 step = 1;       %define new time step (units of years)
 
 % Define time vectors for OLD_MAT and NEW_MAT:
