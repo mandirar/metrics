@@ -10,11 +10,11 @@ constants; %load constants
 for i = 1:length(te)
    
    % Compute integral from emissions time t(i) out to "infinity":
-   aLongTime = 300;                     
+   aLongTime = 1000;                     
    infinity  = te(i) + aLongTime;       
    tprime    = te(i) : dt : infinity;
-   
    I(i)      = Ak * sum( lambdaFun(tprime,te(i),helper) .* decay_CO2(tprime - te(i)) * dt );
+
 end
 
 % Convert units:

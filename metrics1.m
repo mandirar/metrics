@@ -1,6 +1,9 @@
 % This script calculates equivalency metric values for generic use with a
 % 2050 stabiliation horizon.
 
+addpath('./tools')
+addpath('./tools/EqMetrics')
+
 constants;
 
 GWP_100 = eqMetric(@lambda_GWP,t,100)';
@@ -21,3 +24,5 @@ clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
     'ppbCH4_to_GtCH4','ppmCO2_to_GtC','t','t1','CH4_t0','CO2_t0',...
     'N2O_t0','a_CH4','a_CO2','a_N2O','c0_CH4','c0_CO2','c0_N2O','c1',...
     'c2','c3','conversion','e0','e1','e2','fe','t3')
+
+save('metrics.mat')

@@ -12,9 +12,11 @@ eta_m = 0.1165; %global technology CH4 intensity (g CH4/J)
 frac  = 0.7155; %fraction of technology emissions controlled
 
 %% Climate parameters:
+%Ak = 1.4e-2;
+%An = 3.03e-3;
 Ak              = 1.37e-2; %Wm^-2 / ppm CO2
 Am              = 3.63e-4; %Wm^-2 / ppb CH4
-An              = 3.00e-3; %Wm^-2 / ppb N2O 
+An              = (3.00e-3)*0.928126; %Wm^-2 / ppb N2O 
 form            = 1;       %forcing function (1 = non-lienar; 2 = linear)
 ide_s           = 1.65;    %indirect effect of CH4
 gCO2_per_molCO2 = 44.01;   %g CO2 / mol CO2

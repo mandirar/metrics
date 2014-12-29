@@ -9,8 +9,9 @@ hold on
 plot(t,rf_30e);
 plot(t,GWP30e);
 plot(t,ICI30e30e);
+plot(t,CCI30e30e);
 set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','ICI');
+legend('Intended','GWP','ICI','CCI');
 set(legend,'Location','Southeast','Box','off','FontSize',16);
 xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
@@ -23,8 +24,9 @@ hold on
 plot(t,rf_30l);
 plot(t,GWP30l);
 plot(t,ICI30l30l);
+plot(t,CCI30l30l);
 set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','ICI');
+legend('Intended','GWP','ICI','CCI');
 set(legend,'Location','Southeast','Box','off','FontSize',16);
 xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
@@ -37,8 +39,9 @@ hold on
 plot(t,rf_45e);
 plot(t,GWP45e);
 plot(t,ICI45e45e);
+plot(t,CCI45e45e);
 set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','ICI');
+legend('Intended','GWP','ICI','CCI');
 set(legend,'Location','Southeast','Box','off','FontSize',16);
 xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
@@ -51,8 +54,9 @@ hold on
 plot(t,rf_45l);
 plot(t,GWP45l);
 plot(t,ICI45l45l);
+plot(t,CCI45l45l);
 set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','ICI');
+legend('Intended','GWP','ICI','CCI');
 set(legend,'Location','Southeast','Box','off','FontSize',16);
 xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');

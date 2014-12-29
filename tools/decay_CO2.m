@@ -2,6 +2,14 @@ function [ decay ] = decay_CO2 ( t )
 % DECAY_CO2 computes the fraction of a CO2 emissions perturbation remaining 
 % in the atmosphere after t years.
 
+%a0 = .217;
+%a1 = .259;
+%a2 = .338;
+%a3 = .186;
+%tau1 = 172.9;
+%tau2 = 18.51;
+%tau3 = 1.186;
+
 a0 = 0.2173;  %unitless
 a1 = 0.224;   %unitless
 a2 = 0.2824;  %unitless

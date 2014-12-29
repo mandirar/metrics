@@ -10,7 +10,7 @@ constants; %load constants
 for i = 1:length(te)
    
    % Compute integral from emissions time t(i) out to "infinity":
-   aLongTime = 300;                 
+   aLongTime = 1000;                 
    infinity  = te(i) + aLongTime;   
    tprime    = [te(i) : dt : infinity];
    I(i)      = An * sum(lambdaFun(tprime,te(i),helper) .* decay_N2O(tprime - te(i)) * dt );
