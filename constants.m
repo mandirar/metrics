@@ -1,5 +1,5 @@
 %% General parameters:
-dt          = 0.1;                                 %time step (years)
+dt          = 1;                                 %time step (years)
 decimals    = 1;                                   %number of digets in time step
 first_year  = 2010;                                %initial year
 last_year   = 2110;                                %final year (2037-2046 +1; EV: 2041)

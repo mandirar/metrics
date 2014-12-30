@@ -17,8 +17,7 @@ function t2 = find_t2(e0_k,e0_m,fe,t1,t3,peak)
 % OUTPUTS:
 % t2:   time from t1 until emissions stabilization (years)
 
-%constants; %load constants (hopefully won't need this, since it would
-%re-write the inputs to the function)
+constants;
 
 cpath_lCO2   = legacy_CO2();         %legacy CO2 concentrations (ppm)
 cpath_lCH4   = legacy_CH4();         %legach CH4 concentrations (ppb)
@@ -32,16 +31,10 @@ t_low          = 0;                 % initial lower bound on t2
 t_hi           = 100;               % initial upper bound on t2
 try_t2         = (t_low + t_hi)/2;  % initial guess for t2
 
-
-
-
-
-
-
-
-[~,~,cnew_CO2] = conc_in_year(fe,t1,try_t2,t3,e0);
-fpath_total    = fpath_nonCO2 + rf_CO2(cnew_CO2 + cpath_lCO2);
-err            = max(fpath_total) - peak;
+[cnew_CO2,cnew_CH4] = conc_in_year(fe,t1,try_t2,t3,e0_k,e0_m);
+fpath_total         = rf_CO2(cnew_CO2 + cpath_lCO2) + ...
+                      rf_CH4(cnew_CH4 + cpath_lCH4) + fpath_other;
+err                 = max(fpath_total) - peak;
 
 % Repeatedly bisect the interval until the error is within the tolerance.
 num_attempts = 0;
@@ -60,8 +53,11 @@ while abs(err) > tolerance
    end
    
    try_t2         = (t_low + t_hi)/2;
-   [~,~,cnew_CO2] = conc_in_year(fe,t1,try_t2,t3,e0);
-   fpath_total    = fpath_nonCO2 + rf_CO2(cnew_CO2 + cpath_lCO2);
-   err            = max(fpath_total) - peak;
+   
+   
+   [cnew_CO2,cnew_CH4] = conc_in_year(fe,t1,try_t2,t3,e0_k,e0_m);
+   fpath_total         = rf_CO2(cnew_CO2 + cpath_lCO2) + ...
+                         rf_CH4(cnew_CH4 + cpath_lCH4) + fpath_other;
+   err                 = max(fpath_total) - peak;
 end
 t2 = try_t2;

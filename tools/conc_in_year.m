@@ -12,13 +12,10 @@ function [ cvec_k,cvec_m ] = conc_in_year( fe,t1,t2,t3,e0_k,e0_m )
 % OUTPUTS:
 % cvec_k: CO2 concentration pathway (ppm)
 % cvec_m: CH4 concentration pathway (ppb)
-% Declare global variables.
 
 constants;
 
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
-% Construct growth rate pathway g(t).
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
+% CONSTRUCT GROWTH RATE PATHWAY:
 
 % Translate Allen et al's notation into better notation.
 s1 = t1 - first_year;               % end time of segment #1 (as measured from first_year)
@@ -38,37 +35,14 @@ gseg2 = g0 + m*(tseg2 - (first_year + s1));               % segment #2
 gseg3 = gf*ones(length(tseg3),1);                         % segment #3
 rate  = [gseg1; gseg2; gseg3];
 
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
-% Construct emissions pathway e(t).
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
+% CONSTRUCT EMISSIONS PATHWAY:
 
 evec_k = e0_k * exp( [0; cumsum(rate(1:end - 1)*dt)] );
 evec_m = e0_m * exp( [0; cumsum(rate(1:end - 1)*dt)] );
 
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
-% Construct concentration pathway c(t).
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
+% CONSTRUCT CONCENTRATION PATHWAY:
 
-% Pre-compute all possible values of impulse response function.
-Delta_t_vec = (last_year - first_year : -dt :first_year - last_year)';
-IRFvec_k    = decay_CO2(Delta_t_vec);
-IRFvec_m    = decay_CH4(Delta_t_vec);
-
-% Compute the integral over emissions for each impact year t2.
-n      = length(t);
-cvec_k = zeros(n,1);
-cvec_m = zeros(n,1);
-c0     = 0;
-it     = 0;
-for t2 = first_year : dt : last_year - dt
-   it        = it + 1;
-   iFirst    = (n + 1) + 1 - it; % select range of indices corresponding
-   iLast     = (n + 1) + n - it; % to range of needed Delta_t's
-   IRFvec_t  = IRFvec(iFirst : iLast);  
-   cvec_k(it)  = c0 + IRFvec_t' * evec_k * dt; % compute integral
-   cvec_m(it)  = c0 + IRFvec_t' * evec_m * dt; % compute integral
-end
-
-cvec = cvec / 2.12; %convert from GtC to ppm
+cvec_k = e2c_CO2(evec_k);
+cvec_m = e2c_CH4(evec_m);
 
 end
