@@ -28,4 +28,24 @@ fvec_new = [fvec_old(1:i_peak) ; rf_max * ones(n - i_peak,1)];
 % maximize fraction
 % subject to radiative forcing equal to what we expect
 
+% Set optimizaton inputs:
+guess = rand(n,1);     %initial guess for fuel use
+lb    = zeros(n,1);    %lower bounds
+ub    = inf*ones(n,1); %upper bounds
+A     = [];            %linear inequality constraint...
+b     = [];            %...of the form Ax <= b
+Aeq   = [];            %linear equality constraint...
+beq   = [];            %...of the form Ax = b
+
+% Set optimization options:
+options             = optimset('fmincon'); 
+options.Algorithm   = 'interior-point';    
+options.MaxFunEvals = 10^7;
+options.MaxIter     = 10^7;
+options.TolX        = 10^-20;
+
+% Run optimization problem:
+fraction = fmincon(@(fraction) -stabilization_obj(fraction),guess,A,b,...
+    Aeq,beq,lb,ub,options);
+
 end
