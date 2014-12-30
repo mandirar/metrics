@@ -14,6 +14,4 @@ for t2 = first_year + dt : dt : last_year - dt
 end
 cvec = cvec * 12/(16*2.12); %convert from Tg CH4 to ppb
 
-%Step here converting Tg CH4 to ppb.
-
 end

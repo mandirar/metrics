@@ -12,20 +12,20 @@ eta_m = 0.1165; %global technology CH4 intensity (g CH4/J)
 frac  = 0.7155; %fraction of technology emissions controlled
 
 %% Climate parameters:
-%Ak = 1.4e-2;
-%An = 3.03e-3;
-Ak              = 1.37e-2; %Wm^-2 / ppm CO2
-Am              = 3.63e-4; %Wm^-2 / ppb CH4
+Ak              = 1.37e-2;            %Wm^-2 / ppm CO2
+Am              = 3.63e-4;            %Wm^-2 / ppb CH4
 An              = (3.00e-3)*0.928126; %Wm^-2 / ppb N2O 
+
 form            = 1;       %forcing function (1 = non-lienar; 2 = linear)
 ide_s           = 1.65;    %indirect effect of CH4
 gCO2_per_molCO2 = 44.01;   %g CO2 / mol CO2
 gCH4_per_molCH4 = 16.04;   %g CH4 / mol CH4
 gN2O_per_molN2O = 44.013;  %g N2O / mol N2O
-ppmCO2_to_GtC   = 2.12;                     %Gt C / ppm CO2
-ppbCH4_to_GtCH4 = 1/353.8;                  %Gt CH4 / ppb CH4
-conversion      = (1/1000) * (12/44);       %g CO2-eq/ g CH4 to GtC-eq/Tg CH4
-rf_other        = -0.6425;                  %constant RF from other sources
+
+ppmCO2_to_GtC   = 2.12;               %Gt C / ppm CO2
+ppbCH4_to_GtCH4 = 1/353.8;            %Gt CH4 / ppb CH4
+conversion      = (1/1000) * (12/44); %g CO2-eq/ g CH4 to GtC-eq/Tg CH4
+rf_other        = -0.184;             %constant RF from other sources
 
 a_N2O  = 0.12;     %N2O rf parameter (W/m^2 / ppb^0.5)
 N2O_t0 = 270;      %N2O pre-industrial concentration (ppb)
@@ -46,6 +46,7 @@ e1 = 0.75;         %CH4/N2O overlap parameter (unitless)
 e2 = 1.52;         %CH4/N2O overlap parameter (unitless)
 
 %% Scenario parameters:
-e0   = 13.72; %initial emissions (GtC)
-fe   = 0.017; %initial emissions growth rate (as a fraction)     
-t3   = 10;    %maximum emissions decay rate (fraction of the form -1/t3)
+e0_k = 9.969;   %initial CO2 emissions (GtC)
+e0_m = 369.669; %initial CH4 emissions (Tg CH4)
+fe   = 0.017;   %initial emissions growth rate (as a fraction)     
+t3   = 10;      %maximum emissions decay rate (fraction of the form -1/t3)

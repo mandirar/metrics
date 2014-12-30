@@ -2,7 +2,8 @@ function [ evec_new,cvec_new,fvec_new,t2,fvec_old,rate,evec_old,cvec_old ] = sce
 
 % Define input variables.
 constants;
-t2   = find_t2(e0,fe,t1,t3,peak); %time when emissions peak (growth rate is zero)
+
+t2 = find_t2(e0_k,e0_m,fe,t1,t3,peak); %time when emissions rate peaks
 
 % Make a peak-and-decline scenario.
 fpath_nonCO2               = rf_nonCO2();                     %legacy CO2 concentrations (ppm)
