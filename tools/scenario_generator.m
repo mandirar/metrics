@@ -16,7 +16,7 @@ cvec_mO           = e2c_CH4(evec_mO) + cpath_lCH4; %CH4 concentrations
 fvec_old = rf_CO2(cvec_kO) + rf_CH4(cvec_mO) + fpath_other;
 
 % Convert to a stabilization scenario.
-[evec_new,cvec_new,fvec_new] = peakdecline2stabilization(evec_kO,cvec_kO,fvec_old);
+[evec_new,cvec_new,fvec_new] = peakdecline2stabilization(evec_kO,evec_mO,cvec_kO,cvec_mO,fvec_old);
 
 end
 
