@@ -1,6 +1,6 @@
 function [ cvec ] = e2c_CH4( evec )
-% This function computes the additional CH4 concentrations (in units ppb)
-% that result from from an emissions pathway evec (in units TgCH4).
+% This function computes the additional CH4 concentrations (ppb) that 
+% result from from an emissions pathway evec (Tg CH4).
 
 constants; %loads constants
 

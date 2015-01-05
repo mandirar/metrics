@@ -1,4 +1,4 @@
-function [ cvec_k,cvec_m ] = conc_in_year( fe,t1,t2,t3,e0_k,e0_m )
+function [ cvec_k,cvec_m,evec_k,evec_m ] = conc_in_year(t1,t2)
 % This function calculates the incremental CO2 and CH4 concentrations in a
 % given year, as specified by fe, t1, t2, t3, and e0.
 

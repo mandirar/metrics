@@ -29,8 +29,8 @@ t1_45l = 2046;
 % Linear small dt: 2022
 % Nonlinear small dt: 2023
 
-[ ek_30e,em_30e,rf_30e,pd_30e ] = make_scenarios( t1_30e,3.0 );
-%[ ek_30l,~,rf_30l,~,pd_30l ] = make_scenarios( t1_30l,3.0 );
+[ ek_30e,em_30e,rf_30e,~,pd_30e ] = make_scenarios( t1_30e,3.0 );
+[ ek_30l,~,rf_30l,~,pd_30l ] = ( t1_30l,3.0);
 
 %[ ek_45e,~,rf_45e,~,pd_45e ] = scenario_generator( t1_45e,4.5 );
 %[ ek_45l,~,rf_45l,~,pd_45l ] = scenario_generator( t1_45l,4.5 );

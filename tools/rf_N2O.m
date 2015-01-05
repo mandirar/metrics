@@ -8,8 +8,8 @@ function [ rf ] = rf_N2O( conc,pick_form )
 
 constants; %load constants
 
-rf_lin = lin_N2O(conc,a_N2O,CH4_t0,N2O_t0);        %linearized radiative foricng
-rf_nln = nln_N2Of(conc,a_N2O,CH4_t0,N2O_t0); %nonlinear radiative forcing
+rf_lin = ide_n .* lin_N2O(conc,a_N2O,CH4_t0,N2O_t0);  %linearized radiative foricng
+rf_nln = ide_n .* nln_N2Of(conc,a_N2O,CH4_t0,N2O_t0); %nonlinear radiative forcing
 
 % Use form in constants form is not specified as input:
 if exist('pick_form','var') == 0
