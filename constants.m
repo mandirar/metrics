@@ -1,5 +1,5 @@
 %% General parameters:
-dt          = 1;                                 %time step (years)
+dt          = 0.1;                                 %time step (years)
 decimals    = 1;                                   %number of digets in time step
 first_year  = 2010;                                %initial year
 last_year   = 2110;                                %final year (2037-2046 +1; EV: 2041)
@@ -26,7 +26,7 @@ gN2O_per_molN2O = 44.013;   %g N2O / mol N2O
 ppmCO2_to_GtC   = 2.12;               %Gt C / ppm CO2
 ppbCH4_to_GtCH4 = 1/353.8;            %Gt CH4 / ppb CH4
 conversion      = (1/1000) * (12/44); %g CO2-eq/ g CH4 to GtC-eq/Tg CH4
-rf_other        = -0.51;             %constant RF from other sources
+rf_other        = -0.66;              %constant RF from other sources
 
 a_N2O  = 0.12;     %N2O rf parameter (W/m^2 / ppb^0.5)
 N2O_t0 = 270;      %N2O pre-industrial concentration (ppb)
@@ -47,7 +47,11 @@ e1 = 0.75;         %CH4/N2O overlap parameter (unitless)
 e2 = 1.52;         %CH4/N2O overlap parameter (unitless)
 
 %% Scenario parameters:
-e0_k = 9.969;   %initial CO2 emissions (GtC)
-e0_m = 369.669; %initial CH4 emissions (Tg CH4)
-fe   = 0.017;   %initial emissions growth rate (as a fraction)     
+e0_k = 11.97;
+e0_m = 228.756;
+e0_n = 0; %12.811;
+%e0_k = 11.045;  %initial CO2 emissions (GtC)
+%e0_m = 228.756; %initial CH4 emissions (Tg CH4)
+%e0_n = 12.811;  %iniital N2O emissions (Tg N2O)
+fe   = 0.010;   %initial emissions growth rate (as a fraction)     
 t3   = 10;      %maximum emissions decay rate (fraction of the form -1/t3)

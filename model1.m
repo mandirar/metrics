@@ -8,7 +8,7 @@ constants;
 % mitigaiton onest year (early vs. late).
 
 t1_30e = 2010;
-t1_30l = 2023;
+%t1_30l = 2023;
 
 %t1_30e = 2015; 
 %t1_30l = 2027;
@@ -16,8 +16,8 @@ t1_30l = 2023;
 % Nonlinear with large dt: 2031
 % Nonlinear with small dt: 2033
 
-t1_45e = 2015; 
-t1_45l = 2046; 
+%t1_45e = 2015; 
+%t1_45l = 2046; 
 % Linear with small dt: 2046
 % Nonlinear with large dt: 2056
 % Nonlinear with small dt: 2058
@@ -29,23 +29,19 @@ t1_45l = 2046;
 % Linear small dt: 2022
 % Nonlinear small dt: 2023
 
-[ ek_30e,em_30e,rf_30e,pd_30e ] = make_scenarios( t1_30e,3.0 );
+[ ek_30e,em_30e,en_30e,rf_30e,ts_30e ] = make_scenarios( t1_30e,3.0 );
+
+dt2          = 1;
+first_year2  = 2010;                                %initial year
+last_year2   = 2110;                                %final year (2037-2046 +1; EV: 2041)
+t2           = (first_year2 : dt2 : last_year2 - dt2)'; %time vector
+
+forcing = interp1(t,rf_30e,t2);
+
 %[ ek_30l,~,rf_30l,~,pd_30l ] = make_scenarios( t1_30l,3.0 );
 
 %[ ek_45e,~,rf_45e,~,pd_45e ] = scenario_generator( t1_45e,4.5 );
 %[ ek_45l,~,rf_45l,~,pd_45l ] = scenario_generator( t1_45l,4.5 );
-
-% Calculate ts (stabilization time) for each radiative forcing scenario:
-
-%[~,ts_30e] = max(pd_30e);                   %index   
-%ts_30e     = ts_30e * dt + first_year - dt; %time (years)
-%[~,ts_30l] = max(pd_30l);                   %index   
-%ts_30l     = ts_30l * dt + first_year - dt; %time (years)
-
-%[~,ts_45e] = max(pd_45e);                   %index   
-%ts_45e     = ts_45e * dt + first_year - dt; %time (years)
-%[~,ts_45l] = max(pd_45l);                   %index   
-%ts_45l     = ts_45l * dt + first_year - dt; %time (years)
 
 %ts_30m = round(mean([ts_30e ts_30l]));      %mean ts
 %ts_45m = round(mean([ts_45e ts_45l]));      %mean ts

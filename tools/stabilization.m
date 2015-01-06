@@ -1,4 +1,5 @@
-function [evec_k,evec_m] = stabilization(evec_kO,evec_mO,fvec_old)
+function [evec_k,evec_m,evec_n] = ...
+    stabilization(evec_kO,evec_mO,evec_nO,fvec_old)
 % This function converts a peak-and-decline scenario into a stabilization 
 % scenario by adding exactly enough additional CO2 and CH4 emissions (in
 % proportion to their current emissions ratio) following the peak to keep 
@@ -46,12 +47,13 @@ options.TolX        = 10^-3;
 
 % Run optimization problem:
 fraction = fmincon(@(fraction) -objective(fraction),guess,...
-    A,b,Aeq,beq,lb,ub,...
-    @(fraction) constraint(fraction,evec_kO,evec_mO,fvec_new),options);
+    A,b,Aeq,beq,lb,ub,@(fraction)...
+    constraint(fraction,evec_kO,evec_mO,evec_nO,fvec_new),options);
 
 % Calculate emissions:
 evec_k = evec_kO .* fraction;
 evec_m = evec_mO .* fraction;
+evec_n = evec_nO .* fraction;
 
 end
 
@@ -67,7 +69,7 @@ end
 
 % CONSTRAINT FUNCTION:
 
-function [ C,Ceq ] = constraint( fraction,evec_kO,evec_mO,fvec_new )
+function [ C,Ceq ] = constraint(fraction,evec_kO,evec_mO,evec_nO,fvec_new)
 % This constraint function calculates radiative forcing for a given value
 % of fraction and compares it to the constraint value.
 
@@ -76,16 +78,20 @@ constants;
 % Calculate new emissions vectors:
 evec_kG = evec_kO .* fraction;
 evec_mG = evec_mO .* fraction;
+evec_nG = evec_nO .* fraction;
 
 % Calculate new concentration  vectors:
-cpath_lCO2   = legacy_CO2();                  %legacy CO2 concentrations (ppm)
-cpath_lCH4   = legacy_CH4();                  %legach CH4 concentrations (ppb)
-cvec_kG      = e2c_CO2(evec_kG) + cpath_lCO2; %CO2 concentrations
-cvec_mG      = e2c_CH4(evec_mG) + cpath_lCH4; %CH4 concentrations
+cpath_lCO2 = legacy_CO2();                  %legacy CO2 concentrations (ppm)
+cpath_lCH4 = legacy_CH4();                  %legacy CH4 concentrations (ppb)
+cpath_lN2O = legacy_N2O();                  %legacy N2O concentrations (ppb)
+cvec_kG    = e2c_CO2(evec_kG) + cpath_lCO2; %CO2 concentrations
+cvec_mG    = e2c_CH4(evec_mG) + cpath_lCH4; %CH4 concentrations
+cvec_nG    = e2c_N2O(evec_nG) + cpath_lN2O; %N2O concentrations
 
 % Calculate new radiative forcing vectors:
 fpath_other  = rf_other * ones(n,1);
-fvec_guess   = rf_CO2(cvec_kG) + rf_CH4(cvec_mG) + fpath_other;
+fvec_guess   = rf_CO2(cvec_kG) + rf_CH4(cvec_mG) + rf_N2O(cvec_nG)...
+               + fpath_other;
 
 % Define constraints (c: a < alpha; ceq: b = beta):
 C   = [];

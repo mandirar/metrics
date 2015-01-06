@@ -1,4 +1,4 @@
-function [ cvec_k,cvec_m,evec_k,evec_m ] = conc_in_year(t1,t2)
+function [cvec_k,cvec_m,cvec_n,evec_k,evec_m,evec_n] = conc_in_year(t1,t2)
 % This function calculates the incremental CO2 and CH4 concentrations in a
 % given year, as specified by fe, t1, t2, t3, and e0.
 
@@ -33,16 +33,18 @@ tseg3 = t( (t>=first_year + s3) & (t<=last_year) );       % segment #3
 gseg1 = g0*ones(length(tseg1),1);                         % segment #1
 gseg2 = g0 + m*(tseg2 - (first_year + s1));               % segment #2
 gseg3 = gf*ones(length(tseg3),1);                         % segment #3
-rate  = [gseg1; gseg2; gseg3];
+rate  = [gseg1; gseg2; gseg3]
 
 % CONSTRUCT EMISSIONS PATHWAY:
 
 evec_k = e0_k * exp( [0; cumsum(rate(1:end - 1)*dt)] );
 evec_m = e0_m * exp( [0; cumsum(rate(1:end - 1)*dt)] );
+evec_n = e0_n * exp( [0; cumsum(rate(1:end - 1)*dt)] );
 
 % CONSTRUCT CONCENTRATION PATHWAY:
 
 cvec_k = e2c_CO2(evec_k);
 cvec_m = e2c_CH4(evec_m);
+cvec_n = e2c_N2O(evec_n);
 
 end
