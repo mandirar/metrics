@@ -31,8 +31,6 @@ cvec_k = e2c_CO2(evec_k) + cpath_lCO2;
 cvec_m = e2c_CH4(evec_m) + cpath_lCH4;
 cvec_n = e2c_N2O(evec_n) + cpath_lN2O;
 
-rf_CH4(cvec_m)
-
 fvec = rf_CO2(cvec_k) + rf_CH4(cvec_m) + rf_N2O(cvec_n) + fpath_other;
 
 % Calcuate stabilization time:

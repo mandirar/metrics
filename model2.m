@@ -14,6 +14,14 @@ CCI30e30m = testing1( CCI_30m,ek_30e );
 CCI30e30l = testing1( CCI_30l,ek_30e ); 
 GWP30e    = testing1( GWP_100,ek_30e ); 
 
+ICI30m30e = testing1( ICI_30e,ek_30m ); 
+ICI30m30m = testing1( ICI_30m,ek_30m ); 
+ICI30m30l = testing1( ICI_30l,ek_30m ); 
+CCI30m30e = testing1( CCI_30e,ek_30m ); 
+CCI30m30m = testing1( CCI_30m,ek_30m ); 
+CCI30m30l = testing1( CCI_30l,ek_30m ); 
+GWP30m    = testing1( GWP_100,ek_30m );
+
 ICI30l30e = testing1( ICI_30e,ek_30l ); 
 ICI30l30m = testing1( ICI_30m,ek_30l ); 
 ICI30l30l = testing1( ICI_30l,ek_30l ); 
@@ -29,6 +37,14 @@ CCI45e45e = testing1( CCI_45e,ek_45e );
 CCI45e45m = testing1( CCI_45m,ek_45e ); 
 CCI45e45l = testing1( CCI_45l,ek_45e ); 
 GWP45e    = testing1( GWP_100,ek_45e ); 
+
+ICI45m45e = testing1( ICI_45e,ek_45m ); 
+ICI45m45m = testing1( ICI_45m,ek_45m ); 
+ICI45m45l = testing1( ICI_45l,ek_45m ); 
+CCI45m45e = testing1( CCI_45e,ek_45m ); 
+CCI45m45m = testing1( CCI_45m,ek_45m ); 
+CCI45m45l = testing1( CCI_45l,ek_45m ); 
+GWP45m    = testing1( GWP_100,ek_45m );
 
 ICI45l45e = testing1( ICI_45e,ek_45l ); 
 ICI45l45m = testing1( ICI_45m,ek_45l ); 

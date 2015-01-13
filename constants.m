@@ -7,9 +7,9 @@ t           = (first_year : dt : last_year - dt)'; %time vector
 [n,~]       = size(t);                             %length of time vector
 
 %% Fuel parameters:
-eta_k = 32.73;  %global technolgoy CO2 intensity (g CO2/J)
-eta_m = 0.1165; %global technology CH4 intensity (g CH4/J)
-frac  = 0.7155; %fraction of technology emissions controlled
+eta_k = 36.553; %32.73;  %global technolgoy CO2 intensity (g CO2/J)
+eta_m = 0.3697; %0.1165; %global technology CH4 intensity (g CH4/J)
+frac  = 1; %0.7155; %fraction of technology emissions controlled
 
 %% Climate parameters:
 Ak              = 1.37e-2; %Wm^-2 / ppm CO2
@@ -26,7 +26,7 @@ gN2O_per_molN2O = 44.013;   %g N2O / mol N2O
 ppmCO2_to_GtC   = 2.12;               %Gt C / ppm CO2
 ppbCH4_to_GtCH4 = 1/353.8;            %Gt CH4 / ppb CH4
 conversion      = (1/1000) * (12/44); %g CO2-eq/ g CH4 to GtC-eq/Tg CH4
-rf_other        = -0.66;              %constant RF from other sources
+rf_other        = -0.64;              %constant RF from other sources
 
 a_N2O  = 0.12;     %N2O rf parameter (W/m^2 / ppb^0.5)
 N2O_t0 = 270;      %N2O pre-industrial concentration (ppb)
@@ -47,11 +47,8 @@ e1 = 0.75;         %CH4/N2O overlap parameter (unitless)
 e2 = 1.52;         %CH4/N2O overlap parameter (unitless)
 
 %% Scenario parameters:
-e0_k = 11.97;
-e0_m = 228.756;
-e0_n = 0; %12.811;
-%e0_k = 11.045;  %initial CO2 emissions (GtC)
-%e0_m = 228.756; %initial CH4 emissions (Tg CH4)
-%e0_n = 12.811;  %iniital N2O emissions (Tg N2O)
-fe   = 0.010;   %initial emissions growth rate (as a fraction)     
+e0_k = 13.728;
+e0_m = 0;
+e0_n = 0;
+fe   = 0.017;   %initial emissions growth rate (as a fraction)     
 t3   = 10;      %maximum emissions decay rate (fraction of the form -1/t3)

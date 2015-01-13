@@ -13,7 +13,7 @@ for i = 1:length(te)
    aLongTime = 1000;                 
    infinity  = te(i) + aLongTime;   
    tprime    = [te(i) : dt : infinity];
-   I(i)      = ide_s * Am * sum( lambdaFun(tprime,te(i),helper) .* decay_CH4(tprime - te(i)) * dt );
+   I(i)      = ide_m * Am * sum( lambdaFun(tprime,te(i),helper) .* decay_CH4(tprime - te(i)) * dt );
    
 end
 

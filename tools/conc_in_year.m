@@ -33,7 +33,7 @@ tseg3 = t( (t>=first_year + s3) & (t<=last_year) );       % segment #3
 gseg1 = g0*ones(length(tseg1),1);                         % segment #1
 gseg2 = g0 + m*(tseg2 - (first_year + s1));               % segment #2
 gseg3 = gf*ones(length(tseg3),1);                         % segment #3
-rate  = [gseg1; gseg2; gseg3]
+rate  = [gseg1; gseg2; gseg3];
 
 % CONSTRUCT EMISSIONS PATHWAY:
 

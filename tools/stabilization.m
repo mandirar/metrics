@@ -30,7 +30,7 @@ fvec_new = [fvec_old(1:i_peak) ; rf_max * ones(n - i_peak,1)];
 % subject to radiative forcing equal to what we expect
 
 % Set optimizaton inputs:
-guess = ones(n,1);     %initial guess for fuel use
+guess = ones(n,1);     %initial guess
 lb    = zeros(n,1);    %lower bounds
 ub    = inf*ones(n,1); %upper bounds
 A     = [];            %linear inequality constraint...

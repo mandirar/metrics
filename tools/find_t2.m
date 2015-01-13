@@ -11,7 +11,7 @@ cpath_lN2O   = legacy_N2O();         %legacy N2O concentrations (ppb)
 fpath_other  = rf_other * ones(n,1); %all non-CO2, non-CH4 forcings (W/m^2)
 
 % Set allowed deviation of the maximum of the RF path from the RF ceiling.
-tolerance = 0.001; 
+tolerance = 0.0001; 
 
 % Obtain an initial estimate of error.
 t_low          = 0;                 % initial lower bound on t2
