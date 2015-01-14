@@ -19,6 +19,9 @@ xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
 title('ICI Performance Early Mitigation');
 axis([2010 2060 2 4.5])
+target = refline(0,3);
+target.Color = rgb('Black');
+target.LineStyle = '--';
 hold off
 savefig(figureA,'figureA')
 
@@ -37,6 +40,9 @@ xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
 title('ICI Performance Middle Mitigation');
 axis([2010 2060 2 4.5])
+target = refline(0,3);
+target.Color = rgb('Black');
+target.LineStyle = '--';
 hold off
 savefig(figureB,'figureB')
 
@@ -55,6 +61,9 @@ xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
 title('ICI Performance Late Mitigation');
 axis([2010 2060 2 4.5])
+target = refline(0,3);
+target.Color = rgb('Black');
+target.LineStyle = '--';
 hold off
 savefig(figureC,'figureC')
 
@@ -73,6 +82,9 @@ xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
 title('ICI Performance Early Mitigation');
 axis([2010 2110 2 7])
+target = refline(0,4.5);
+target.Color = rgb('Black');
+target.LineStyle = '--';
 hold off
 savefig(figureD,'figureD')
 
@@ -91,6 +103,9 @@ xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
 title('ICI Performance Middle Mitigation');
 axis([2010 2110 2 7])
+target = refline(0,4.5);
+target.Color = rgb('Black');
+target.LineStyle = '--';
 hold off
 savefig(figureE,'figureE')
 
@@ -109,5 +124,8 @@ xlabel('Year');
 ylabel('Radiative Forcing (W/m^2)');
 title('ICI Performance Late Mitigation');
 axis([2010 2110 2 7])
+target = refline(0,4.5);
+target.Color = rgb('Black');
+target.LineStyle = '--';
 hold off
 savefig(figureF,'figureF')

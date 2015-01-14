@@ -1,4 +1,4 @@
-clear all
+clear
 addpath('./tools')
 addpath('./tools/EqMetrics')
 constants;

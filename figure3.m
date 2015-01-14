@@ -1,113 +1,112 @@
-clear all
-close all
-constants;
 load('output2.mat')
-addpath('./tools')
+
+te_ICI30e30e = sum(en_ICI30e30e); 
+te_ICI30e30m = sum(en_ICI30e30m); 
+te_ICI30e30l = sum(en_ICI30e30l); 
+te_CCI30e30e = sum(en_CCI30e30e); 
+te_CCI30e30m = sum(en_CCI30e30m); 
+te_CCI30e30l = sum(en_CCI30e30l); 
+te_GWP30e    = sum(en_GWP30e   ); 
+te_ICI30m30e = sum(en_ICI30m30e); 
+te_ICI30m30m = sum(en_ICI30m30m); 
+te_ICI30m30l = sum(en_ICI30m30l); 
+te_CCI30m30e = sum(en_CCI30m30e); 
+te_CCI30m30m = sum(en_CCI30m30m); 
+te_CCI30m30l = sum(en_CCI30m30l); 
+te_GWP30m    = sum(en_GWP30m   );
+te_ICI30l30e = sum(en_ICI30l30e); 
+te_ICI30l30m = sum(en_ICI30l30m); 
+te_ICI30l30l = sum(en_ICI30l30l); 
+te_CCI30l30e = sum(en_CCI30l30e); 
+te_CCI30l30m = sum(en_CCI30l30m); 
+te_CCI30l30l = sum(en_CCI30l30l); 
+te_GWP30l    = sum(en_GWP30l   ); 
+te_ICI45e45e = sum(en_ICI45e45e); 
+te_ICI45e45m = sum(en_ICI45e45m); 
+te_ICI45e45l = sum(en_ICI45e45l); 
+te_CCI45e45e = sum(en_CCI45e45e); 
+te_CCI45e45m = sum(en_CCI45e45m); 
+te_CCI45e45l = sum(en_CCI45e45l); 
+te_GWP45e    = sum(en_GWP45e   ); 
+te_ICI45m45e = sum(en_ICI45m45e); 
+te_ICI45m45m = sum(en_ICI45m45m); 
+te_ICI45m45l = sum(en_ICI45m45l); 
+te_CCI45m45e = sum(en_CCI45m45e); 
+te_CCI45m45m = sum(en_CCI45m45m); 
+te_CCI45m45l = sum(en_CCI45m45l); 
+te_GWP45m    = sum(en_GWP45m   );
+te_ICI45l45e = sum(en_ICI45l45e); 
+te_ICI45l45m = sum(en_ICI45l45m); 
+te_ICI45l45l = sum(en_ICI45l45l); 
+te_CCI45l45e = sum(en_CCI45l45e); 
+te_CCI45l45m = sum(en_CCI45l45m); 
+te_CCI45l45l = sum(en_CCI45l45l); 
+te_GWP45l    = sum(en_GWP45l   ); 
+
+ov_ICI30e30e = max(en_ICI30e30e); 
+ov_ICI30e30m = max(en_ICI30e30m); 
+ov_ICI30e30l = max(en_ICI30e30l); 
+ov_CCI30e30e = max(en_CCI30e30e); 
+ov_CCI30e30m = max(en_CCI30e30m); 
+ov_CCI30e30l = max(en_CCI30e30l); 
+ov_GWP30e    = max(en_GWP30e   ); 
+ov_ICI30m30e = max(en_ICI30m30e); 
+ov_ICI30m30m = max(en_ICI30m30m); 
+ov_ICI30m30l = max(en_ICI30m30l); 
+ov_CCI30m30e = max(en_CCI30m30e); 
+ov_CCI30m30m = max(en_CCI30m30m); 
+ov_CCI30m30l = max(en_CCI30m30l); 
+ov_GWP30m    = max(en_GWP30m   );
+ov_ICI30l30e = max(en_ICI30l30e); 
+ov_ICI30l30m = max(en_ICI30l30m); 
+ov_ICI30l30l = max(en_ICI30l30l); 
+ov_CCI30l30e = max(en_CCI30l30e); 
+ov_CCI30l30m = max(en_CCI30l30m); 
+ov_CCI30l30l = max(en_CCI30l30l); 
+ov_GWP30l    = max(en_GWP30l   ); 
+ov_ICI45e45e = max(en_ICI45e45e); 
+ov_ICI45e45m = max(en_ICI45e45m); 
+ov_ICI45e45l = max(en_ICI45e45l); 
+ov_CCI45e45e = max(en_CCI45e45e); 
+ov_CCI45e45m = max(en_CCI45e45m); 
+ov_CCI45e45l = max(en_CCI45e45l); 
+ov_GWP45e    = max(en_GWP45e   ); 
+ov_ICI45m45e = max(en_ICI45m45e); 
+ov_ICI45m45m = max(en_ICI45m45m); 
+ov_ICI45m45l = max(en_ICI45m45l); 
+ov_CCI45m45e = max(en_CCI45m45e); 
+ov_CCI45m45m = max(en_CCI45m45m); 
+ov_CCI45m45l = max(en_CCI45m45l); 
+ov_GWP45m    = max(en_GWP45m   );
+ov_ICI45l45e = max(en_ICI45l45e); 
+ov_ICI45l45m = max(en_ICI45l45m); 
+ov_ICI45l45l = max(en_ICI45l45l); 
+ov_CCI45l45e = max(en_CCI45l45e); 
+ov_CCI45l45m = max(en_CCI45l45m); 
+ov_CCI45l45l = max(en_CCI45l45l); 
+ov_GWP45l    = max(en_GWP45l   ); 
+
+energy = [en_ICI30m30e en_ICI30m30m en_ICI30m30l en_ICI45m45e en_ICI45m45m en_ICI45m45l ...
+          en_CCI30m30e en_CCI30m30m en_CCI30m30l en_CCI45m45e en_CCI45m45m en_CCI45m45l];
+ovrsht = [ov_ICI30m30e ov_ICI30m30m ov_ICI30m30l ov_ICI45m45e ov_ICI45m45m ov_ICI45m45l ...
+          ov_CCI30m30e ov_CCI30m30m ov_CCI30m30l ov_CCI45m45e ov_CCI45m45m ov_CCI45m45l];
 
 figureA = figure;
 hold on
-plot(t,rf_30e,'k','Linewidth',2);
-plot(t,GWP30e,'Linewidth',2,'Color',rgb('Purple'));
-plotshaded(t',[CCI30e30e CCI30e30l]',rgb('Green'));
-plot(t,CCI30e30m,'Linewidth',2,'Color',rgb('Green'),'Linestyle','--');
-plot(t,CCI30e30e,'Linewidth',2,'Color',rgb('Green'));
-plot(t,CCI30e30l,'Linewidth',2,'Color',rgb('Green'));
 set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','CCI');
-set(legend,'Location','Southeast','Box','off','FontSize',16);
-xlabel('Year');
-ylabel('Radiative Forcing (W/m^2)');
-title('CCI Performance Early Mitigation');
-axis([2010 2060 2 4.5])
+scatter(energy,overshoot,'Filled')
+%legend('Intended','GWP','ICI','CCI');
+%set(legend,'Location','Southeast','Box','off','FontSize',16);
+%xlabel('Year');
+%ylabel('Radiative Forcing (W/m^2)');
+%title('Nonlinear Simulation with Late Stabilization');
 hold off
 savefig(figureA,'figureA')
 
-figureB = figure;
-hold on
-plot(t,rf_30m,'k','Linewidth',2);
-plot(t,GWP30m,'Linewidth',2,'Color',rgb('Purple'));
-plotshaded(t',[CCI30m30e CCI30m30l]',rgb('Green'));
-plot(t,CCI30m30m,'Linewidth',2,'Color',rgb('Green'),'Linestyle','--');
-plot(t,CCI30m30e,'Linewidth',2,'Color',rgb('Green'));
-plot(t,CCI30m30l,'Linewidth',2,'Color',rgb('Green'));
-set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','CCI');
-set(legend,'Location','Southeast','Box','off','FontSize',16);
-xlabel('Year');
-ylabel('Radiative Forcing (W/m^2)');
-title('CCI Performance Middle Mitigation');
-axis([2010 2060 2 4.5])
-hold off
-savefig(figureB,'figureB')
 
-figureC = figure;
-hold on
-plot(t,rf_30l,'k','Linewidth',2);
-plot(t,GWP30l,'Linewidth',2,'Color',rgb('Purple'));
-plotshaded(t',[CCI30l30e CCI30l30l]',rgb('Green'));
-plot(t,CCI30l30m,'Linewidth',2,'Color',rgb('Green'),'Linestyle','--');
-plot(t,CCI30l30e,'Linewidth',2,'Color',rgb('Green'));
-plot(t,CCI30l30l,'Linewidth',2,'Color',rgb('Green'));
-set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','CCI');
-set(legend,'Location','Southeast','Box','off','FontSize',16);
-xlabel('Year');
-ylabel('Radiative Forcing (W/m^2)');
-title('CCI Performance Late Mitigation');
-axis([2010 2060 2 4.5])
-hold off
-savefig(figureC,'figureC')
+%p = rand(10,2);
+%scatter(p(:,1), p(:,2), 'filled')
+%axis([0 1 0 1])
 
-figureD = figure;
-hold on
-plot(t,rf_45e,'k','Linewidth',2);
-plot(t,GWP45e,'Linewidth',2,'Color',rgb('Purple'));
-plotshaded(t',[CCI45e45e CCI45e45l]',rgb('Green'));
-plot(t,CCI45e45m,'Linewidth',2,'Color',rgb('Green'),'Linestyle','--');
-plot(t,CCI45e45e,'Linewidth',2,'Color',rgb('Green'));
-plot(t,CCI45e45l,'Linewidth',2,'Color',rgb('Green'));
-set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','CCI');
-set(legend,'Location','Southeast','Box','off','FontSize',16);
-xlabel('Year');
-ylabel('Radiative Forcing (W/m^2)');
-title('CCI Performance Early Mitigation');
-axis([2010 2110 2 7])
-hold off
-savefig(figureD,'figureD')
-
-figureE = figure;
-hold on
-plot(t,rf_45m,'k','Linewidth',2);
-plot(t,GWP45m,'Linewidth',2,'Color',rgb('Purple'));
-plotshaded(t',[CCI45m45e CCI45m45l]',rgb('Green'));
-plot(t,CCI45m45m,'Linewidth',2,'Color',rgb('Green'),'Linestyle','--');
-plot(t,CCI45m45e,'Linewidth',2,'Color',rgb('Green'));
-plot(t,CCI45m45l,'Linewidth',2,'Color',rgb('Green'));
-set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','CCI');
-set(legend,'Location','Southeast','Box','off','FontSize',16);
-xlabel('Year');
-ylabel('Radiative Forcing (W/m^2)');
-title('CCI Performance Middle Mitigation');
-axis([2010 2110 2 7])
-hold off
-savefig(figureE,'figureE')
-
-figureF = figure;
-hold on
-plot(t,rf_45l,'k','Linewidth',2);
-plot(t,GWP45l,'Linewidth',2,'Color',rgb('Purple'));
-plotshaded(t',[CCI45l45e CCI45l45l]',rgb('Green'));
-plot(t,CCI45l45m,'Linewidth',2,'Color',rgb('Green'),'Linestyle','--');
-plot(t,CCI45l45e,'Linewidth',2,'Color',rgb('Green'));
-plot(t,CCI45l45l,'Linewidth',2,'Color',rgb('Green'));
-set(gca,'FontSize',16,'box','on');
-legend('Intended','GWP','CCI');
-set(legend,'Location','Southeast','Box','off','FontSize',16);
-xlabel('Year');
-ylabel('Radiative Forcing (W/m^2)');
-title('CCI Performance Late Mitigation');
-axis([2010 2110 2 7])
-hold off
-savefig(figureF,'figureF')
+%labels = num2str((1:size(p,1))','%d');    %'
+%text(p(:,1), p(:,2), labels, 'horizontal','left', 'vertical','bottom')
