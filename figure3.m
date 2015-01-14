@@ -1,112 +1,125 @@
+clear
+close all;
+
 load('output2.mat')
 
-te_ICI30e30e = sum(en_ICI30e30e); 
-te_ICI30e30m = sum(en_ICI30e30m); 
-te_ICI30e30l = sum(en_ICI30e30l); 
-te_CCI30e30e = sum(en_CCI30e30e); 
-te_CCI30e30m = sum(en_CCI30e30m); 
-te_CCI30e30l = sum(en_CCI30e30l); 
-te_GWP30e    = sum(en_GWP30e   ); 
-te_ICI30m30e = sum(en_ICI30m30e); 
-te_ICI30m30m = sum(en_ICI30m30m); 
-te_ICI30m30l = sum(en_ICI30m30l); 
-te_CCI30m30e = sum(en_CCI30m30e); 
-te_CCI30m30m = sum(en_CCI30m30m); 
-te_CCI30m30l = sum(en_CCI30m30l); 
-te_GWP30m    = sum(en_GWP30m   );
-te_ICI30l30e = sum(en_ICI30l30e); 
-te_ICI30l30m = sum(en_ICI30l30m); 
-te_ICI30l30l = sum(en_ICI30l30l); 
-te_CCI30l30e = sum(en_CCI30l30e); 
-te_CCI30l30m = sum(en_CCI30l30m); 
-te_CCI30l30l = sum(en_CCI30l30l); 
-te_GWP30l    = sum(en_GWP30l   ); 
-te_ICI45e45e = sum(en_ICI45e45e); 
-te_ICI45e45m = sum(en_ICI45e45m); 
-te_ICI45e45l = sum(en_ICI45e45l); 
-te_CCI45e45e = sum(en_CCI45e45e); 
-te_CCI45e45m = sum(en_CCI45e45m); 
-te_CCI45e45l = sum(en_CCI45e45l); 
-te_GWP45e    = sum(en_GWP45e   ); 
-te_ICI45m45e = sum(en_ICI45m45e); 
-te_ICI45m45m = sum(en_ICI45m45m); 
-te_ICI45m45l = sum(en_ICI45m45l); 
-te_CCI45m45e = sum(en_CCI45m45e); 
-te_CCI45m45m = sum(en_CCI45m45m); 
-te_CCI45m45l = sum(en_CCI45m45l); 
-te_GWP45m    = sum(en_GWP45m   );
-te_ICI45l45e = sum(en_ICI45l45e); 
-te_ICI45l45m = sum(en_ICI45l45m); 
-te_ICI45l45l = sum(en_ICI45l45l); 
-te_CCI45l45e = sum(en_CCI45l45e); 
-te_CCI45l45m = sum(en_CCI45l45m); 
-te_CCI45l45l = sum(en_CCI45l45l); 
-te_GWP45l    = sum(en_GWP45l   ); 
+te_ICI30e30e = sum(en_ICI30e30e(1:420)); 
+te_ICI30e30m = sum(en_ICI30e30m(1:420)); 
+te_ICI30e30l = sum(en_ICI30e30l(1:420)); 
+te_CCI30e30e = sum(en_CCI30e30e(1:420)); 
+te_CCI30e30m = sum(en_CCI30e30m(1:420)); 
+te_CCI30e30l = sum(en_CCI30e30l(1:420)); 
+te_GWP30e    = sum(en_GWP30e(1:420)   ); 
+te_ICI30m30e = sum(en_ICI30m30e(1:420)); 
+te_ICI30m30m = sum(en_ICI30m30m(1:420)); 
+te_ICI30m30l = sum(en_ICI30m30l(1:420)); 
+te_CCI30m30e = sum(en_CCI30m30e(1:420)); 
+te_CCI30m30m = sum(en_CCI30m30m(1:420)); 
+te_CCI30m30l = sum(en_CCI30m30l(1:420)); 
+te_GWP30m    = sum(en_GWP30m(1:420)   );
+te_ICI30l30e = sum(en_ICI30l30e(1:420)); 
+te_ICI30l30m = sum(en_ICI30l30m(1:420)); 
+te_ICI30l30l = sum(en_ICI30l30l(1:420)); 
+te_CCI30l30e = sum(en_CCI30l30e(1:420)); 
+te_CCI30l30m = sum(en_CCI30l30m(1:420)); 
+te_CCI30l30l = sum(en_CCI30l30l(1:420)); 
+te_GWP30l    = sum(en_GWP30l   (1:420)); 
+te_ICI45e45e = sum(en_ICI45e45e(1:850)); 
+te_ICI45e45m = sum(en_ICI45e45m(1:850)); 
+te_ICI45e45l = sum(en_ICI45e45l(1:850)); 
+te_CCI45e45e = sum(en_CCI45e45e(1:850)); 
+te_CCI45e45m = sum(en_CCI45e45m(1:850)); 
+te_CCI45e45l = sum(en_CCI45e45l(1:850)); 
+te_GWP45e    = sum(en_GWP45e(1:850)   ); 
+te_ICI45m45e = sum(en_ICI45m45e(1:850)); 
+te_ICI45m45m = sum(en_ICI45m45m(1:850)); 
+te_ICI45m45l = sum(en_ICI45m45l(1:850)); 
+te_CCI45m45e = sum(en_CCI45m45e(1:850)); 
+te_CCI45m45m = sum(en_CCI45m45m(1:850)); 
+te_CCI45m45l = sum(en_CCI45m45l(1:850)); 
+te_GWP45m    = sum(en_GWP45m(1:850)   );
+te_ICI45l45e = sum(en_ICI45l45e(1:850)); 
+te_ICI45l45m = sum(en_ICI45l45m(1:850)); 
+te_ICI45l45l = sum(en_ICI45l45l(1:850)); 
+te_CCI45l45e = sum(en_CCI45l45e(1:850)); 
+te_CCI45l45m = sum(en_CCI45l45m(1:850)); 
+te_CCI45l45l = sum(en_CCI45l45l(1:850)); 
+te_GWP45l    = sum(en_GWP45l(1:850)   ); 
 
-ov_ICI30e30e = max(en_ICI30e30e); 
-ov_ICI30e30m = max(en_ICI30e30m); 
-ov_ICI30e30l = max(en_ICI30e30l); 
-ov_CCI30e30e = max(en_CCI30e30e); 
-ov_CCI30e30m = max(en_CCI30e30m); 
-ov_CCI30e30l = max(en_CCI30e30l); 
-ov_GWP30e    = max(en_GWP30e   ); 
-ov_ICI30m30e = max(en_ICI30m30e); 
-ov_ICI30m30m = max(en_ICI30m30m); 
-ov_ICI30m30l = max(en_ICI30m30l); 
-ov_CCI30m30e = max(en_CCI30m30e); 
-ov_CCI30m30m = max(en_CCI30m30m); 
-ov_CCI30m30l = max(en_CCI30m30l); 
-ov_GWP30m    = max(en_GWP30m   );
-ov_ICI30l30e = max(en_ICI30l30e); 
-ov_ICI30l30m = max(en_ICI30l30m); 
-ov_ICI30l30l = max(en_ICI30l30l); 
-ov_CCI30l30e = max(en_CCI30l30e); 
-ov_CCI30l30m = max(en_CCI30l30m); 
-ov_CCI30l30l = max(en_CCI30l30l); 
-ov_GWP30l    = max(en_GWP30l   ); 
-ov_ICI45e45e = max(en_ICI45e45e); 
-ov_ICI45e45m = max(en_ICI45e45m); 
-ov_ICI45e45l = max(en_ICI45e45l); 
-ov_CCI45e45e = max(en_CCI45e45e); 
-ov_CCI45e45m = max(en_CCI45e45m); 
-ov_CCI45e45l = max(en_CCI45e45l); 
-ov_GWP45e    = max(en_GWP45e   ); 
-ov_ICI45m45e = max(en_ICI45m45e); 
-ov_ICI45m45m = max(en_ICI45m45m); 
-ov_ICI45m45l = max(en_ICI45m45l); 
-ov_CCI45m45e = max(en_CCI45m45e); 
-ov_CCI45m45m = max(en_CCI45m45m); 
-ov_CCI45m45l = max(en_CCI45m45l); 
-ov_GWP45m    = max(en_GWP45m   );
-ov_ICI45l45e = max(en_ICI45l45e); 
-ov_ICI45l45m = max(en_ICI45l45m); 
-ov_ICI45l45l = max(en_ICI45l45l); 
-ov_CCI45l45e = max(en_CCI45l45e); 
-ov_CCI45l45m = max(en_CCI45l45m); 
-ov_CCI45l45l = max(en_CCI45l45l); 
-ov_GWP45l    = max(en_GWP45l   ); 
+ov_ICI30e30e = max(rf_ICI30e30e(1:420)) - 3; 
+ov_ICI30e30m = max(rf_ICI30e30m(1:420)) - 3; 
+ov_ICI30e30l = max(rf_ICI30e30l(1:420)) - 3; 
+ov_CCI30e30e = max(rf_CCI30e30e(1:420)) - 3; 
+ov_CCI30e30m = max(rf_CCI30e30m(1:420)) - 3; 
+ov_CCI30e30l = max(rf_CCI30e30l(1:420)) - 3; 
+ov_GWP30e    = max(rf_GWP30e   (1:420)) - 3; 
+ov_ICI30m30e = max(rf_ICI30m30e(1:420)) - 3; 
+ov_ICI30m30m = max(rf_ICI30m30m(1:420)) - 3; 
+ov_ICI30m30l = max(rf_ICI30m30l(1:420)) - 3; 
+ov_CCI30m30e = max(rf_CCI30m30e(1:420)) - 3; 
+ov_CCI30m30m = max(rf_CCI30m30m(1:420)) - 3; 
+ov_CCI30m30l = max(rf_CCI30m30l(1:420)) - 3; 
+ov_GWP30m    = max(rf_GWP30m(1:420)   ) - 3;
+ov_ICI30l30e = max(rf_ICI30l30e(1:420)) - 3; 
+ov_ICI30l30m = max(rf_ICI30l30m(1:420)) - 3; 
+ov_ICI30l30l = max(rf_ICI30l30l(1:420)) - 3; 
+ov_CCI30l30e = max(rf_CCI30l30e(1:420)) - 3; 
+ov_CCI30l30m = max(rf_CCI30l30m(1:420)) - 3; 
+ov_CCI30l30l = max(rf_CCI30l30l(1:420)) - 3; 
+ov_GWP30l    = max(rf_GWP30l(1:420)   ) - 3; 
+ov_ICI45e45e = max(rf_ICI45e45e(1:850)) - 4.5; 
+ov_ICI45e45m = max(rf_ICI45e45m(1:850)) - 4.5; 
+ov_ICI45e45l = max(rf_ICI45e45l(1:850)) - 4.5; 
+ov_CCI45e45e = max(rf_CCI45e45e(1:850)) - 4.5; 
+ov_CCI45e45m = max(rf_CCI45e45m(1:850)) - 4.5; 
+ov_CCI45e45l = max(rf_CCI45e45l(1:850)) - 4.5; 
+ov_GWP45e    = max(rf_GWP45e(1:850)   ) - 4.5; 
+ov_ICI45m45e = max(rf_ICI45m45e(1:850)) - 4.5; 
+ov_ICI45m45m = max(rf_ICI45m45m(1:850)) - 4.5; 
+ov_ICI45m45l = max(rf_ICI45m45l(1:850)) - 4.5; 
+ov_CCI45m45e = max(rf_CCI45m45e(1:850)) - 4.5; 
+ov_CCI45m45m = max(rf_CCI45m45m(1:850)) - 4.5; 
+ov_CCI45m45l = max(rf_CCI45m45l(1:850)) - 4.5; 
+ov_GWP45m    = max(rf_GWP45m(1:850)   ) - 4.5;
+ov_ICI45l45e = max(rf_ICI45l45e(1:850)) - 4.5; 
+ov_ICI45l45m = max(rf_ICI45l45m(1:850)) - 4.5; 
+ov_ICI45l45l = max(rf_ICI45l45l(1:850)) - 4.5; 
+ov_CCI45l45e = max(rf_CCI45l45e(1:850)) - 4.5; 
+ov_CCI45l45m = max(rf_CCI45l45m(1:850)) - 4.5; 
+ov_CCI45l45l = max(rf_CCI45l45l(1:850)) - 4.5; 
+ov_GWP45l    = max(rf_GWP45l(1:850)   ) - 4.5; 
 
-energy = [en_ICI30m30e en_ICI30m30m en_ICI30m30l en_ICI45m45e en_ICI45m45m en_ICI45m45l ...
-          en_CCI30m30e en_CCI30m30m en_CCI30m30l en_CCI45m45e en_CCI45m45m en_CCI45m45l];
-ovrsht = [ov_ICI30m30e ov_ICI30m30m ov_ICI30m30l ov_ICI45m45e ov_ICI45m45m ov_ICI45m45l ...
-          ov_CCI30m30e ov_CCI30m30m ov_CCI30m30l ov_CCI45m45e ov_CCI45m45m ov_CCI45m45l];
+energy30 = [te_ICI30m30e te_ICI30m30m te_ICI30m30l te_CCI30m30e ...
+            te_CCI30m30m te_CCI30m30l te_GWP30m];
+ovrsht30 = [ov_ICI30m30e ov_ICI30m30m ov_ICI30m30l ov_CCI30m30e ...
+            ov_CCI30m30m ov_CCI30m30l ov_GWP30m];
 
+energy45 = [te_ICI45m45e te_ICI45m45m te_ICI45m45l te_CCI45m45e ...
+            te_CCI45m45m te_CCI45m45l te_GWP45m];
+ovrsht45 = [ov_ICI45m45e ov_ICI45m45m ov_ICI45m45l ov_CCI45m45e ...
+            ov_CCI45m45m ov_CCI45m45l ov_GWP45m];
+
+      
 figureA = figure;
 hold on
 set(gca,'FontSize',16,'box','on');
-scatter(energy,overshoot,'Filled')
-%legend('Intended','GWP','ICI','CCI');
-%set(legend,'Location','Southeast','Box','off','FontSize',16);
-%xlabel('Year');
-%ylabel('Radiative Forcing (W/m^2)');
-%title('Nonlinear Simulation with Late Stabilization');
+scatter(energy30,ovrsht30,'Filled')
+labels = ['  ICI_E';'  ICI_M';'  ICI_L';'  CCI_E';'  CCI_M';'  CCI_L';'  GWP  '];
+text(energy30(1,:),ovrsht30(1,:),labels,'FontSize',16);
+xlabel('Energy');
+ylabel('Overshoot (W/m^2)');
+title('Energy/Overshoot Plot for 3 W/m^2');
 hold off
 savefig(figureA,'figureA')
 
-
-%p = rand(10,2);
-%scatter(p(:,1), p(:,2), 'filled')
-%axis([0 1 0 1])
-
-%labels = num2str((1:size(p,1))','%d');    %'
-%text(p(:,1), p(:,2), labels, 'horizontal','left', 'vertical','bottom')
+figureB = figure;
+hold on
+set(gca,'FontSize',16,'box','on');
+scatter(energy45,ovrsht45,'Filled')
+labels = ['  ICI_E';'  ICI_M';'  ICI_L';'  CCI_E';'  CCI_M';'  CCI_L';'  GWP  '];
+text(energy45(1,:),ovrsht45(1,:),labels,'FontSize',16);
+xlabel('Energy');
+ylabel('Overshoot (W/m^2)');
+title('Energy/Overshoot Plot for 4.5 W/m^2');
+hold off
+savefig(figureB,'figureB')
