@@ -1,4 +1,4 @@
-function [ rf,cvec_CO2 ] = testing1( metric,emissions )
+function [ rf,energy ] = testing1( metric,emissions )
 
 constants;
 
