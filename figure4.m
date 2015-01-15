@@ -103,23 +103,38 @@ ovrsht45 = [ov_ICI45m45e ov_ICI45m45m ov_ICI45m45l ov_CCI45m45e ...
 figureA = figure;
 hold on
 set(gca,'FontSize',16,'box','on');
-scatter(energy30,ovrsht30,'Filled')
+colors = [rgb('Orange');rgb('Orange');rgb('Orange');rgb('Green');rgb('Green');rgb('Green');rgb('Purple')];
+scatter(energy30,ovrsht30,75,colors,'Filled')
 labels = ['  ICI_E';'  ICI_M';'  ICI_L';'  CCI_E';'  CCI_M';'  CCI_L';'  GWP  '];
 text(energy30(1,:),ovrsht30(1,:),labels,'FontSize',16);
 xlabel('Energy');
 ylabel('Overshoot (W/m^2)');
-title('Energy/Overshoot Plot for 3 W/m^2');
+%title('Energy/Overshoot Plot for 3 W/m^2');
+annotation(figureA,'textbox',...
+    [0.134580705009276 0.857988165680473 0.0212634508348794 0.0532544378698225],...
+    'String','A',...
+    'LineStyle','none',...
+    'FontSize',24,...
+    'FitBoxToText','off');
+axis([360 480 0 0.35])
 hold off
-savefig(figureA,'figureA')
+saveas(figureA,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4A','eps')
 
 figureB = figure;
 hold on
 set(gca,'FontSize',16,'box','on');
-scatter(energy45,ovrsht45,'Filled')
+scatter(energy45,ovrsht45,75,colors,'Filled')
 labels = ['  ICI_E';'  ICI_M';'  ICI_L';'  CCI_E';'  CCI_M';'  CCI_L';'  GWP  '];
 text(energy45(1,:),ovrsht45(1,:),labels,'FontSize',16);
 xlabel('Energy');
 ylabel('Overshoot (W/m^2)');
-title('Energy/Overshoot Plot for 4.5 W/m^2');
+%title('Energy/Overshoot Plot for 3 W/m^2');
+annotation(figureB,'textbox',...
+    [0.134580705009276 0.857988165680473 0.0212634508348794 0.0532544378698225],...
+    'String','B',...
+    'LineStyle','none',...
+    'FontSize',24,...
+    'FitBoxToText','off');
+axis([900 1250 -0.1 0.6])
 hold off
-savefig(figureB,'figureB')
+saveas(figureB,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4B','eps')
