@@ -1,7 +1,7 @@
 % This script executes the technology optimization problem for a default
 % set of variables and returns a lambda metric.
 
-clear all
+clear
 tic
 
 addpath('./tools')
