@@ -30,10 +30,10 @@ options.TolX        = 10^-20;
 [fuel_use,~,~,~,Lmultipliers] = fmincon(@(fuel_use) -energyPolicy_obj(fuel_use),guess,A,b,Aeq,beq,lb,ub,@(fuel_use) energyPolicy_con(fuel_use,ems_mat),options);
 
 lambdaSim = Lmultipliers.ineqnonlin(1:n);
-tSim = t;
-save('./tools/EqMetrics/lambda_CDM.mat', 'tSim','lambdaSim')
+%tSim = t;
+%save('./tools/EqMetrics/lambda_CDM.mat', 'tSim','lambdaSim')
 
-metric = eqMetric(@lambda_CDM,t)';
+metric = eqMetric(@lambda_CDM,t,lambdaSim)';
 
 clear('A','Aeq','Ak','Am','Lmultipliers','b','beq','conversion','dt',...
     'eta1','eta2','eta_vec','first_year','form','fuel_count',...

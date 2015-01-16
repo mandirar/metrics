@@ -11,6 +11,14 @@ function lambda = lambda_ICI(ti,te,helper)
 
 constants;
 
-ts      = helper;
-[~,i_s] = min( abs(ti - ts) );
-lambda  = (ti == ti(i_s)) * dt;
+ts = helper;
+
+te = round(te,decimals);
+ts = round(ts,decimals);
+ti = round(ti,decimals);
+
+if te <= ts
+    lambda = ti == ts;
+elseif te > ts
+    lambda = ti == te;
+end

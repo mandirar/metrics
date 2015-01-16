@@ -1,4 +1,4 @@
-function I = unitImpact_CH4(lambdaFun,te,helper)
+function I = unitImpact_N2O(lambdaFun,te,helper)
 % This function computes the absolute impact of emitting CH4 in an emission
 % year te under the radiative forcing pricing function lambdaFun.
 
@@ -13,11 +13,11 @@ for i = 1:length(te)
    aLongTime = 1000;                 
    infinity  = te(i) + aLongTime;   
    tprime    = [te(i) : dt : infinity];
-   I(i)      = ide_m * Am * sum( lambdaFun(tprime,te(i),helper) .* decay_CH4(tprime - te(i)) * dt );
-   
+   I(i)      = An * sum(lambdaFun(tprime,te(i),helper) .* decay_N2O(tprime - te(i)) * dt );
+  
 end
 
 % Convert units:
-I = I * 1000 / gCH4_per_molCH4;
+I = I * 1000 / gN2O_per_molN2O;
 
 end
