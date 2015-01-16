@@ -16,20 +16,21 @@ set(gwp_line,'Color',rgb('Purple'),'Linestyle','-','Linewidth',2);
 plot(t,-t,'Linewidth',2,'Color',rgb('Purple'),'Linestyle','-');
 plot(t,ICI_30m,'Linewidth',2,'Color',rgb('Orange'),'Linestyle','--');
 plot(t,CCI_30m,'Linewidth',2,'Color',rgb('Green'),'Linestyle','--');
-set(gca,'FontSize',16,'box','on');
+set(gca,'FontSize',30,'box','on');
 legend('ICI','CCI','GWP');
-set(legend,'Location','Southeast','FontSize',16,'Color','w');
+set(legend,'Location','Southeast','FontSize',30,'Color','w');
 xlabel('Emission Year');
 ylabel('Impact (g CO_2-eq/g CH_4');
 annotation(figureA,'textbox',...
-    [0.134580705009276 0.857988165680473 0.0212634508348794 0.0532544378698225],...
+    [0.20 0.857988305680473 0.0212634508348794 0.0532544378698225],...
     'String','A',...
     'LineStyle','none',...
-    'FontSize',24,...
+    'FontSize',35,...
     'FitBoxToText','off');
-axis([2010 2060 0 120])
+axis([2010 2060 -5 120])
+set(gca,'YTick',0:20:120)
 hold off
-saveas(figureA,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure1A','eps')
+print(figureA,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure1A','-depsc2')
 
 figureB = figure;
 hold on
@@ -40,17 +41,19 @@ set(gwp_line,'Color',rgb('Purple'),'Linestyle','-','Linewidth',2);
 plot(t,-t,'Linewidth',2,'Color',rgb('Purple'),'Linestyle','-');
 plot(t,ICI_45m,'Linewidth',2,'Color',rgb('Orange'),'Linestyle','--');
 plot(t,CCI_45m,'Linewidth',2,'Color',rgb('Green'),'Linestyle','--');
-set(gca,'FontSize',16,'box','on');
+set(gca,'FontSize',30,'box','on');
 legend('ICI','CCI','GWP');
-set(legend,'Location','Southeast','FontSize',16,'Color','w');
+set(legend,'Location','Southeast','FontSize',30,'Color','w');
 xlabel('Emission Year');
 ylabel('Impact (g CO_2-eq/g CH_4');
 annotation(figureB,'textbox',...
-    [0.134580705009276 0.857988165680473 0.0212634508348794 0.0532544378698225],...
+    [0.20 0.857988305680473 0.0212634508348794 0.0532544378698225],...
     'String','B',...
     'LineStyle','none',...
-    'FontSize',24,...
+    'FontSize',35,...
     'FitBoxToText','off');
-axis([2010 2110 0 120])
+axis([2010 2110 -5 120])
+set(gca,'XTick',2010:20:2110);
+set(gca,'YTick',0:20:120)
 hold off
-saveas(figureB,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure1B','eps')
+print(figureB,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure1B','-depsc2')

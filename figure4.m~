@@ -107,7 +107,7 @@ set(gca,'FontSize',30,'box','on');
 colors = [rgb('Orange');rgb('Orange');rgb('Orange');rgb('Green');rgb('Green');rgb('Green');rgb('Purple')];
 scatter(energy30,ovrsht30,75,colors,'Filled')
 labels = ['  ICI_E';'  ICI_M';'  ICI_L';'  CCI_E';'  CCI_M';'  CCI_L';'  GWP  '];
-text(energy30(1,:),ovrsht30(1,:),labels,'FontSize',25);
+text(energy30(1,:),ovrsht30(1,:),labels,'FontSize',30);
 xlabel('Energy');
 ylabel('Overshoot (W/m^2)');
 %title('Energy/Overshoot Plot for 3 W/m^2');
@@ -117,8 +117,8 @@ annotation(figureA,'textbox',...
     'LineStyle','none',...
     'FontSize',35,...
     'FitBoxToText','off');
-axis([360 480 -0.01 0.4])
-set(gca,'YTick', 0:0.1:4);
+axis([360 480 -0.01 0.35])
+set(gca,'YTick', 0:0.:5.5);
 hold off
 print(figureA,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4A','-depsc2')
 
@@ -127,7 +127,7 @@ hold on
 set(gca,'FontSize',30,'box','on');
 scatter(energy45,ovrsht45,75,colors,'Filled')
 labels = ['  ICI_E';'  ICI_M';'  ICI_L';'  CCI_E';'  CCI_M';'  CCI_L';'  GWP  '];
-text(energy45(1,:),ovrsht45(1,:),labels,'FontSize',25);
+text(energy45(1,:),ovrsht45(1,:),labels,'FontSize',30);
 xlabel('Energy');
 ylabel('Overshoot (W/m^2)');
 %title('Energy/Overshoot Plot for 3 W/m^2');
@@ -137,8 +137,6 @@ annotation(figureB,'textbox',...
     'LineStyle','none',...
     'FontSize',35,...
     'FitBoxToText','off');
-axis([900 1300 -0.1 0.6])
-set(gca,'YTick', 0:0.1:0.6);
-set(gca,'XTick',900:100:1300);
+axis([900 1250 -0.1 0.6])
 hold off
 print(figureB,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4B','-depsc2')
