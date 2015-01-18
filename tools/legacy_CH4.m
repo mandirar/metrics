@@ -3,7 +3,7 @@ function [ cpath_lCH4 ] = legacy_CH4( )
 % historical CH4 emissions.  Since removal does not depend on the timing of
 % emissions, only the concentration at time zero (the year 2010) is needed.
 
-constants; %loads constants
+global_vars; %load global variables
 
 c0_CH4     = 1778.675; %current CH4 concentrations (ppb)
 CH4_t0     = 700;      %pre-industiral CH4 concentraitons (ppb)
