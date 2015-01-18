@@ -1,36 +1,45 @@
-function [ rf ] = rf_CO2( conc,pick_form )
-% This calculates the RF (W/m^2) due to a concentration of CO2 (ppm).
+function [ rf1,rf2,rf_vec ] = rf_CO2( conc )
+% RF_CO2 calcualtes the radiative forcing due to a given concentration of
+% CO2. RF2 gives the radiative forcing used to calculate metrics (which is
+% always a linear approximation of the radiative forcing function.  The
+% input FORM determines if the radiative forcing RF1 is a full funcion or a
+% linear approximation (1 == full function; 2 == linear approximation).
 
-% Form = 1: full radiatiev foricng function.
-% Form = 2: linear approxiamtion.
+%% INPUT VARIABLES:
+global_vars
+[~,cols] = size(conc); %number of columns
 
-% If form is not specified, default from consants script is used.
+%% Define CO2 concentrations and other constants.
+a_CO2  = 5.35;    %constant (units W/m^2)
+CO2_t0 = 278;     %pre-industrial CO2 concentration (ppm)
+c0_CO2 = 389.324; %current CO2 concentration (ppm)
 
-constants; %load constants
+% Note: Current concentrations are for the year 2010 and taken from the
+% MESSAGE model, available on the RCP Database.
 
-rf_lin = lin_CO2(conc,a_CO2,c0_CO2,CO2_t0); %linearized radiative foricng
-rf_nln = nln_CO2(conc,a_CO2,CO2_t0);        %nonlinear radiative forcing
+%% Calculate vector of radaitive forcing calculations.
+rf_vec = ...
+    [RFcalc_CO2(conc,a_CO2,CO2_t0) RFlin_CO2(conc,a_CO2,c0_CO2,CO2_t0)]; 
 
-% Default to form in constants if not specified:
-if exist('pick_form','var') == 0
-   pick_form = form;
+%% Assign values to RF1 and RF2.
+rf2 = rf_vec(:,cols + 1 : end);
+if form == 1
+   rf1 = rf_vec(:,1:cols);
+else
+   rf1 = rf2;
 end
 
-% Select the radiative forcing ouput based on form:
-if pick_form == 1
-    rf = rf_nln;
-elseif pick_form == 2
-    rf = rf_lin;
-end
-   
 end
 
-% Nonlinaer radiative forcing function:
-function [ rf ] = nln_CO2(conc,a,c_t0)
-rf = a * log(conc/c_t0);
+
+
+%% Helper function: Define radiative forcing function.
+function [ rf ] = RFcalc_CO2( conc,a_CO2,CO2_t0 )
+rf = a_CO2*log(conc/CO2_t0);
 end
 
-% Linear radiative forcing approximation:
-function [ rf ] = lin_CO2(conc,a,c0,c_t0)
-rf = a/c0 * (conc - c0) + nln_CO2(c0,a,c_t0);
+%% Helper function: Define linear approximation function.
+function [ rf ] = RFlin_CO2( conc,a_CO2,c0_CO2,CO2_t0)
+rf = (a_CO2/c0_CO2)*(conc - c0_CO2)...
+   + RFcalc_CO2(c0_CO2,a_CO2,CO2_t0);
 end

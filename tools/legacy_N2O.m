@@ -3,7 +3,7 @@ function [ cpath_lN2O ] = legacy_N2O( )
 % historical N2O emissions.  Since removal does not depend on the timing of
 % emissions, only the concentration at time zero (the year 2010) is needed.
 
-constants; %loads constants
+global_vars; %load global variables
 
 c0_N2O      = 323.061;  %current N2O concentrations (ppb)
 N2O_t0      = 270;      %pre-industrial N2O concentrations (ppb)

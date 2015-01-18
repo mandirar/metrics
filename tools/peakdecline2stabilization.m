@@ -18,7 +18,7 @@ function [evec_new,cvec_new,fvec_new,f_budget] = peakdecline2stabilization(evec_
 % f_budget: The post-peak CO2 budget giving the CO2 that must be replaced
 %           following the peak.
 
-constants; %load glaobal variables
+global_vars; %load glaobal variables
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
 % Preliminary calculations
@@ -120,7 +120,7 @@ function conc = inverse_rf_CO2( f_K )
 % whether radiative forcing is calculated using a function (FORM == 1) or a
 % lienar approximation (FORM == 2)
     % Define constants.
-    constants;
+    global_vars;
     a_CO2  = 5.35;    %W/m^2
     CO2_t0 = 278;     %ppm
     c0_CO2 = 389.324; %ppm
