@@ -4,7 +4,7 @@ function [ fpath_nonCO2 ] = rf_nonCO2()
 % decay with no replacement, and other radiative forcing contributions are 
 % held constant at current values.
 
-global_vars; %load global variables
+constants; %loads constants
 
 %% Define variables
 c0_CH4      = 1778.675; %current CH4 concentrations (ppb)
@@ -33,7 +33,7 @@ cpath_N2O = (c0_N2O - N2O_t0)*delta_N2O + N2O_t0;
 fpath_N2O = rf_N2O(cpath_N2O);
 
 %% Calculate other radiative forcing pathway (constant).
-fpath_other = -0.5175*ones(n,1);
+fpath_other = -0.6425*ones(n,1);
 % Value without including indirect effects: -0.3506.
 
 %% Calculate total non-CO2 radiative forcing.

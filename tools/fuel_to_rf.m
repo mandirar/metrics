@@ -1,8 +1,8 @@
-function [ rf ] = fuel_to_rf( fuel_use )
+function [ rf ] = fuel_to_rf( fuel_use,ems_mat )
 %This function takes in a vector of fuel use (with information about fuels
 %in the global variables script) and outputs the radiative forcing pathway.
 
-global_vars;
+constants;
 
 % Convert fuel use to emissions:
 emissions = fuel_use * ems_mat; %calculate emissions matrix

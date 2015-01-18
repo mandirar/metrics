@@ -8,8 +8,7 @@ function [ cpath_lCO2 ] = legacy_CO2( )
 % subsequently legacy concentrations can be computed by interpolating this
 % result to save processing time.
 
-%global t; %define global variables
-global_vars
+constants; %loads constants
 
 % Set switch: interpolate legacy CO2 pathway or construct it from emissions
 interpolate_pathway = true;

@@ -1,11 +1,8 @@
-function [ evec_new,cvec_new,fvec_new,t2,fvec_old,rate,evec_old,cvec_old ] = scenario_generator( t1 )
+function [ evec_new,cvec_new,fvec_new,t2,fvec_old,rate,evec_old,cvec_old ] = scenario_generator( t1,peak )
 
-%% INPUT VARIABLES:
 % Define input variables.
-e0   = 13.5307;              %initial emissions (GtC)
-fe   = 0.017;                %initial emissions growth rate (as a fraction)     
-t3   = 10;                   %maximum emissions decay rate (as a fraction of the form -1/t3)
-t2   = find_t2(e0,fe,t1,t3); %time when emissions peak (growth rate is zero)
+constants;
+t2   = find_t2(e0,fe,t1,t3,peak); %time when emissions peak (growth rate is zero)
 
 % Make a peak-and-decline scenario.
 fpath_nonCO2               = rf_nonCO2();                     %legacy CO2 concentrations (ppm)

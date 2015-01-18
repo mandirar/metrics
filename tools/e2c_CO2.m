@@ -1,16 +1,14 @@
 function cvec = e2c_CO2( evec )
 %This function computes the additional CO2 concentrations (in units of ppm)
-%that result from an emissions pathway evec (in units PgC).
+%that result from an emissions pathway evec (in units GtC).
 
-global_vars; %load global variabes
+constants; %loads constants
 
 % Pre-compute all possible values of impulse response function.
 Delta_t_vec = (last_year - first_year : -dt : first_year - last_year)';
 IRFvec      = decay_CO2(Delta_t_vec);
 
 % Compute the integral over emissions for each impact year t2.
-%t    = (first_year : dt : last_year - dt)';
-%n    = length(t);
 cvec = zeros(n,1);
 c0   = 0;
 it   = 0;
