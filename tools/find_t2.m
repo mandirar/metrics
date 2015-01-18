@@ -1,4 +1,4 @@
-function t2 = find_t2(e0,fe,t1,t3)
+function t2 = find_t2(e0,fe,t1,t3,peak)
 % t2 = find_t2(e0,fe,t1,peak,t3,dt) finds the value of t2, the time when
 % emissions peak, such that the maximum radiative forcing pathway just
 % meets the radiative forcing ceiling. It finds t2 by repeatedly bisecting
@@ -15,7 +15,7 @@ function t2 = find_t2(e0,fe,t1,t3)
 %
 % OUTPUTS:
 % t2:   time from t1 until emissions stabilization [fe(t)=0] (years)
-global_vars;
+constants;
 % Calculate non-CO2 radiative forcing and legacy CO2 concentrations.
 cpath_lCO2   = legacy_CO2(); %legacy CO2 concentrations (ppm)
 fpath_nonCO2 = rf_nonCO2();  %non-CO2 radiative forcing (W/m^2)

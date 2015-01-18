@@ -12,7 +12,7 @@ function [ frac,evec,cvec,rate ] = conc_in_year( fe,t1,t2,t3,e0 )
 
 %% INPUT VARIABLES:
 % Declare global variables.
-global_vars
+constants;
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=%
 % Construct growth rate pathway g(t).
