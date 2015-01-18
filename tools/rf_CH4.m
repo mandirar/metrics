@@ -8,8 +8,8 @@ function [ rf ] = rf_CH4 ( conc,pick_form )
 
 constants; %load constants
 
-rf_lin = ide_s * lin_CH4(conc,a_CH4,c0_CH4,CH4_t0,N2O_t0);
-rf_nln = ide_s * nln_CH4f(conc,a_CH4,CH4_t0,N2O_t0);
+rf_lin = ide_m * lin_CH4(conc,a_CH4,c0_CH4,CH4_t0,N2O_t0);
+rf_nln = ide_m * nln_CH4f(conc,a_CH4,CH4_t0,N2O_t0);
 
 % Default to form in constants if not specified:
 if exist('pick_form','var') == 0
@@ -19,7 +19,7 @@ end
 % Select the radiative forcing ouput based on form:
 if pick_form == 1
     rf = rf_nln;
-elseif pick_form == 0
+elseif pick_form == 2
     rf = rf_lin;
 end
 
