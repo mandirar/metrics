@@ -23,8 +23,17 @@ fvec_other = -0.5175*ones(n,1);              %other radiative forcing
 
 fvec = fvec_CO2 + fvec_CH4 + fvec_N2O + fvec_other; %radiative forcing
 
+%% Calculate energy growth rate:
+energy     = fuel_use * eta_vec;              %calculate energy use
+energy1    = energy(1:(end - 1),:);           %make first energy vector
+energy2    = energy(2:end,:);                 %make second energy vector
+egrowth    = dt*(energy1 - energy2)./energy1; %calcualte growth rate
+egrowth    = [egrowth ; 0];                   %make dimensions agree
+egrowth    = abs(egrowth);                    %calculate absolute value
+max_growth = 0.01 .* ones(n,1);
+
 %% Define constraints (c: a < alpha; ceq: b = beta):
-C   = fvec - forcing_c;
+C   = [fvec - forcing_c, egrowth - max_growth];
 Ceq = [];
 
 end
