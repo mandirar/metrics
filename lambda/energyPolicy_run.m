@@ -38,16 +38,9 @@ metric = eqMetric(@lambda_CDM,t,lambda)';
 
 lambda = lambda/max(lambda);
 
-clear('A','Aeq','Ak','Am','Lmultipliers','b','beq','conversion','dt',...
-    'eta1','eta2','first_year','form','fuel_count',...
-    'gCH4_per_molCH4','gCO2_per_molCO2','guess','ide_s','last_year',...
-    'lb','n','options','peak','ppbCH4_to_GtCH4','ppmCO2_to_GtC','t',...
-    'ub','gN2O_per_molN2O')
-
 energy = fuel_use * eta_vec;
 
 forcing = fuel_to_rf(fuel_use,ems_mat);
 
-% Calculate radiative forcing
-
+clearvars -except metric lambda energy forcing fuel_use
 toc

@@ -9,20 +9,13 @@ addpath('./tools')
 constants;
 
 % Define mitigation year for scenario:
-t1 = 2025; %2015-2028 (EV: 2017) 
+t1 = 2023; 
 peak = 3;
 
 % Calculate emissions and radiative forcing: 
-[ ek_constraint,~,rf_constraint,~,rf_pd ] = scenario_generator( t1,peak );
+[ ek_constraint,~,~,rf_constraint,ts ] = make_scenarios( t1,peak );
 
-% Calculate stabilization time: 
-[~,ts] = max(rf_pd);   %index 
-ts     = ts + first_year - dt; %year
-
-% Clear variables (before saving .mat file):
-clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
-    'ems_mat','eta1','eta2','eta_vec','first_year','form','fuel_count',...
-    'gCH4_per_molCH4','gCO2_per_molCO2','ide_s','last_year','m','n',...
-    'peak','ppbCH4_to_GtCH4','ppmCO2_to_GtC','t','t1','rf_pd');
+% Clear variables:
+clearvars -except ek_constraint rf_constraint ts
 
 save('budgets.mat')

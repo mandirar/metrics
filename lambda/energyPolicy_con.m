@@ -30,7 +30,7 @@ energy2    = energy(2:end,:);                 %make second energy vector
 egrowth    = dt*(energy1 - energy2)./energy1; %calcualte growth rate
 egrowth    = [egrowth ; 0];                   %make dimensions agree
 egrowth    = abs(egrowth);                    %calculate absolute value
-max_growth = 0.01 .* ones(n,1);
+max_growth = 0.025 .* ones(n,1);
 
 %% Define constraints (c: a < alpha; ceq: b = beta):
 C   = [fvec - forcing_c, egrowth - max_growth];

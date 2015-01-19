@@ -21,8 +21,8 @@ form            = 1;        %forcing function (1 = non-lienar; 2 = linear)
 ide_m           = 1.65;     %indirect effect of CH4
 ide_n           = 0.928126; %interaction effect of N2O
 
-gCO2_per_molCO2 = 44.01;              %g CO2 / mol CO2
-gCH4_per_molCH4 = 16.04;              %g CH4 / mol CH4
+gCO2_per_molCO2 = 44.01;    %g CO2 / mol CO2
+gCH4_per_molCH4 = 16.04;    %g CH4 / mol CH4
 gN2O_per_molN2O = 44.013;   %g N2O / mol N2O
 
 ppmCO2_to_GtC   = 2.12;               %Gt C / ppm CO2
@@ -49,6 +49,8 @@ e1 = 0.75;         %CH4/N2O overlap parameter (unitless)
 e2 = 1.52;         %CH4/N2O overlap parameter (unitless)
 
 %% Scenario parameters:
-e0   = 13.72; %initial emissions (GtC)
+e0_k = 13.728;
+e0_m = 0;
+e0_n = 0;
 fe   = 0.017; %initial emissions growth rate (as a fraction)     
 t3   = 10;    %maximum emissions decay rate (fraction of the form -1/t3)

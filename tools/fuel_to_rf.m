@@ -19,10 +19,10 @@ cvec_CH4 = e2c_CH4(evec_CH4) + cpath_lCH4; %calculate total CH4 concentrations
 cvec_N2O = cpath_lN2O;                     %calculate total N2O concentrations
 
 % Convert concenctrations to radiative forcing:
-fvec_CO2   = rf_CO2(cvec_CO2);  %calcualte CO2 radiative forcing
-fvec_CH4   = rf_CH4(cvec_CH4);  %calculate CH4 radiative forcing
-fvec_N2O   = rf_N2O(cvec_N2O);  %calculate N2O radiative forcing
-fvec_other = -0.5175*ones(n,1); %other radiative foricng (fixed term)
+fvec_CO2   = rf_CO2(cvec_CO2);   %calcualte CO2 radiative forcing
+fvec_CH4   = rf_CH4(cvec_CH4);   %calculate CH4 radiative forcing
+fvec_N2O   = rf_N2O(cvec_N2O);   %calculate N2O radiative forcing
+fvec_other = rf_other*ones(n,1); %other radiative foricng (fixed term)
 
 rf = fvec_CO2 + fvec_CH4 + fvec_N2O + fvec_other; %total radiative forcing
 
