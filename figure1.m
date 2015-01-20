@@ -57,3 +57,5 @@ set(gca,'XTick',2010:20:2110);
 set(gca,'YTick',0:20:120)
 hold off
 print(figureB,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure1B','-depsc2')
+
+clearvars

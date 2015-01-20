@@ -9,10 +9,12 @@ constants;
 
 t1_30e = 2015;
 t1_30m = 2023;
+%t1_30l = 2033;
 t1_30l = 2035;
 
 t1_45e = 2015;
 t1_45m = 2039;
+%t1_45l = 2058;
 t1_45l = 2060; 
 
 % Calculate CO2-eq emissions and resulting radiative forcing pathway for 
@@ -46,11 +48,6 @@ CCI_45m = eqMetric(@lambda_CCI,t,ts_45m)';
 CCI_45l = eqMetric(@lambda_CCI,t,ts_45l)'; 
 
 % Clear variables (before saving .mat file):
-clear('Ak','Am','dt','ems1','ems1_k','ems1_m','ems2','ems2_k','ems2_m',...
-    'ems_mat','eta1','eta2','eta_vec','first_year','form','fuel_count',...
-    'gCH4_per_molCH4','gCO2_per_molCO2','ide_s','last_year','m','n',...
-    'ppbCH4_to_GtCH4','ppmCO2_to_GtC','t','t1','CH4_t0','CO2_t0',...
-    'N2O_t0','a_CH4','a_CO2','a_N2O','c0_CH4','c0_CO2','c0_N2O','c1',...
-    'c2','c3','conversion','e0','e1','e2','fe','t3')
-
+clearvars -except GWP_* ICI_* CCI_* ek_* rf_* ts_*
+clear('rf_other')
 save('output1.mat')

@@ -112,3 +112,5 @@ hline(4.5,'k--');
 vline(2085,'k--');
 hold off
 print(figureD,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure3D','-depsc2')
+
+clearvars
