@@ -20,12 +20,12 @@ cvec_CH4   = e2c_CH4(evec_CH4) + cpath_lCH4;             %CH4 concentration
 fvec_CH4   = rf_CH4(cvec_CH4);                           %CH4 radiative forcing
 cvec_N2O   = cpath_lN2O;                                 %N2O concentration  
 fvec_N2O   = rf_N2O(cvec_N2O);                           %N2O radiative forcing
-fvec_other = -0.5175*ones(n,1);                          %other radiative forcing
+fvec_other = rf_other*ones(n,1);                         %other radiative forcing
 
 fvec = fvec_CO2 + fvec_CH4 + fvec_N2O + fvec_other; %radiative forcing
 
 %% Define constraints (c: a < alpha; ceq: b = beta):
-C   = fvec - forcing_c;
+C   = fvec - forcing_c
 Ceq = [];
 
 end

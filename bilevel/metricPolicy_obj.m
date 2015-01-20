@@ -8,7 +8,7 @@ fuel_use   = fuelUser_fun(metric,ems_mat,ek_constraint); %fuel user optimizaton 
 
 energy     = fuel_use * eta_vec;           %vector of energy use in each year
 
-energy_all = sum(energy);                  %sum of energy use across all years
+energy_all = sum(energy)                  %sum of energy use across all years
 
 end
 
