@@ -16,7 +16,7 @@ Ak              = 1.37e-2; %Wm^-2 / ppm CO2
 Am              = 3.63e-4; %Wm^-2 / ppb CH4
 An              = 3.00e-3; %Wm^-2 / ppb N2O 
 
-form            = 1;        %forcing function (1 = non-lienar; 2 = linear)
+form            = 2;        %forcing function (1 = non-lienar; 2 = linear)
 ide_m           = 1.65;     %indirect effect of CH4
 ide_n           = 0.928126; %interaction effect of N2O
 gCO2_per_molCO2 = 44.01;    %g CO2 / mol CO2

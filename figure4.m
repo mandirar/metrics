@@ -84,8 +84,8 @@ annotation(figureA,'textbox',...
     'LineStyle','none',...
     'FontSize',35,...
     'FitBoxToText','off');
-axis([550 800 -0.01 0.4])
-set(gca,'YTick', 0:0.1:4);
+%axis([550 800 -0.01 0.4])
+%set(gca,'YTick', 0:0.1:4);
 hold off
 print(figureA,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4A','-depsc2')
 
@@ -104,8 +104,8 @@ annotation(figureB,'textbox',...
     'LineStyle','none',...
     'FontSize',35,...
     'FitBoxToText','off');
-axis([550 800 -0.1 0.6])
-set(gca,'YTick', 0:0.1:0.6);
+%axis([550 800 -0.1 0.6])
+%set(gca,'YTick', 0:0.1:0.6);
 hold off
 print(figureB,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4B','-depsc2')
 
@@ -125,8 +125,8 @@ annotation(figureC,'textbox',...
     'LineStyle','none',...
     'FontSize',35,...
     'FitBoxToText','off');
-axis([550 800 -2.5 60])
-set(gca,'YTick', 0:10:60);
+%axis([550 800 -2.5 60])
+%set(gca,'YTick', 0:10:60);
 hold off
 print(figureC,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4C','-depsc2')
 
@@ -145,8 +145,8 @@ annotation(figureD,'textbox',...
     'LineStyle','none',...
     'FontSize',35,...
     'FitBoxToText','off');
-axis([550 800 -10 200])
-set(gca,'YTick', 0:50:200);
+%axis([550 800 -10 200])
+%set(gca,'YTick', 0:50:200);
 set(gca,'XTick', 550:50:800);
 hold off
 print(figureD,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4D','-depsc2')
