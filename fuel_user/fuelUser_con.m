@@ -8,7 +8,7 @@ constants;           %loads constants
 
 %% Calculate CO2-eq emissions from fuel use:
 emissions  = fuel_use * ems_mat;                          %GHG emissions (t x fuel) * (fuel x gas) = (t x gas)
-evec_CO2eq = emissions(:,1) + (emissions(:,2) .* metric); %CO2-eq emissions (t x gas-eq)  
+evec_CO2eq = emissions(:,1) + (emissions(:,2) .* metric ); %CO2-eq emissions (t x gas-eq)  
 
 %% Define constraints (c: a < alpha; ceq: b = beta):
 C   = evec_CO2eq - ek_constraint;

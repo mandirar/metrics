@@ -25,7 +25,7 @@ fvec_other = rf_other*ones(n,1);                         %other radiative forcin
 fvec = fvec_CO2 + fvec_CH4 + fvec_N2O + fvec_other; %radiative forcing
 
 %% Define constraints (c: a < alpha; ceq: b = beta):
-C   = fvec - forcing_c
+C   = fvec - forcing_c;
 Ceq = [];
 
 end

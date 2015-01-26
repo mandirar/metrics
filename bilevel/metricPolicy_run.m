@@ -34,9 +34,9 @@ options.TolX        = 10^-20;
 metric = fmincon(@(metric) metricPolicy_obj(metric),guess,A,b,Aeq,beq,lb,ub,@(metric) metricPolicy_con(metric,ems_mat,ek_constraint),options);
 
 %% Calculate other outputs:
-metric   = metric./conversion; %converts metric to g CO2-eq/g CH4
 fuel_use = fuelUser_fun(metric,ems_mat,ek_constraint);
-forcing  = fuel_to_rf(fuel_use);
+metric   = metric./conversion; %converts metric to g CO2-eq/g CH4
+forcing  = fuel_to_rf(fuel_use,ems_mat);
 clearvars -except metric ek_constraint rf_constraint fuel_use forcing
 
 toc
