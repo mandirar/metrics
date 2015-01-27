@@ -9,14 +9,14 @@ constants;
 
 t1_30e = 2015;
 t1_30m = 2023;
-t1_30l = 2029; %linear small dt
-%t1_30l = 2033; %nonlinear large dt
+%t1_30l = 2029; %linear small dt
+t1_30l = 2033; %nonlinear large dt
 %t1_30l = 2035; %nonlinear small dt
 
 t1_45e = 2015;
 t1_45m = 2039;
-t1_45l = 2047; %linear large dt
-%t1_45l = 2058; %nonlinear large dt
+%t1_45l = 2047; %linear large dt
+t1_45l = 2058; %nonlinear large dt
 %t1_45l = 2060; %nonlinear small dt
 
 % Calculate CO2-eq emissions and resulting radiative forcing pathway for 

@@ -5,54 +5,54 @@ addpath('./tools')
 load('output2.mat')
 constants;
 
-te_ICI30m30e = sum(en_ICI30m30e(1:420)) * dt /(42-10); 
-te_ICI30m30m = sum(en_ICI30m30m(1:420)) * dt/(42-10); 
-te_ICI30m30l = sum(en_ICI30m30l(1:420)) * dt/(42-10); 
-te_CCI30m30e = sum(en_CCI30m30e(1:420)) * dt/(42-10); 
-te_CCI30m30m = sum(en_CCI30m30m(1:420)) * dt/(42-10); 
-te_CCI30m30l = sum(en_CCI30m30l(1:420)) * dt/(42-10); 
-te_GWP30m    = sum(en_GWP30m(1:420)   ) * dt/(42-10);
-te_ICI45m45e = sum(en_ICI45m45e(1:850)) * dt/(75-10); 
-te_ICI45m45m = sum(en_ICI45m45m(1:850)) * dt/(75-10); 
-te_ICI45m45l = sum(en_ICI45m45l(1:850)) * dt/(75-10); 
-te_CCI45m45e = sum(en_CCI45m45e(1:850)) * dt/(75-10); 
-te_CCI45m45m = sum(en_CCI45m45m(1:850)) * dt/(75-10); 
-te_CCI45m45l = sum(en_CCI45m45l(1:850)) * dt/(75-10); 
-te_GWP45m    = sum(en_GWP45m(1:850)   ) * dt/(75-10);
+te_ICI30m30e = sum(en_ICI30m30e(1:42/dt)) * dt /(42-10); 
+te_ICI30m30m = sum(en_ICI30m30m(1:42/dt)) * dt/(42-10); 
+te_ICI30m30l = sum(en_ICI30m30l(1:42/dt)) * dt/(42-10); 
+te_CCI30m30e = sum(en_CCI30m30e(1:42/dt)) * dt/(42-10); 
+te_CCI30m30m = sum(en_CCI30m30m(1:42/dt)) * dt/(42-10); 
+te_CCI30m30l = sum(en_CCI30m30l(1:42/dt)) * dt/(42-10); 
+te_GWP30m    = sum(en_GWP30m(1:42/dt)   ) * dt/(42-10);
+te_ICI45m45e = sum(en_ICI45m45e(1:85/dt)) * dt/(75-10); 
+te_ICI45m45m = sum(en_ICI45m45m(1:85/dt)) * dt/(75-10); 
+te_ICI45m45l = sum(en_ICI45m45l(1:85/dt)) * dt/(75-10); 
+te_CCI45m45e = sum(en_CCI45m45e(1:85/dt)) * dt/(75-10); 
+te_CCI45m45m = sum(en_CCI45m45m(1:85/dt)) * dt/(75-10); 
+te_CCI45m45l = sum(en_CCI45m45l(1:85/dt)) * dt/(75-10); 
+te_GWP45m    = sum(en_GWP45m(1:85/dt)   ) * dt/(75-10);
 
-ov_ICI30m30e = max(rf_ICI30m30e(1:420)) - 3; 
-ov_ICI30m30m = max(rf_ICI30m30m(1:420)) - 3; 
-ov_ICI30m30l = max(rf_ICI30m30l(1:420)) - 3; 
-ov_CCI30m30e = max(rf_CCI30m30e(1:420)) - 3; 
-ov_CCI30m30m = max(rf_CCI30m30m(1:420)) - 3; 
-ov_CCI30m30l = max(rf_CCI30m30l(1:420)) - 3; 
-ov_GWP30m    = max(rf_GWP30m(1:420)   ) - 3;
-ov_ICI45m45e = max(rf_ICI45m45e(1:750)) - 4.5; 
-ov_ICI45m45m = max(rf_ICI45m45m(1:750)) - 4.5; 
-ov_ICI45m45l = max(rf_ICI45m45l(1:750)) - 4.5; 
-ov_CCI45m45e = max(rf_CCI45m45e(1:750)) - 4.5; 
-ov_CCI45m45m = max(rf_CCI45m45m(1:750)) - 4.5; 
-ov_CCI45m45l = max(rf_CCI45m45l(1:750)) - 4.5; 
-ov_GWP45m    = max(rf_GWP45m(1:750)   ) - 4.5;
+ov_ICI30m30e = max(rf_ICI30m30e(1:42/dt)) - 3; 
+ov_ICI30m30m = max(rf_ICI30m30m(1:42/dt)) - 3; 
+ov_ICI30m30l = max(rf_ICI30m30l(1:42/dt)) - 3; 
+ov_CCI30m30e = max(rf_CCI30m30e(1:42/dt)) - 3; 
+ov_CCI30m30m = max(rf_CCI30m30m(1:42/dt)) - 3; 
+ov_CCI30m30l = max(rf_CCI30m30l(1:42/dt)) - 3; 
+ov_GWP30m    = max(rf_GWP30m(1:42/dt)   ) - 3;
+ov_ICI45m45e = max(rf_ICI45m45e(1:75/dt)) - 4.5; 
+ov_ICI45m45m = max(rf_ICI45m45m(1:75/dt)) - 4.5; 
+ov_ICI45m45l = max(rf_ICI45m45l(1:75/dt)) - 4.5; 
+ov_CCI45m45e = max(rf_CCI45m45e(1:75/dt)) - 4.5; 
+ov_CCI45m45m = max(rf_CCI45m45m(1:75/dt)) - 4.5; 
+ov_CCI45m45l = max(rf_CCI45m45l(1:75/dt)) - 4.5; 
+ov_GWP45m    = max(rf_GWP45m(1:75/dt)   ) - 4.5;
 
-zero_vec30   = zeros(420,1);
-zero_vec45   = zeros(750,1);
+zero_vec30   = zeros(42/dt,1);
+zero_vec45   = zeros(75/dt,1);
 
-io_ICI30m30e = sum(max(rf_ICI30m30e(1:420) - 3,zero_vec30));
-io_ICI30m30m = sum(max(rf_ICI30m30m(1:420) - 3,zero_vec30));
-io_ICI30m30l = sum(max(rf_ICI30m30l(1:420) - 3,zero_vec30));
-io_CCI30m30e = sum(max(rf_CCI30m30e(1:420) - 3,zero_vec30));
-io_CCI30m30m = sum(max(rf_CCI30m30m(1:420) - 3,zero_vec30));
-io_CCI30m30l = sum(max(rf_CCI30m30l(1:420) - 3,zero_vec30));
-io_GWP30m    = sum(max(rf_GWP30m(1:420)    - 3,zero_vec30));
+io_ICI30m30e = sum(max(rf_ICI30m30e(1:42/dt) - 3,zero_vec30));
+io_ICI30m30m = sum(max(rf_ICI30m30m(1:42/dt) - 3,zero_vec30));
+io_ICI30m30l = sum(max(rf_ICI30m30l(1:42/dt) - 3,zero_vec30));
+io_CCI30m30e = sum(max(rf_CCI30m30e(1:42/dt) - 3,zero_vec30));
+io_CCI30m30m = sum(max(rf_CCI30m30m(1:42/dt) - 3,zero_vec30));
+io_CCI30m30l = sum(max(rf_CCI30m30l(1:42/dt) - 3,zero_vec30));
+io_GWP30m    = sum(max(rf_GWP30m(1:42/dt)    - 3,zero_vec30));
 
-io_ICI45m45e = sum(max(rf_ICI45m45e(1:750) - 4.5,zero_vec45));
-io_ICI45m45m = sum(max(rf_ICI45m45m(1:750) - 4.5,zero_vec45));
-io_ICI45m45l = sum(max(rf_ICI45m45l(1:750) - 4.5,zero_vec45));
-io_CCI45m45e = sum(max(rf_CCI45m45e(1:750) - 4.5,zero_vec45));
-io_CCI45m45m = sum(max(rf_CCI45m45m(1:750) - 4.5,zero_vec45));
-io_CCI45m45l = sum(max(rf_CCI45m45l(1:750) - 4.5,zero_vec45));
-io_GWP45m    = sum(max(rf_GWP45m(1:750   ) - 4.5,zero_vec45));
+io_ICI45m45e = sum(max(rf_ICI45m45e(1:75/dt) - 4.5,zero_vec45));
+io_ICI45m45m = sum(max(rf_ICI45m45m(1:75/dt) - 4.5,zero_vec45));
+io_ICI45m45l = sum(max(rf_ICI45m45l(1:75/dt) - 4.5,zero_vec45));
+io_CCI45m45e = sum(max(rf_CCI45m45e(1:75/dt) - 4.5,zero_vec45));
+io_CCI45m45m = sum(max(rf_CCI45m45m(1:75/dt) - 4.5,zero_vec45));
+io_CCI45m45l = sum(max(rf_CCI45m45l(1:75/dt) - 4.5,zero_vec45));
+io_GWP45m    = sum(max(rf_GWP45m(1:75/dt   ) - 4.5,zero_vec45));
 
 energy30 = [te_ICI30m30e te_ICI30m30m te_ICI30m30l te_CCI30m30e ...
             te_CCI30m30m te_CCI30m30l te_GWP30m];
@@ -147,7 +147,7 @@ annotation(figureD,'textbox',...
     'FitBoxToText','off');
 %axis([550 800 -10 200])
 %set(gca,'YTick', 0:50:200);
-set(gca,'XTick', 550:50:800);
+%set(gca,'XTick', 550:50:800);
 hold off
 print(figureD,'/Users/morgane/Dropbox (MIT)/Trancik Lab/ProjectFolders/Metric Testing/Article/current/figures/figure4D','-depsc2')
 

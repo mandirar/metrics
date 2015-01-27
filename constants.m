@@ -1,22 +1,21 @@
 %% General parameters:
-dt          = 0.1;                                 %time step (years)
+dt          = 1;                                 %time step (years)
 decimals    = 1;                                   %number of digets in time step
 first_year  = 2010;                                %initial year
 last_year   = 2110;                                %final year (2037-2046 +1; EV: 2041)
 t           = (first_year : dt : last_year - dt)'; %time vector
 [n,~]       = size(t);                             %length of time vector
 
-%% Fuel parameters:
-eta_k = 6.79764E-05; %32.73;  %36.553; %global technolgoy CO2 intensity (g CO2/J)
-eta_m = 2.41882E-07; %0.1165; %0.3697; %global technology CH4 intensity (g CH4/J)
-frac  = 0.7155; %1       %fraction of technology emissions controlled
+%% Fuel parameters (more in variables):
+eta_vec    = [1 ; 1];         %all tech. energy density (# fuels x 1)
+fuel_count = length(eta_vec); %number of fuels
 
 %% Climate parameters:
 Ak              = 1.37e-2; %Wm^-2 / ppm CO2
 Am              = 3.63e-4; %Wm^-2 / ppb CH4
 An              = 3.00e-3; %Wm^-2 / ppb N2O 
 
-form            = 2;        %forcing function (1 = non-lienar; 2 = linear)
+form            = 1;        %forcing function (1 = non-lienar; 2 = linear)
 ide_m           = 1.65;     %indirect effect of CH4
 ide_n           = 0.928126; %interaction effect of N2O
 gCO2_per_molCO2 = 44.01;    %g CO2 / mol CO2

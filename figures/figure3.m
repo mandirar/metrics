@@ -26,8 +26,8 @@ annotation(figureA,'textbox',...
     'FontSize',35,...
     'FitBoxToText','off');
 %title('Metric 2052 L, Budget 2044-2060 N, 71%, 0.12 g CH4, 33 g CO2');
-axis([2010 2060 1.9 3.5])
-set(gca,'YTick', 2:0.5:3.5);
+axis([2010 2060 1.9 4])
+set(gca,'YTick', 2:0.5:4);
 hline(3,'k--');
 vline(2052,'k--');
 hold off
@@ -52,8 +52,8 @@ annotation(figureB,'textbox',...
     'FontSize',35,...
     'FitBoxToText','off');
 %title('Metric 2052 L, Budget 2044-2060 N, 71%, 0.12 g CH4, 33 g CO2');
-axis([2010 2060 1.9 3.5])
-set(gca,'YTick', 2:0.5:3.5);
+axis([2010 2060 1.9 4])
+set(gca,'YTick', 2:0.5:4);
 hline(3,'k--');
 vline(2052,'k--');
 hold off
@@ -78,9 +78,9 @@ annotation(figureC,'textbox',...
     'FontSize',35,...
     'FitBoxToText','off');
 %title('Metric 2085 L, Budget 2070-2110 N, 71%, 0.12 g CH4, 33 g CO2');
-axis([2010 2110 1.9 5.5])
+axis([2010 2110 1.9 7])
 set(gca,'XTick', 2010:20:2110);
-set(gca,'YTick', 2:0.5:5.5);
+set(gca,'YTick', 2:1:7);
 hline(4.5,'k--');
 vline(2085,'k--');
 hold off
@@ -105,8 +105,8 @@ annotation(figureD,'textbox',...
     'FontSize',35,...
     'FitBoxToText','off');
 %title('Metric 2085 L, Budget 2070-2110 N, 71%, 0.12 g CH4, 33 g CO2');
-axis([2010 2110 1.9 5.5])
-set(gca,'YTick', 2:0.5:5.5);
+axis([2010 2110 1.9 7])
+set(gca,'YTick', 2:1:7);
 set(gca,'XTick', 2010:20:2110);
 hline(4.5,'k--');
 vline(2085,'k--');
